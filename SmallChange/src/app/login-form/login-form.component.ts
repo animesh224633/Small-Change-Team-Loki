@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { min } from 'rxjs';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -11,7 +11,7 @@ export class LoginFormComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -27,7 +27,7 @@ export class LoginFormComponent implements OnInit {
   }
   loginFormSubmit(): void {
     console.log(this.loginForm.value);
-    // Call Api
+    this.router.navigateByUrl('./landing');
   }
   }
 

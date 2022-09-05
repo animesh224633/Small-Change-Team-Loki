@@ -7,12 +7,14 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
