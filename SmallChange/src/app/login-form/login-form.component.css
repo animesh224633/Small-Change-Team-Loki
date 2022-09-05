@@ -1,27 +1,27 @@
 .mb-3{
     align-self: center;
     width: 60% ;
-    margin-left:6rem ;
-    margin-right: 5rem;
+    margin-left:9.5rem ;
+   
     
 }
 
 
 .button1 {
     transition-duration: 0.4s;
-    margin-left: 6rem;
+    margin-left: 9.5rem;
     margin-right: 5rem;
     margin-bottom: 3rem;
     width: 60%;
     color: white;
-    background-color: #4CAF50; 
+    background-color: lightblue; 
     border-radius: 5px;
     height: 2.5rem;
     margin-top: 1.5rem;
   }
   
   .button1:hover {
-    background-color: darkgreen;
+    background-color: pink;
     color:white;
   }
 
@@ -29,7 +29,7 @@
     margin-left:auto;
     margin-right: auto;
     align-self: center;
-    max-width: 60%;
+    max-width: 45%;
     border: 0.4px solid gray;
     border-radius: 7px;
 }

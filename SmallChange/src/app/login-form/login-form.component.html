@@ -2,13 +2,14 @@
 <div class="modal-body">
     <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
       <div class="mb-3">
+        <br><br>
         <label for="id_userName" class="form-label">Username:</label>
         <input formControlName="userName" [class.is-invalid]="userNameField.touched && userNameField.invalid" type="text"
           class="form-control" id="id_userName">
        <!-- <div *ngIf="userNameField.touched && (userNameField.hasError('required') || userNameField.hasError('pattern') || userNameField.hasError('minLength') || userNameField.hasError('maxLength'))" class="d-block invalid-feedback">
        -->   <div  *ngIf="userNameField.touched && userNameField.errors" class="d-block invalid-feedback">
             <!-- <div *ngIf="userNameField.hasError('minLength')">-->
-           Better check yourself, you're not looking too good.
+           Better check yourself, username's not looking too good.
        </div>
         
       </div>
@@ -19,7 +20,7 @@
        <!-- <div *ngIf="passwordField.touched && (passwordField.hasError('required') || passwordField.hasError('pattern') || passwordField.hasError('minLength') || passwordField.hasError('maxLength'))" class="d-block invalid-feedback">
        -->  <div *ngIf="passwordField.touched && (passwordField.errors)" class="d-block invalid-feedback">
         
-            <p> Better check yourself, you're not looking too good.</p></div>
+            <p> Better check yourself, password's not looking too good.</p></div>
       </div>
       <button [disabled]="loginForm.invalid" type="submit" class=" button1" [routerLink]="['/landing']" >Submit</button>
     </form>

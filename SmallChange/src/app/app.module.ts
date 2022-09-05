@@ -14,11 +14,18 @@ import { PreferencesComponent } from './routing-nav-bar/preferences/preferences.
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ParatextComponent } from './paratext/paratext.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
+    HeaderComponent,
+    FooterComponent,
+    ParatextComponent,
     LoginFormComponent,
     LandingPageComponent,
     NavBarComponent,
