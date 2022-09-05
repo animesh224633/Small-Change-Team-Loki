@@ -1,1 +1,11 @@
-<p>nav-bar works!</p>
+<nav class = "topNavresponsive" id="navbar">
+  <button class="icon" (click)="ngOnInit()">Menu</button>
+<ul [className]="isActive ? 'active' : 'inactive'" ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1"><app-nav-link NavbarText="Portfolio" NavbarLink="#"></app-nav-link></li>
+    <li [ngbNavItem]="2"><app-nav-link NavbarText="Activity" NavbarLink="#"></app-nav-link></li>
+    <li [ngbNavItem]="3"><app-nav-link NavbarText="Trade" NavbarLink="#"></app-nav-link></li>
+    <li [ngbNavItem]="4"><app-nav-link NavbarText="Preferences" NavbarLink="#"></app-nav-link></li>
+    
+</ul>
+</nav>
+
