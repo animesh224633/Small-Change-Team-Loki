@@ -1,0 +1,16 @@
+.header-text{
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+    font-size: 32px;
+    color: black;
+    line-height: 1.5em;
+    margin : 0;
+    padding : 0;
+    box-sizing: content-box;
+    margin : 0 auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 62.5em;
+  background-color: lightblue;
+  }
