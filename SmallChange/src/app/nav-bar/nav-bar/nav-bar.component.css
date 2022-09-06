@@ -1,0 +1,61 @@
+
+
+  ul {
+    margin: 0 -1rem;
+    list-style: none;
+    padding: 0;
+    
+  }
+  li {
+    display: inline-block;
+  }
+  
+  .topNavresponsive .icon {
+    display: none;
+    padding : 0.25em 1em;
+    border-style: none;
+    font-family: 'Fidelity Sans';
+    font-size: 16px;
+    background: none;
+  }
+
+  @media screen and (max-width: 720px) {
+    
+    .inactive{
+      display:none;
+    }
+  
+
+    .topNavresponsive .icon {
+      display: flex;
+    }
+  
+    .topNavresponsive li {
+      width: 100%;
+      height: 2em;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: 0.5em 0;
+    }
+  }
+  .logo{
+
+    box-sizing: content-box;
+  
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+  
+    font-size: 32px;
+  
+    line-height: 1.5em;
+  
+    color: #FFF;
+  
+    margin: 0;
+  
+    background-color:lightblue;
+  
+  
+  
+  }
+  

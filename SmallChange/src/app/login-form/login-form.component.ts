@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -25,13 +24,15 @@ export class LoginFormComponent implements OnInit {
   get passwordField(): any {
     return this.loginForm.get('password');
   }
-  loginFormSubmit(): void {
-    console.log(this.loginForm.value);
-    // Call Api
-  }
 
   public onSubmit(): void {
     this.loginValid = true;
+    console.log('');
+  }
+  loginFormSubmit(): void {
+    console.log(this.loginForm.value);
+  //  this.router.navigateByUrl('./landing');
+  }
   }
 
-}
+

@@ -32,27 +32,28 @@
   </form>
 </mat-card>
  -->
-
  <mat-card>
   <mat-card-content>
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" >
       <h2>Login</h2>
       <mat-error *ngIf="!loginValid">
         The username and password were not recognized
       </mat-error>
       <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="username" name="username" required>
+        <input matInput placeholder="Email" formControlName="userName" [class.is-invalid]="userNameField.touched && userNameField.invalid"
+         id="id_userName" required>
         <mat-error>
           Please provide a valid email address
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+        <input matInput  placeholder="Password" formControlName="password" [class.is-invalid]="passwordField.touched && passwordField.invalid"
+        type="password" id="id_Password" required>
         <mat-error>
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+      <button mat-raised-button color="primary" (click)="loginFormSubmit()" [disabled]="loginForm.invalid" [routerLink]="['/landing']">Login</button>
     </form>
   </mat-card-content>
 </mat-card>
