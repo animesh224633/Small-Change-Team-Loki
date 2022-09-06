@@ -1,6 +1,6 @@
 
 <div class="modal-body">
-    <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
+    <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
       <div class="mb-3">
         <br><br>
         <label for="id_userName" class="form-label">Username:</label>
@@ -22,6 +22,6 @@
         
             <p> Better check yourself, password's not looking too good.</p></div>
       </div>
-      <button [disabled]="loginForm.invalid" type="submit" class=" button1" [routerLink]="['/landing']" >Submit</button>
+      <button  [disabled]="loginForm.invalid" type="submit" class=" button1" >Submit</button>
     </form>
   </div>

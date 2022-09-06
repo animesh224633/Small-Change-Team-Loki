@@ -1,0 +1,13 @@
+{
+    "signupUsersList": [
+        {
+          "email": "teamloki",
+          "password": "123456"
+        },
+        {
+            "email": "seneha",
+            "password": "seneha"
+          }
+      ]
+}
+    
