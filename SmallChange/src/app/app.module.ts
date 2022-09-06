@@ -24,6 +24,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ParatextComponent } from './paratext/paratext.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule,
+    MatDividerModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]
