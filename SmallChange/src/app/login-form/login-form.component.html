@@ -1,1 +1,58 @@
-<p>login-form works! yayyc</p>
+<!-- <mat-card class="example-card">
+  <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
+    <mat-card-subtitle>Small Change</mat-card-subtitle>
+    <mat-card-title>Login Page</mat-card-title>
+    <mat-card-content>
+      <p>Login page description</p>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Username:</mat-label>
+        <input matInput formControlName="userName" [class.is-invalid]="userNameField.touched && userNameField.invalid"
+          class="form-control" id="id_userName">
+        <div *ngIf="userNameField.touched && userNameField.errors" class="d-block invalid-feedback">
+ 
+          Better check yourself, you're not looking too good.
+        </div>
+      </mat-form-field>
+      
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password:</mat-label>
+        <input matInput formControlName="password" [class.is-invalid]="passwordField.touched && passwordField.invalid"
+          type="password" class="form-control" id="id_Password">
+        <div *ngIf="passwordField.touched && (passwordField.errors)" class="d-block invalid-feedback">
+
+          <p> Better check yourself, you're not looking too good.</p>
+        </div>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="loginForm.invalid" type="submit" class="button1" mat-button>Submit</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+ -->
+
+ <mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <h2>Login</h2>
+      <mat-error *ngIf="!loginValid">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="username" name="username" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>
