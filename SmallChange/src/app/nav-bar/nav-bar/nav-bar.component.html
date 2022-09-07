@@ -1,13 +1,16 @@
 <!-- <p class = "logo">SmallChange<sup>TM</sup></p> -->
-<mat-toolbar color="primary" style='font-size:200%;'>SmallChange<sup>TM</sup></mat-toolbar>
 
-<!-- <mat-tab-group>
+
+<!--<mat-tab-group>
   <mat-tab label="First" > Content 1 </mat-tab>
   <mat-tab label="Second"> Content 2 </mat-tab>
   <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group> -->
+</mat-tab-group>  -->
 <nav class = "topNavresponsive" id="navbar">
-  <button class="icon" (click)="ngOnInit()">Menu</button>
+
+  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="icon" (click)="ngOnInit()">
+    <mat-icon>more_vert</mat-icon>
+  </button>
 <ul [className]="isActive ? 'active' : 'inactive'" ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
     <li [ngbNavItem]="1"><app-nav-link NavbarText="Portfolio" NavbarLink="/portfolio"></app-nav-link></li>
     <li [ngbNavItem]="2"><app-nav-link NavbarText="Activity" NavbarLink="/activity"></app-nav-link></li>

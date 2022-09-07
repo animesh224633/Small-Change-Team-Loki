@@ -1,13 +1,22 @@
 {
-    "signupUsersList": [
-        {
-          "email": "teamloki",
-          "password": "123456"
-        },
-        {
-            "email": "seneha",
-            "password": "seneha"
-          }
-      ]
+  "signup": [
+    {
+      "id": 1,
+      "name": "teamloki",
+      "email": "teamloki",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "seneha",
+      "email": "seneha",
+      "password": "seneha"
+    },
+    {
+      "name": "SenehaSubu",
+      "email": "seneha",
+      "password": "seneha1561",
+      "id": 3
+    }
+  ]
 }
-    
