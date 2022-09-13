@@ -1,13 +1,104 @@
 {
-    "signupUsersList": [
-        {
-          "email": "teamloki",
-          "password": "123456"
-        },
-        {
-            "email": "seneha",
-            "password": "seneha"
-          }
-      ]
+  "signup": [
+    {
+      "id": 1,
+      "name": "teamloki",
+      "email": "teamloki",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "seneha",
+      "email": "seneha",
+      "password": "seneha"
+    }
+  ],
+  "portfolioStocks": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 2,
+      "buyPrice": 130.5,
+      "currentPrice": 135
+    },
+    {
+      "name": "Microsoft",
+      "code": "MSFT",
+      "quantity": 3,
+      "buyPrice": 150,
+      "currentPrice": 170
+    }
+  ],
+  "portfolioMutualFunds": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 2,
+      "buyPrice": 130.5,
+      "currentPrice": "135"
+    },
+    {
+      "name": "Microsoft",
+      "code": "AMZN",
+      "quantity": 3,
+      "buyPrice": 150,
+      "currentPrice": 170
+    }
+  ],
+  "allStocks": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "currentPrice": 135
+    },
+    {
+      "name": "Microsoft",
+      "code": "MSFT",
+      "currentPrice": 170
+    },
+    {
+      "name": "Netflix",
+      "code": "NTFLX",
+      "currentPrice": 90
+    }
+  ],
+  "allMutualFunds": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "currentPrice": "135"
+    },
+    {
+      "name": "Microsoft",
+      "code": "AMZN",
+      "currentPrice": 170
+    },
+    {
+      "name": "Netflix",
+      "code": "NTFLX",
+      "currentPrice": 90
+    }
+  ],
+  "investedMoney": {
+    "amount": 2000
+  },
+  "walletMoney": {
+    "amount": 3000
+  },
+  "tradeHistory": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 1,
+      "type" : "sell",
+      "price": "135"
+    },
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 1,
+      "type" : "buy",
+      "price": "135"
+    }
+  ]
 }
-    

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup,  Validators } from '@angular/forms';
 import { min } from 'rxjs';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -66,10 +67,13 @@ export class LoginFormComponent implements OnInit {
     console.log(this.registrationForm.value);
     this.loginRegistrationCardSwitch = false;
     this.loginService.register(this.registrationForm.value.name,this.registrationForm.value.userName,
-      this.registrationForm.value.password);
+      this.registrationForm.value.password).subscribe(data => {
+        console.log(data)
+      });
   }
   toggleToRegistrationForm(){
     this.loginRegistrationCardSwitch = true;
+    this.loginService.trial();
   }
 }
 

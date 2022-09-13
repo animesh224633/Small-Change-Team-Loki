@@ -7,10 +7,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './nav-bar/nav-bar/nav-bar.component';
 import { NavLinkComponent } from './Shared/nav-link/nav-link.component';
-import { PortfolioComponent } from './routing-nav-bar/portfolio/portfolio.component';
-import { ActivityComponent } from './routing-nav-bar/activity/activity.component';
-import { TradeComponent } from './routing-nav-bar/trade/trade.component';
-import { PreferencesComponent } from './routing-nav-bar/preferences/preferences.component';
+import { PortfolioComponent } from './portfolio/portfolio-page/portfolio.component';
+import { ActivityComponent } from './activity/activity-page/activity.component';
+import { TradeComponent } from './trade/trade-page/trade.component';
+import { PreferencesComponent } from './preferences/preferences/preferences.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -26,6 +26,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatToolbarModule,
     MatTabsModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]
