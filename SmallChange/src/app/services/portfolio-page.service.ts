@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { PortfolioMutualFunds } from '../models/portfolio-mutual-funds.model';
 import { PortfolioStocks } from '../models/portfolio-stocks.model';
+import { Wallet } from '../models/wallet.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioPageService {
-
+mfs:PortfolioMutualFunds[]=[];
   constructor(private http: HttpClient) { }
   private Url = 'http://localhost:3000/';
 
@@ -19,15 +20,22 @@ export class PortfolioPageService {
   getPortfolioStocks(): Observable<PortfolioStocks[]> {
     console.log('Fetching portfolio stocks');
 
-    return this.http.get<PortfolioStocks[]>(this.Url + 'portfolioStocks').pipe(catchError(this.handleError));;
+    return this.http.get<PortfolioStocks[]>(this.Url + 'portfolioStocks').pipe(catchError(this.handleError));
   }
 
   getPortfolioMutualFunds(): Observable<PortfolioMutualFunds[]> {
     console.log('Fetching portfolio mutual funds');
 
-    return this.http.get<PortfolioStocks[]>(this.Url + 'portfolioMutualFunds').pipe(catchError(this.handleError));;
+    return this.http.get<PortfolioMutualFunds[]>(this.Url + 'portfolioMutualFunds').pipe(catchError(this.handleError));
+  }
+
+  getWalletAmount():Observable<Wallet> {
+    return this.http.get<Wallet>(this.Url + 'walletMoney').pipe(catchError(this.handleError));
   }
   /***********************************************************/
+
+
+  /********************************************** */
 
 
 

@@ -33,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PortfolioStockTableComponent } from './portfolio/portfolio-stock-table/portfolio-stock-table.component';
 import { PortfolioMfTableComponent } from './portfolio/portfolio-mf-table/portfolio-mf-table.component';
 import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfolio-details.component';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfol
     MatDividerModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]

@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PortfolioMutualFunds } from 'src/app/models/portfolio-mutual-funds.model';
 import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 @Component({
   selector: 'app-portfolio-mf-table',
   templateUrl: './portfolio-mf-table.component.html',
   styleUrls: ['./portfolio-mf-table.component.css'],
 })
 export class PortfolioMfTableComponent implements OnInit {
-  currentInvestment: any;
-  totalInvestment: any;
+  currentMfValue: any;
+  totalMfInvestment: any;
   mfs: PortfolioMutualFunds[] = [];
-
+  @Output() mfInvestment = new EventEmitter<number>();
+  @Output() mfCurrentValue = new EventEmitter<number>();
+  
   displayedColumns: string[] = [
     'name',
     'code',
@@ -26,9 +29,14 @@ export class PortfolioMfTableComponent implements OnInit {
   ];
   dataSource: any;
 
-  constructor(private portfolioPageService: PortfolioPageService) {}
+  constructor(private portfolioPageService: PortfolioPageService) {
+
+  }
+
 
   ngOnInit(): void {
+  
+
     this.getMfs();
   }
 
@@ -36,26 +44,32 @@ export class PortfolioMfTableComponent implements OnInit {
     this.portfolioPageService.getPortfolioMutualFunds().subscribe((data) => {
       this.mfs = data;
       this.dataSource = new MatTableDataSource(this.mfs);
+
       this.getCurrentValue();
-      this.getTotalInvestment();
+      this.gettotalMfInvestment();
+      this.sendData();
     });
   }
 
-  getTotalInvestment() {
-    let totalInvestment = 0;
+  gettotalMfInvestment() {
+    let totalMfInvestment = 0;
     this.mfs.forEach(function (value) {
-      totalInvestment = totalInvestment + value.buyPrice * value.quantity;
+      totalMfInvestment = totalMfInvestment + value.buyPrice * value.quantity;
     });
-    this.totalInvestment = totalInvestment;
+    this.totalMfInvestment = totalMfInvestment;
   }
 
   getCurrentValue() {
-    let currentInvestment = 0;
+    let currentMfValue = 0;
     this.mfs.forEach(function (value) {
-      currentInvestment =
-        currentInvestment + value.currentPrice * value.quantity;
+      currentMfValue =
+        currentMfValue + value.currentPrice * value.quantity;
     });
-    this.currentInvestment = currentInvestment;
+    this.currentMfValue = currentMfValue;
+  }
+  sendData() {
+    this.mfCurrentValue.emit(this.currentMfValue);
+    this.mfInvestment.emit(this.totalMfInvestment);
   }
 
   applyFilter(event: Event) {

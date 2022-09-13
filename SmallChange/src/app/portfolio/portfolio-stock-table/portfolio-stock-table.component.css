@@ -12,4 +12,14 @@
     display: inline-block;
     min-width: 22%;
 }
-
+.stockCard{
+justify-content: space-evenly;
+display: flex;
+margin-top: 50px;
+}
+.loss{
+    color: red;
+}
+.profit{
+    color: green;
+}
