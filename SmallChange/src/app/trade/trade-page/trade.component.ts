@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { any } from 'cypress/types/bluebird';
 import { TradeHistory } from 'src/app/models/trade-history';
 import { TradeHistoryService } from 'src/app/trades/trade-history.service';
 
@@ -10,36 +12,44 @@ import { TradeHistoryService } from 'src/app/trades/trade-history.service';
 })
 export class TradeComponent implements OnInit {
 
-  trade:TradeHistory[]=[];
-  queryType:string='';
-  displayedColumns: string[] = ['name', 'code', 'quantity', 'type','price','asset_class'];
-  dataSource=this.trade
+  trades: TradeHistory[] = [];
+  dataSource: any;
 
-  constructor(private tradeHistoryServie:TradeHistoryService) { }
+  displayedColumns: string[] = [
+    'name',
+    'code',
+    'quantity',
+    'type',
+    'price',
+    'asset_class'
+  ];
+
+  constructor(private tradeHistoryService: TradeHistoryService) {}
 
   ngOnInit(): void {
+    this.getTrades();
+  }
 
-    this.getTradeHistory();
+  getTrades() {
+    this.tradeHistoryService.getTradeHistory('').subscribe((data) => {
+      this.trades = data;
+      this.dataSource = new MatTableDataSource(this.trades);
+    });
   }
   setToBuy(){
-    this.queryType="buy";
-    this.getTradeHistory();
+    this.tradeHistoryService.getTradeHistory('buy').subscribe((data) => {
+      this.trades = data;
+      this.dataSource = new MatTableDataSource(this.trades);
+    });
   }
   setToSell(){
-    this.queryType="sell";
-    
-    console.log(this.queryType)
-    this.getTradeHistory();
+    this.tradeHistoryService.getTradeHistory('sell').subscribe((data) => {
+      this.trades = data;
+      this.dataSource = new MatTableDataSource(this.trades);
+    });
   }
-  setToAll(){
-    console.log("all called")
-    this.queryType="All"
-    this.getTradeHistory();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  getTradeHistory(){
-    console.log("intialized")
-    this.tradeHistoryServie.getTradeHistory(this.queryType).subscribe(data=>this.trade=data)
-    this.dataSource=this.trade
-  }
-
 }

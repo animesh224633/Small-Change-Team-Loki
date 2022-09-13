@@ -11,7 +11,8 @@ export class TradeHistoryService {
   constructor(private http:HttpClient) { }
 
   getTradeHistory(type:string):Observable<TradeHistory[]>{
-      if(type!="All" && type!="all"){
+     
+      if(type!="All" && type!="all" && type!=''){
         console.log(type)
       return this.http.get<TradeHistory[]>('http://localhost:3000/tradeHistory?type='+type);
       }
