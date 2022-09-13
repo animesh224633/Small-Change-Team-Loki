@@ -1,2 +1,10 @@
 <app-nav-bar></app-nav-bar>
-<p>portfolio works!</p>
+
+<mat-tab-group>
+  <mat-tab label="Stocks">
+    <app-portfolio-stock-table></app-portfolio-stock-table>
+  </mat-tab>
+  <mat-tab label="Mutual Funds">
+    <app-portfolio-mf-table></app-portfolio-mf-table>
+  </mat-tab>
+</mat-tab-group>

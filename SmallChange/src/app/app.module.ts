@@ -15,6 +15,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input'
 import {MatFormFieldModule, MatLabel, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +28,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { PortfolioStockTableComponent } from './portfolio/portfolio-stock-table/portfolio-stock-table.component';
+import { PortfolioMfTableComponent } from './portfolio/portfolio-mf-table/portfolio-mf-table.component';
+import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfolio-details.component';
 
 
 @NgModule({
@@ -43,7 +47,10 @@ import { MatIconModule } from '@angular/material/icon';
     PortfolioComponent,
     ActivityComponent,
     TradeComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    PortfolioStockTableComponent,
+    PortfolioMfTableComponent,
+    PortfolioDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTabsModule,
     HttpClientModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]
