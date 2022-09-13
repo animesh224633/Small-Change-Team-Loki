@@ -1,2 +1,32 @@
 <app-nav-bar></app-nav-bar>
-<p>trade works!</p>
+  
+<div class="order-table">
+
+  <H4>Select an option:</H4>
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="buy" (click)="setToBuy()">Buy</mat-radio-button>
+    <mat-radio-button value="sell" (click)="setToSell()">Sell</mat-radio-button>
+    <mat-radio-button value="All" (click)="setToAll()" checked="checked" >All</mat-radio-button>
+  </mat-radio-group>
+  <br><br>
+<table id="trade-history-table">
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Quantity</th>
+          <th>Type</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let entry of trade" >
+          <td>{{entry.name}}</td>
+          <td>{{entry.code}}</td>
+          <td>{{entry.quantity}}</td>
+          <td>{{entry.type}}</td>
+          <td>{{entry.price}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>

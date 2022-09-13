@@ -27,6 +27,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table' 
 
 
 @NgModule({
@@ -61,7 +63,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatTabsModule,
     HttpClientModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    MatRadioModule,
+    MatTableModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]

@@ -11,6 +11,60 @@
       "name": "seneha",
       "email": "seneha",
       "password": "seneha"
+    },
+    {
+      "name": "sss",
+      "email": "treww",
+      "password": "erewss",
+      "id": 3
+    },
+    {
+      "name": "teams",
+      "email": "teamlokis",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 11
     }
   ],
   "portfolioStocks": [
@@ -90,15 +144,25 @@
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
-      "type" : "sell",
-      "price": "135"
+      "type": "sell",
+      "price": "135",
+      "asset_class": "Main index stocks"
     },
     {
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
-      "type" : "buy",
-      "price": "135"
+      "type": "buy",
+      "price": "135",
+      "asset_class": "Main index stocks"
+    },
+    {
+      "name": "Tesla",
+      "code": "TSLA",
+      "quantity": 1,
+      "type": "buy",
+      "price": "160",
+      "asset_class": "Small cap company stocks"
     }
   ]
 }
