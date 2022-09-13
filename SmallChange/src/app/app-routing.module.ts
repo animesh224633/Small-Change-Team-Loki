@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { ActivityComponent } from './routing-nav-bar/activity/activity.component';
-import { PortfolioComponent } from './routing-nav-bar/portfolio/portfolio.component';
-import { PreferencesComponent } from './routing-nav-bar/preferences/preferences.component';
-import { TradeComponent } from './routing-nav-bar/trade/trade.component';
+import { NavBarComponent } from './nav-bar/nav-bar/nav-bar.component';
+import { ActivityComponent } from './activity/activity-page/activity.component';
+import { PortfolioComponent } from './portfolio/portfolio-page/portfolio.component';
+import { PreferencesComponent } from './preferences/preferences/preferences.component';
+import { TradeComponent } from './trade/trade-page/trade.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'activity', component: ActivityComponent },
   { path: 'trade', component: TradeComponent },
   { path: 'preferences', component: PreferencesComponent },
-  { path: 'landing', component:LandingPageComponent}
+  { path: 'landing', component:LandingPageComponent},
+  { path: 'loginPage', component:NavBarComponent}
 ];
 
 @NgModule({

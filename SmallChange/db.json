@@ -1,0 +1,133 @@
+{
+  "signup": [
+    {
+      "id": 1,
+      "name": "teamloki",
+      "email": "teamloki",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "seneha",
+      "email": "seneha",
+      "password": "seneha"
+    },
+    {
+      "name": "dsad",
+      "email": "sdadadsdads",
+      "password": "dsadasdadsadsddaaaa",
+      "id": 3
+    },
+    {
+      "name": "dsadsadsada",
+      "email": "12dfasdsa12",
+      "password": "sdadasd2dsa",
+      "id": 4
+    }
+  ],
+  "portfolioStocks": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 2,
+      "buyPrice": 130.5,
+      "currentPrice": 135
+    },
+    {
+      "name": "Microsoft",
+      "code": "MSFT",
+      "quantity": 3,
+      "buyPrice": 150,
+      "currentPrice": 170
+    }
+  ],
+  "portfolioMutualFunds": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 2,
+      "buyPrice": 130.5,
+      "currentPrice": 135
+    },
+    {
+      "name": "Microsoft",
+      "code": "AMZN",
+      "quantity": 3,
+      "buyPrice": 150,
+      "currentPrice": 170
+    }
+  ],
+  "allStocks": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "currentPrice": 135
+    },
+    {
+      "name": "Microsoft",
+      "code": "MSFT",
+      "currentPrice": 170
+    },
+    {
+      "name": "Netflix",
+      "code": "NTFLX",
+      "currentPrice": 90
+    }
+  ],
+  "allMutualFunds": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "currentPrice": "135"
+    },
+    {
+      "name": "Microsoft",
+      "code": "AMZN",
+      "currentPrice": 170
+    },
+    {
+      "name": "Netflix",
+      "code": "NTFLX",
+      "currentPrice": 90
+    }
+  ],
+  "investedMoney": {
+    "amount": 2000
+  },
+  "walletMoney": {
+    "amount": 3000
+  },
+  "tradeHistory": [
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 1,
+      "type": "sell",
+      "price": "135"
+    },
+    {
+      "name": "Amazon",
+      "code": "AMZN",
+      "quantity": 1,
+      "type": "buy",
+      "price": "135"
+    }
+  ],
+  "BankAccount": [
+    {
+      "bank_name": "Bank Of America",
+      "balance": 12421,
+      "account_number": 123412341234
+    },
+    {
+      "bank_name": "Citi Bank",
+      "balance": 3563,
+      "account_number": 234256786534
+    },
+    {
+      "bank_name": "U.S. Bank",
+      "balance": 5612,
+      "account_number": 982167897543
+    }
+  ]
+}

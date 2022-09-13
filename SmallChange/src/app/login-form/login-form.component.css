@@ -1,35 +1,15 @@
-.mb-3{
-    align-self: center;
-    width: 60% ;
-    margin-left:9.5rem ;
-   
-    
+.example-card{
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-
-.button1 {
-    transition-duration: 0.4s;
-    margin-left: 9.5rem;
-    margin-right: 5rem;
-    margin-bottom: 3rem;
-    width: 60%;
-    color: white;
-    background-color: lightblue; 
-    border-radius: 5px;
-    height: 2.5rem;
-    margin-top: 1.5rem;
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
   }
   
-  .button1:hover {
-    background-color: pink;
-    color:white;
+  mat-form-field {
+    display: block;
   }
-
-.modal-body{
-    margin-left:auto;
-    margin-right: auto;
-    align-self: center;
-    max-width: 45%;
-    border: 0.4px solid gray;
-    border-radius: 7px;
-}
