@@ -23,6 +23,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ParatextComponent } from './paratext/paratext.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
@@ -69,7 +70,8 @@ import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfol
     HttpClientModule,
     MatDividerModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]

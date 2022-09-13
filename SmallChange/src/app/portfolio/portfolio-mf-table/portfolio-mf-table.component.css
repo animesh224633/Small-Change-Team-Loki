@@ -1,5 +1,15 @@
 .mat-elevation-z8{
-    min-width: 80%;
+    min-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
+.search-bar{
+    margin-left: 80%;
+}
+
+.sub-card{
+    margin: 1%;
+    display: inline-block;
+    min-width: 22%;
+}
+
