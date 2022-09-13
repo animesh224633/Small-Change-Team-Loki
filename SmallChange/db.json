@@ -11,6 +11,18 @@
       "name": "seneha",
       "email": "seneha",
       "password": "seneha"
+    },
+    {
+      "name": "dsad",
+      "email": "sdadadsdads",
+      "password": "dsadasdadsadsddaaaa",
+      "id": 3
+    },
+    {
+      "name": "dsadsadsada",
+      "email": "12dfasdsa12",
+      "password": "sdadasd2dsa",
+      "id": 4
     }
   ],
   "portfolioStocks": [
@@ -90,14 +102,14 @@
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
-      "type" : "sell",
+      "type": "sell",
       "price": "135"
     },
     {
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
-      "type" : "buy",
+      "type": "buy",
       "price": "135"
     }
   ]
