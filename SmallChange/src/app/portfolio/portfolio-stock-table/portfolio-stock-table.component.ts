@@ -29,7 +29,7 @@ export class PortfolioStockTableComponent implements OnInit {
     'percent-change',
   ];
 
-  constructor(private portfolioPageService: PortfolioPageService) { }
+  constructor(private portfolioPageService: PortfolioPageService) {}
 
   ngOnInit(): void {
     this.getStocks();
@@ -48,7 +48,8 @@ export class PortfolioStockTableComponent implements OnInit {
   gettotalStockInvestment() {
     let totalStockInvestment = 0;
     this.stocks.forEach(function (value) {
-      totalStockInvestment = totalStockInvestment + value.buyPrice * value.quantity;
+      totalStockInvestment =
+        totalStockInvestment + value.buyPrice * value.quantity;
     });
     this.totalStockInvestment = totalStockInvestment;
   }
@@ -65,7 +66,6 @@ export class PortfolioStockTableComponent implements OnInit {
   sendData() {
     this.stockCurrentValue.emit(this.currentStocksValue);
     this.stockInvestment.emit(this.totalStockInvestment);
-
   }
 
   applyFilter(event: Event) {

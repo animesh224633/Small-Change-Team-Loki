@@ -35,8 +35,6 @@ export class PortfolioMfTableComponent implements OnInit {
 
 
   ngOnInit(): void {
-  
-
     this.getMfs();
   }
 

@@ -22,6 +22,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   getStockInvestment($event: number){
+    console.log('bla bla',$event);
 this.totalInvestment+=$event;
   }
   getMfInvestment($event: number){
