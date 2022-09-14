@@ -89,7 +89,7 @@
       "code": "AMZN",
       "quantity": 2,
       "buyPrice": 130.5,
-      "currentPrice": "135"
+      "currentPrice": 135
     },
     {
       "name": "Microsoft",

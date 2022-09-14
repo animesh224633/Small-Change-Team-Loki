@@ -9,6 +9,7 @@ import { PortfolioComponent } from './portfolio/portfolio-page/portfolio.compone
 import { PreferencesComponent } from './preferences/preferences/preferences.component';
 import { TradeComponent } from './trade/trade-page/trade.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent }, 
