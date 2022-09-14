@@ -83,7 +83,6 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     MatDividerModule,
     MatIconModule,
-    HttpClientModule,
     MatRadioModule,
     MatTableModule,
     MatPaginatorModule,

@@ -16,6 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatOptionModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatOptionModule,
     MatSelectModule,
     MatRadioModule,
-    
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'trade', component: BuysellComponent}
     ])
