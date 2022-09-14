@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { any } from 'cypress/types/bluebird';
 import { TradeHistory } from 'src/app/models/trade-history';
 import { TradeHistoryService } from 'src/app/trades/trade-history.service';
 
