@@ -65,6 +65,12 @@
       "email": "teamloki1",
       "password": "123456",
       "id": 11
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 12
     }
   ],
   "portfolioStocks": [
@@ -163,6 +169,23 @@
       "type": "buy",
       "price": "160",
       "asset_class": "Small cap company stocks"
+    }
+  ],
+  "BankAccount": [
+    {
+      "bank_name": "Bank Of America",
+      "balance": 12421,
+      "account_number": 123412341234
+    },
+    {
+      "bank_name": "Citi Bank",
+      "balance": 3563,
+      "account_number": 234256786534
+    },
+    {
+      "bank_name": "U.S. Bank",
+      "balance": 5612,
+      "account_number": 982167897543
     }
   ]
 }

@@ -3,6 +3,6 @@ export interface TradeHistory {
     code:string,
     quantity:number,
     type:string,
-    price:string,
+    price:number,
     asset_class:string
 }
