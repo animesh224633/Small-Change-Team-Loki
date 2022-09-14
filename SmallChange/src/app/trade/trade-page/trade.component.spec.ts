@@ -1,4 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Observable } from 'rxjs';
+import { TradeHistory } from 'src/app/models/trade-history';
+import { TradeHistoryService } from 'src/app/trades/trade-history.service';
 
 import { TradeComponent } from './trade.component';
 
@@ -6,20 +9,24 @@ describe('TradeComponent', () => {
   let component: TradeComponent;
   let fixture: ComponentFixture<TradeComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TradeComponent ]
-    })
-    .compileComponents();
-  });
+  function configureMockTradeService(TadeHistoryObservable: Observable<any>) {
+      beforeEach(waitForAsync(() => {
+          const mockTradeService = jasmine.createSpyObj('TradeHistoryService', ['getTradeHistory']);
+          mockTradeService.getTradeHistory.and.returnValue(TadeHistoryObservable);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TradeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+          TestBed.configureTestingModule({
+              declarations: [TradeComponent],
+              providers: [
+                  { provide: TradeHistoryService, useValue: mockTradeService }
+              ]
+          })
+              .compileComponents();
+      }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+      beforeEach(() => {
+          fixture = TestBed.createComponent(TradeComponent);
+          component = fixture.componentInstance;
+          fixture.detectChanges();
+      });
+  }
 });
