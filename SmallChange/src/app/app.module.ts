@@ -33,8 +33,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { PortfolioStockTableComponent } from './portfolio/portfolio-stock-table/portfolio-stock-table.component';
 import { PortfolioMfTableComponent } from './portfolio/portfolio-mf-table/portfolio-mf-table.component';
 import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfolio-details.component';
-
-
+import { BuysellComponent } from './tradeBuySell/buysell/buysell.component';
+import { SellComponent } from './tradeBuySell/sell/sell.component';
+import { BuyComponent } from './tradeBuySell/buy/buy.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,10 @@ import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfol
     PreferencesComponent,
     PortfolioStockTableComponent,
     PortfolioMfTableComponent,
-    PortfolioDetailsComponent
+    PortfolioDetailsComponent,
+    BuyComponent,
+    SellComponent,
+    BuysellComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +79,10 @@ import { PortfolioDetailsComponent } from './portfolio/portfolio-details/portfol
     MatDividerModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]

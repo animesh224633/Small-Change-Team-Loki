@@ -8,7 +8,9 @@ import { ActivityComponent } from './activity/activity-page/activity.component';
 import { PortfolioComponent } from './portfolio/portfolio-page/portfolio.component';
 import { PreferencesComponent } from './preferences/preferences/preferences.component';
 import { TradeComponent } from './trade/trade-page/trade.component';
-
+import { BuysellComponent } from './tradeBuySell/buysell/buysell.component';
+import { SellComponent } from './tradeBuySell/sell/sell.component';
+import { BuyComponent } from './tradeBuySell/buy/buy.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'activity', component: ActivityComponent },
   { path: 'trade', component: TradeComponent },
+  { path: 'tradeBuySell', component: BuysellComponent},
   { path: 'preferences', component: PreferencesComponent },
   { path: 'landing', component:LandingPageComponent},
   { path: 'loginPage', component:NavBarComponent}
