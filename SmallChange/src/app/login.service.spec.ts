@@ -5,7 +5,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { LoginService } from './login.service';
 import { Login } from './models/login';
-import { ObserversModule } from '@angular/cdk/observers';
 
 describe('LoginService', () => {
   let service: LoginService;
@@ -15,6 +14,20 @@ describe('LoginService', () => {
   MockData.name = 'Animesh';
   MockData.password = 'idc7yc9ewydewyc9wc7ewc';
   const serviceUrl = 'http://localhost:3000/signup';
+  const mockUsers: Login[] = [{
+    "name": "Animesh",
+    "email": "spidy@gmail.com",
+    "password": 'idc7yc9ewydewyc9wc7ewc',
+    "id": 130
+   
+  },
+  {
+    "name": "Animesh",
+    "email": "spidy@gmail.com",
+    "password": 'idc7yc9ewydewyc9wc7ewc',
+    "id": 130
+   
+  }];
 
 
   beforeEach(() => {
@@ -32,29 +45,46 @@ describe('LoginService', () => {
     expect(service).toBeTruthy();
   });
 
+
+
   it('should GET to get all users', inject([LoginService], fakeAsync((service: LoginService) => {
-    service.login().subscribe();
-
-    const req = httpTestingController.expectOne('http://localhost:3000/signup');
-    req.flush(of({}));
-
+    let users:  Login[] = [];
+    service.login()
+        .subscribe(data => users = data);
+    const req = httpTestingController.expectOne(serviceUrl);
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+    // Respond with mock data, causing Observable to resolve.
+    req.flush(mockUsers);
+    // Assert that there are no outstanding requests.
     httpTestingController.verify();
-    expect(req.request.method).toBe('GET');
-  })));
+    // Cause all Observables to complete and check the results
+    tick();
+    expect(users).toBeTruthy();
+    expect(users.length).toBe(2);
+    expect(users[0].name).toBe('Animesh');
+})));
 
-  it('should make a POST call and add user', inject([LoginService], fakeAsync((service: LoginService) => {
-    const mockOb=of(MockData);
-    service.register('Animesh', 'spidy@gmail.com', 'idc7yc9ewydewyc9wc7ewc').subscribe(
-      res =>
-        expect(res).toEqual(mockOb)
-    );
-    const req = httpTestingController.expectOne('http://localhost:3000/signup');
-    req.flush(of({}));
 
+  it('should POST call and add user', inject([LoginService], fakeAsync((service: LoginService) => {
+    const expected = new Login();
+    expected.email="spidy@gmail.com";
+    expected.name="Animesh";
+    expected.password="idc7yc9ewydewyc9wc7ewc";
+    expected.id=30;
+    service.register('Animesh', 'spidy@gmail.com', 'idc7yc9ewydewyc9wc7ewc')
+        .subscribe();
+    const req = httpTestingController.expectOne(serviceUrl);
+    // Assert that the request is a POST.
+    expect(req.request.method).toEqual('POST');
+    // Assert that it was called with the right data
+    expect(req.request.body).toEqual(expected);
+    // Respond with empty data.
+    req.flush(null);
+    // Assert that there are no outstanding requests.
     httpTestingController.verify();
-    expect(req.request.method).toBe('POST');
-  })));
-
+    tick();
+})));
   
   it('should handle a 404 error', inject([LoginService], fakeAsync((service: LoginService) => {
     let errorResp: HttpErrorResponse;
