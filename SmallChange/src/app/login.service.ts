@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Login } from './models/login';
 import { catchError, Observable, throwError } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  logins = new Login();
+
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -18,13 +18,18 @@ export class LoginService {
       .pipe(catchError(this.handleError));
   }
 
-  register(name: String, userName: String, password: String): Observable<any> {
-    this.logins.name = name;
-    this.logins.email = userName;
-    this.logins.password = password;
+  register(name: String, userName: String, password: String): Observable<Login> {
+    const logins = new Login();
+    logins.id=30;
+    logins.name = name;
+    logins.email = userName;
+    logins.password = password;
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+  });
 
     return this.http
-      .post<Observable<any>>('http://localhost:3000/signup', this.logins)
+      .post<Login>('http://localhost:3000/signup', logins ,{ headers: headers })
       .pipe(catchError(this.handleError));
   }
 
