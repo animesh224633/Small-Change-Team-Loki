@@ -8,52 +8,52 @@
   />
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource"  >
   <!-- Position Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <th mat-header-cell *matHeaderCellDef >Name</th>
     <td mat-cell *matCellDef="let element">{{ element.name }}</td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="code">
-    <th mat-header-cell *matHeaderCellDef>Code</th>
+    <th mat-header-cell *matHeaderCellDef >Code</th>
     <td mat-cell *matCellDef="let element">{{ element.code }}</td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <th mat-header-cell *matHeaderCellDef  >Quantity</th>
     <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="buy-price">
-    <th mat-header-cell *matHeaderCellDef>Buy Price</th>
+    <th mat-header-cell *matHeaderCellDef >Buy Price</th>
     <td mat-cell *matCellDef="let element">{{ element.buyPrice }}</td>
   </ng-container>
 
   <ng-container matColumnDef="current-price">
-    <th mat-header-cell *matHeaderCellDef>Current Price</th>
+    <th mat-header-cell *matHeaderCellDef >Current Price</th>
     <td mat-cell *matCellDef="let element">{{ element.currentPrice }}</td>
   </ng-container>
 
   <ng-container matColumnDef="invested-amount">
-    <th mat-header-cell *matHeaderCellDef>Invested Amount</th>
+    <th mat-header-cell *matHeaderCellDef >Invested Amount</th>
     <td mat-cell *matCellDef="let element">
       {{ element.buyPrice * element.quantity }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="current-value">
-    <th mat-header-cell *matHeaderCellDef>Current Value</th>
+    <th mat-header-cell *matHeaderCellDef >Current Value</th>
     <td mat-cell *matCellDef="let element">
       {{ element.currentPrice * element.quantity }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="profit/loss">
-    <th mat-header-cell *matHeaderCellDef>Profit/Loss</th>
+    <th mat-header-cell *matHeaderCellDef >Profit/Loss</th>
     <td mat-cell *matCellDef="let element">
       {{
         element.currentPrice * element.quantity -
@@ -63,7 +63,7 @@
   </ng-container>
 
   <ng-container matColumnDef="percent-change">
-    <th mat-header-cell *matHeaderCellDef>%Change</th>
+    <th mat-header-cell *matHeaderCellDef >%Change</th>
     <td mat-cell *matCellDef="let element">
       {{
         element.currentPrice * element.quantity -
@@ -83,21 +83,23 @@
   </tr>
 </table>
 
-
+<div class="mfcard">
   <mat-card class="sub-card">
     <mat-card-subtitle>Total Investment</mat-card-subtitle>
-    <mat-card-title>{{ totalInvestment | currency }}</mat-card-title>
+    <mat-card-title>{{ totalMfInvestment | currency }}</mat-card-title>
   </mat-card>
 
   <mat-card class="sub-card">
     <mat-card-subtitle>Current Value</mat-card-subtitle>
-    <mat-card-title>{{ currentInvestment | currency }}</mat-card-title>
+    <mat-card-title>{{ currentMfValue | currency }}</mat-card-title>
   </mat-card>
 
   <mat-card class="sub-card">
     <mat-card-subtitle>Net profit/loss</mat-card-subtitle>
-    <mat-card-title>{{
-      currentInvestment - totalInvestment | currency
+    <mat-card-title [ngClass]="[((currentMfValue - totalMfInvestment)>=0) ? 'profit' : 'loss']">{{
+      currentMfValue - totalMfInvestment | currency
     }}</mat-card-title>
   </mat-card>
 
+
+</div>

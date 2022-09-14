@@ -1,6 +1,6 @@
 
 
-<mat-card>
+<mat-card *ngIf="switch">
     <!--TOP BAR-->
     <div class="top-bar">
       <header>
@@ -9,7 +9,7 @@
       </header>
       <div>
         <div class="category">{{!this.check ? 'Stocks' : 'Mutual Funds'}}</div>
-        <mat-slide-toggle (change)="toggle()" class="category" [ngModel]="chosen"></mat-slide-toggle>
+        <mat-slide-toggle (change)="toggle($event)" class="category" [ngModel]="chosen"></mat-slide-toggle>
       </div>
     </div>
 

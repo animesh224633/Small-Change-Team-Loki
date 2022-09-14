@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PortfolioStocks } from 'src/app/models/portfolio-stocks.model';
 import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
@@ -9,8 +9,11 @@ import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
   styleUrls: ['./portfolio-stock-table.component.css'],
 })
 export class PortfolioStockTableComponent implements OnInit {
-  currentInvestment: any;
-  totalInvestment: any;
+  currentStocksValue: any;
+  totalStockInvestment: any;
+  @Output() stockInvestment = new EventEmitter<number>();
+  @Output() stockCurrentValue = new EventEmitter<number>();
+
   stocks: PortfolioStocks[] = [];
   dataSource: any;
 
@@ -37,25 +40,32 @@ export class PortfolioStockTableComponent implements OnInit {
       this.stocks = data;
       this.dataSource = new MatTableDataSource(this.stocks);
       this.getCurrentValue();
-      this.getTotalInvestment();
+      this.gettotalStockInvestment();
+      this.sendData();
     });
   }
 
-  getTotalInvestment() {
-    let totalInvestment = 0;
+  gettotalStockInvestment() {
+    let totalStockInvestment = 0;
     this.stocks.forEach(function (value) {
-      totalInvestment = totalInvestment + value.buyPrice * value.quantity;
+      totalStockInvestment =
+        totalStockInvestment + value.buyPrice * value.quantity;
     });
-    this.totalInvestment = totalInvestment;
+    this.totalStockInvestment = totalStockInvestment;
   }
 
   getCurrentValue() {
-    let currentInvestment = 0;
+    let currentStocksValue = 0;
     this.stocks.forEach(function (value) {
-      currentInvestment =
-        currentInvestment + value.currentPrice * value.quantity;
+      currentStocksValue =
+        currentStocksValue + value.currentPrice * value.quantity;
     });
-    this.currentInvestment = currentInvestment;
+    this.currentStocksValue = currentStocksValue;
+  }
+
+  sendData() {
+    this.stockCurrentValue.emit(this.currentStocksValue);
+    this.stockInvestment.emit(this.totalStockInvestment);
   }
 
   applyFilter(event: Event) {

@@ -1,15 +1,29 @@
-.mat-elevation-z8{
+.mat-elevation-z8 {
     min-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
-.search-bar{
+
+.search-bar {
     margin-left: 80%;
 }
 
-.sub-card{
+.sub-card {
     margin: 1%;
     display: inline-block;
     min-width: 22%;
 }
 
+.mfcard {
+    justify-content: space-evenly;
+    display: flex;
+    margin-top: 50px;
+}
+
+.loss {
+    color: red;
+}
+
+.profit {
+    color: green;
+}

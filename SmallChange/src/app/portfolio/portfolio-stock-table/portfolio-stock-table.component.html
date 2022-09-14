@@ -82,20 +82,22 @@
     </td>
   </tr>
 </table>
+<div class="stockCard">
 
 <mat-card class="sub-card">
   <mat-card-subtitle>Total Investment</mat-card-subtitle>
-  <mat-card-title>{{ totalInvestment | currency }}</mat-card-title>
+  <mat-card-title>{{ totalStockInvestment | currency }}</mat-card-title>
 </mat-card>
 
 <mat-card class="sub-card">
   <mat-card-subtitle>Current Value</mat-card-subtitle>
-  <mat-card-title>{{ currentInvestment | currency }}</mat-card-title>
+  <mat-card-title>{{ currentStocksValue | currency }}</mat-card-title>
 </mat-card>
 
 <mat-card class="sub-card">
   <mat-card-subtitle>Net profit/loss</mat-card-subtitle>
-  <mat-card-title>{{
-    currentInvestment - totalInvestment | currency
+  <mat-card-title [ngClass]="[((currentStocksValue - totalStockInvestment)>=0) ? 'profit' : 'loss']">{{
+    currentStocksValue - totalStockInvestment | currency
   }}</mat-card-title>
 </mat-card>
+</div>

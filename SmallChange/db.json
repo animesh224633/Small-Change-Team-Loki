@@ -13,32 +13,80 @@
       "password": "seneha"
     },
     {
-      "name": "dsad",
-      "email": "sdadadsdads",
-      "password": "dsadasdadsadsddaaaa",
+      "name": "sss",
+      "email": "treww",
+      "password": "erewss",
       "id": 3
     },
     {
-      "name": "dsadsadsada",
-      "email": "12dfasdsa12",
-      "password": "sdadasd2dsa",
+      "name": "teams",
+      "email": "teamlokis",
+      "password": "123456",
       "id": 4
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 11
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 12
     }
   ],
   "portfolioStocks": [
     {
-      "name": "Amazon",
-      "code": "AMZN",
+      "name": "Apple",
+      "code": "APP",
       "quantity": 2,
       "buyPrice": 130.5,
-      "currentPrice": 135
+      "currentPrice": 150
     },
     {
       "name": "Microsoft",
       "code": "MSFT",
       "quantity": 3,
       "buyPrice": 150,
-      "currentPrice": 170
+      "currentPrice": 200
     }
   ],
   "portfolioMutualFunds": [
@@ -59,19 +107,19 @@
   ],
   "allStocks": [
     {
-      "name": "Amazon",
-      "code": "AMZN",
-      "currentPrice": 135
+      "name": "Apple",
+      "code": "APP",
+      "currentPrice": 150
     },
     {
       "name": "Microsoft",
       "code": "MSFT",
-      "currentPrice": 170
+      "currentPrice": 200
     },
     {
       "name": "Netflix",
       "code": "NTFLX",
-      "currentPrice": 90
+      "currentPrice": 190
     }
   ],
   "allMutualFunds": [
@@ -95,7 +143,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 3000
+    "amount": 4850
   },
   "tradeHistory": [
     {
@@ -103,14 +151,24 @@
       "code": "AMZN",
       "quantity": 1,
       "type": "sell",
-      "price": "135"
+      "price": "135",
+      "asset_class": "Main index stocks"
     },
     {
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
       "type": "buy",
-      "price": "135"
+      "price": "135",
+      "asset_class": "Main index stocks"
+    },
+    {
+      "name": "Tesla",
+      "code": "TSLA",
+      "quantity": 1,
+      "type": "buy",
+      "price": "160",
+      "asset_class": "Small cap company stocks"
     }
   ],
   "BankAccount": [

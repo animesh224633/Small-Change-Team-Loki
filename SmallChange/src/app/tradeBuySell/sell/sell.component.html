@@ -1,1 +1,136 @@
-<p>sell works!</p>
+
+
+<mat-card *ngIf="switch">
+    <!--TOP BAR-->
+    <div class="top-bar">
+      <header>
+        <mat-card-title>Sell</mat-card-title>
+        <mat-card-subtitle>Sell new Stock/ Mutual Fund Holdings</mat-card-subtitle>
+      </header>
+      <div>
+        <div class="category">{{!this.check ? 'Stocks' : 'Mutual Funds'}}</div>
+        <mat-slide-toggle (change)="toggle($event)" class="category" [ngModel]="chosen"></mat-slide-toggle>
+      </div>
+    </div>
+
+    <!--INPUT-->
+    <!--
+    <div class="form">
+        <mat-form-field appearance="outline" *ngIf="!this.check">
+            <mat-label>Select Asset Class</mat-label>
+            <mat-select [(ngModel)]="asset">
+                <mat-option *ngFor="let asset of stock_assets" [value]="asset.name" (click) = "choose()">
+                        {{asset.name}}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="this.check">
+            <mat-label>Select Asset Class</mat-label>
+                <mat-select [(ngModel)]="asset">
+                    <mat-option *ngFor="let asset of bond_assets" [value]="asset.name" (click) = "choose()">
+                      {{asset.name}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+    -->
+        <br>
+
+       <!--<mat-form-field appearance="outline"  *ngIf="this.asset_num === 1">-->
+            <mat-form-field appearance="outline"  *ngIf="this.cNumber === 1">
+            <mat-label>Select Holding</mat-label>
+               <!-- <mat-select [(ngModel)]="stock_code">-->
+                    <mat-select>
+                    <mat-option *ngFor="let stock of stocks" [value]="stock.code"> 
+                        {{stock.name}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+<!--
+        <mat-form-field appearance="outline"  *ngIf="this.asset_num === 2">
+            <mat-label>Select Holding</mat-label>
+                  <mat-select [(ngModel)]="stock_code">
+                      <mat-option *ngFor="let stock of SCCS" [value]="stock.code"> 
+                          {{stock.name}}
+                      </mat-option>
+                  </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"  *ngIf="this.asset_num === 3">
+            <mat-label>Select Holding</mat-label>
+                   <mat-select [(ngModel)]="stock_code">
+                        <mat-option *ngFor="let stock of IMS" [value]="stock.code"> 
+                            {{stock.name}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>-->
+
+                <mat-form-field appearance="outline" *ngIf="this.cNumber === 2">
+              <mat-label>Select Holding</mat-label>
+                  <mat-select>
+                      <mat-option *ngFor="let mFund of mFunds" [value]="mFund.code"> 
+                          {{mFund.name}}
+                      </mat-option>
+                  </mat-select>
+          </mat-form-field>
+<!--
+          <mat-form-field appearance="outline"  *ngIf="this.asset_num === 5">
+            <mat-label>Select Holding</mat-label>
+                <mat-select [(ngModel)]="bond_code">
+                    <mat-option *ngFor="let bond of GB" [value]="bond.code"> 
+                        {{bond.name}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>-->
+<!--
+        <mat-form-field appearance="outline" *ngIf="!this.check">
+            <mat-label>{{stock_code}}</mat-label>
+            <input disabled matInput type="text">
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline" *ngIf="this.check">
+            <mat-label>{{bond_code}}</mat-label>
+            <input disabled matInput type="text">
+          </mat-form-field>
+        -->
+          <mat-form-field appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" min="0" [(ngModel)]="quantity">
+          </mat-form-field>
+      <!--  </div>
+
+      <div class="bank">
+        <mat-form-field   appearance="outline">
+          <mat-label>Bank Account</mat-label>
+              <mat-select [(ngModel)]="bankbalance">
+                  <mat-option *ngFor="let acc of bankacc" [value]="acc.balance"> 
+                      {{acc.bank_name}}
+                  </mat-option>
+              </mat-select>
+      </mat-form-field>
+      </div>
+    -->
+    
+    
+        <mat-card-actions class="submitbutton">
+            <button mat-stroked-button (click)="done()">Check Total Price</button>
+        </mat-card-actions>
+
+        <mat-card class="total" appearance="outline">
+            <mat-label>Total Price : </mat-label>
+            {{this.total_price}} <br>
+           <!-- Funds Available: {{this.bankbalance}}-->
+            <br>
+           <mat-label *ngIf="this.transaction===0">
+                You do not have sufficient holdings. 
+           </mat-label>
+        </mat-card>       
+ 
+        <!--BUTTON-->
+        <mat-card-actions align="end">
+            <button mat-stroked-button (click)="submit()">Execute</button>
+        </mat-card-actions>
+  </mat-card>
+  <br>
+  
+

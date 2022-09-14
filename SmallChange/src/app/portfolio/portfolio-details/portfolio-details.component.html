@@ -1,19 +1,21 @@
+<div class="selecteddetails">
 <mat-card class="card">
   <mat-card-subtitle>Total Investment</mat-card-subtitle>
-  <mat-card-title>$10000</mat-card-title>
+  <mat-card-title *ngIf="totalInvestment">{{totalInvestment | currency: "USD"}}</mat-card-title>
 </mat-card>
 
 <mat-card class="card">
     <mat-card-subtitle>Current Value</mat-card-subtitle>
-    <mat-card-title>$11000</mat-card-title>
+    <mat-card-title *ngIf="currentValue"> {{currentValue | currency: "USD"}}</mat-card-title>
 </mat-card>
 
 <mat-card class="card">
     <mat-card-subtitle>Net profit/loss</mat-card-subtitle>
-    <mat-card-title>$xxxx</mat-card-title>
+    <mat-card-title *ngIf="currentValue && totalInvestment" [ngClass]="[((currentValue - totalInvestment)>=0) ? 'profit' : 'loss']">{{(currentValue - totalInvestment) |  currency: "USD"}}</mat-card-title>
 </mat-card>
 
 <mat-card class="card">
     <mat-card-subtitle>Small Change wallet</mat-card-subtitle>
-    <mat-card-title>$xxxx</mat-card-title>
+    <mat-card-title *ngIf="walletAmount">{{walletAmount |  currency: "USD"}}</mat-card-title>
 </mat-card>
+</div>
