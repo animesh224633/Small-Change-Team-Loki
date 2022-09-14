@@ -13,16 +13,64 @@
       "password": "seneha"
     },
     {
-      "name": "dsad",
-      "email": "sdadadsdads",
-      "password": "dsadasdadsadsddaaaa",
+      "name": "sss",
+      "email": "treww",
+      "password": "erewss",
       "id": 3
     },
     {
-      "name": "dsadsadsada",
-      "email": "12dfasdsa12",
-      "password": "sdadasd2dsa",
+      "name": "teams",
+      "email": "teamlokis",
+      "password": "123456",
       "id": 4
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 11
+    },
+    {
+      "name": "teams",
+      "email": "teamloki1",
+      "password": "123456",
+      "id": 12
     }
   ],
   "portfolioStocks": [
@@ -103,14 +151,41 @@
       "code": "AMZN",
       "quantity": 1,
       "type": "sell",
-      "price": "135"
+      "price": "135",
+      "asset_class": "Main index stocks"
     },
     {
       "name": "Amazon",
       "code": "AMZN",
       "quantity": 1,
       "type": "buy",
-      "price": "135"
+      "price": "135",
+      "asset_class": "Main index stocks"
+    },
+    {
+      "name": "Tesla",
+      "code": "TSLA",
+      "quantity": 1,
+      "type": "buy",
+      "price": "160",
+      "asset_class": "Small cap company stocks"
+    }
+  ],
+  "BankAccount": [
+    {
+      "bank_name": "Bank Of America",
+      "balance": 12421,
+      "account_number": 123412341234
+    },
+    {
+      "bank_name": "Citi Bank",
+      "balance": 3563,
+      "account_number": 234256786534
+    },
+    {
+      "bank_name": "U.S. Bank",
+      "balance": 5612,
+      "account_number": 982167897543
     }
   ]
 }

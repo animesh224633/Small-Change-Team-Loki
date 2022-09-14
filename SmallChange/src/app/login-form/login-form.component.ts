@@ -9,6 +9,7 @@ import { LoginService } from '../login.service';
 })
 export class LoginFormComponent implements OnInit {
   public loginValid = true;
+  public submitted = false;
   public username = '';
   public password = '';
   loginForm!: FormGroup;
@@ -64,11 +65,19 @@ export class LoginFormComponent implements OnInit {
     return this.registrationForm.get('password');
   }
 
+  public onSubmit(): void {
+    if(this.loginValid == true){
+    this.submitted=true;
+    this.loginValid = true;
+    console.log('');
+    }
+  }
+
   loginFormSubmit() {
+    this.submitted=true;
+    this.loginValid=true;
     console.log(this.loginForm.value);
-    this.loginService
-      .login()
-      .subscribe((data) => {
+    this.loginService.login().subscribe((data) => {
         data.find((a: any) => {
           if (
             a.email == this.loginForm.value.userName &&
@@ -98,3 +107,4 @@ export class LoginFormComponent implements OnInit {
     this.loginRegistrationCardSwitch = true;
   }
 }
+
