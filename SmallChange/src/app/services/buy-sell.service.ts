@@ -1,14 +1,20 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { PortfolioMutualFunds } from '../models/portfolio-mutual-funds.model';
 import { PortfolioStocks } from '../models/portfolio-stocks.model';
 import { Wallet } from '../models/wallet.model';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class BuySellService {
+  
   portfolioMfs: PortfolioMutualFunds[] = [];
   portfolioStocks: PortfolioStocks[] = [];
   constructor(private http: HttpClient) {}
@@ -49,10 +55,31 @@ export class BuySellService {
       .pipe(catchError(this.handleError));
   }
 
-  updatePortfolioStocks(): Observable<PortfolioStocks[]> {
-    const body = { 'sample ': 'data' };
+  updatePortfolioStocks(stock:PortfolioStocks): Observable<any> {
+    if(stock.quantity!=0){
+      
+    console.log(`${this.Url}portfolioStocks?name=${stock.name}`);
+    console.log(stock);
+    
+
     return this.http
-      .put<PortfolioStocks[]>(this.Url + 'portfolioStocks', body)
+      .put<PortfolioStocks>(`${this.Url}portfolioStocks?name=${stock.name}`, stock, httpOptions)
+      .pipe(catchError(this.handleError));
+
+    }
+    else{
+      return this.http
+      .delete<PortfolioStocks>(`${this.Url}/portfolioStocks?name=${stock.name}`)
+      .pipe(catchError(this.handleError));
+
+    }
+    
+  
+}
+  updatePortfolioStocksDelete(stock:PortfolioStocks): Observable<any> {
+    let url=this.Url+"portfolioStocks/name="+stock.name;
+    return this.http
+      .delete<PortfolioStocks>(url)
       .pipe(catchError(this.handleError));
   }
 

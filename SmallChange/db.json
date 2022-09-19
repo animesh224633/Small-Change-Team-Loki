@@ -83,7 +83,7 @@
     {
       "name": "Apple",
       "code": "APP",
-      "quantity": 2,
+      "quantity": 7,
       "buyPrice": 130.5,
       "currentPrice": 150
     },
@@ -149,7 +149,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 4535
+    "amount": 9185
   },
   "tradeHistory": [
     {
