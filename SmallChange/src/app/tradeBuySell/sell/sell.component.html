@@ -40,35 +40,18 @@
             <mat-form-field appearance="outline"  *ngIf="this.cNumber === 1">
             <mat-label>Select Holding</mat-label>
                <!-- <mat-select [(ngModel)]="stock_code">-->
-                    <mat-select>
-                    <mat-option *ngFor="let stock of stocks" [value]="stock.code"> 
+                    <mat-select [(value)]="selected">
+                    <mat-option *ngFor="let stock of stocks; let i = index" [value]="i"> 
                         {{stock.name}}
                     </mat-option>
                 </mat-select>
         </mat-form-field>
-<!--
-        <mat-form-field appearance="outline"  *ngIf="this.asset_num === 2">
-            <mat-label>Select Holding</mat-label>
-                  <mat-select [(ngModel)]="stock_code">
-                      <mat-option *ngFor="let stock of SCCS" [value]="stock.code"> 
-                          {{stock.name}}
-                      </mat-option>
-                  </mat-select>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline"  *ngIf="this.asset_num === 3">
-            <mat-label>Select Holding</mat-label>
-                   <mat-select [(ngModel)]="stock_code">
-                        <mat-option *ngFor="let stock of IMS" [value]="stock.code"> 
-                            {{stock.name}}
-                        </mat-option>
-                    </mat-select>
-            </mat-form-field>-->
 
                 <mat-form-field appearance="outline" *ngIf="this.cNumber === 2">
               <mat-label>Select Holding</mat-label>
-                  <mat-select>
-                      <mat-option *ngFor="let mFund of mFunds" [value]="mFund.code"> 
+                  <mat-select [(value)]="selected" >
+                      <mat-option *ngFor="let mFund of mFunds; let i=index" [value]="i"> 
                           {{mFund.name}}
                       </mat-option>
                   </mat-select>

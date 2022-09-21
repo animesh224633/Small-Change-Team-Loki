@@ -11,15 +11,20 @@ import { PortfolioStocks } from '../../models/portfolio-stocks.model';
 export class SellComponent implements OnInit {
   check: boolean = false;
   chosen: string = '';
-  cNumber: number = 1;
+  cNumber: number = 1;// to indicate if mutualfund or stock toggle is selected
   quantity: number = 0;
-  transaction: number | undefined;
+  transaction: number | undefined;// 1 indicates a valid transaction// 0 indicates invalid details// undefined indicates transaction is not initiated
   total_price: number = 0;
   wallet_money: number = 0;
   wallet_limit: number = 0;
   new_wallet_money: number = 0;
   stocks: PortfolioStocks[] = [];
   mFunds: PortfolioMutualFunds[] = [];
+selected : number =0;// indicates selected stock or mfund to sell
+
+
+
+
   constructor(private buyService: BuySellService) { }
   toggle(event: any) {
     console.log(event);
@@ -59,12 +64,12 @@ export class SellComponent implements OnInit {
   done() {
 
     if (this.cNumber == 1 && this.quantity != 0) {
-      this.total_price = this.quantity * this.stocks[0].currentPrice;
+      this.total_price = this.quantity * this.stocks[this.selected].currentPrice;
       console.log(this.total_price);
 
 
 
-      if (this.quantity > this.stocks[0].quantity) {
+      if (this.quantity > this.stocks[this.selected].quantity) {
         // if(this.total_price > 90){
 
 
@@ -103,12 +108,27 @@ export class SellComponent implements OnInit {
       if (this.cNumber == 1) {
 
 
-        console.log(this.stocks[0].name, this.stocks[0].quantity - this.quantity);
-        const updatedStock = this.stocks[0];
+        console.log(this.stocks[this.selected].name, this.stocks[this.selected].quantity - this.quantity);
+        const updatedStock = this.stocks[this.selected];
         updatedStock.quantity = updatedStock.quantity - this.quantity;
         console.log(updatedStock);
 
         this.buyService.updatePortfolioStocks(updatedStock).subscribe(data => {
+
+          console.log(data);
+        });
+
+      }
+      
+      if (this.cNumber == 2) {
+
+
+        console.log(this.mFunds[this.selected].name, this.mFunds[this.selected].quantity - this.quantity);
+        const updatedMfund = this.mFunds[this.selected];
+        updatedMfund.quantity = updatedMfund.quantity - this.quantity;
+        console.log(updatedMfund);
+
+        this.buyService.updatePortfolioMutualFunds(updatedMfund).subscribe(data => {
 
           console.log(data);
         });

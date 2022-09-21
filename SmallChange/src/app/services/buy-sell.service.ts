@@ -14,10 +14,10 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class BuySellService {
-  
+
   portfolioMfs: PortfolioMutualFunds[] = [];
   portfolioStocks: PortfolioStocks[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   private Url = 'http://localhost:3000/';
 
   getPortfolioStocks(): Observable<PortfolioStocks[]> {
@@ -48,40 +48,40 @@ export class BuySellService {
       .pipe(catchError(this.handleError));
   }
 
-  updatePortfolioMutualFunds(): Observable<PortfolioMutualFunds[]> {
-    const body = { 'sample ': 'data' };
-    return this.http
-      .put<PortfolioMutualFunds[]>(this.Url + 'portfolioMutualFunds', body)
-      .pipe(catchError(this.handleError));
-  }
-
-  updatePortfolioStocks(stock:PortfolioStocks): Observable<any> {
-    if(stock.quantity!=0){
-      
-    console.log(`${this.Url}portfolioStocks?name=${stock.name}`);
-    console.log(stock);
-    
-
-    return this.http
-      .put<PortfolioStocks>(`${this.Url}portfolioStocks?name=${stock.name}`, stock, httpOptions)
-      .pipe(catchError(this.handleError));
-
-    }
-    else{
+  updatePortfolioMutualFunds(mfund: PortfolioMutualFunds): Observable<any> {
+    if (mfund.quantity == 0) {
       return this.http
-      .delete<PortfolioStocks>(`${this.Url}/portfolioStocks?name=${stock.name}`)
-      .pipe(catchError(this.handleError));
+        .delete<PortfolioMutualFunds>(`${this.Url}portfolioMutualFunds/${mfund.id}`)
+        .pipe(catchError(this.handleError));
 
     }
-    
-  
-}
-  updatePortfolioStocksDelete(stock:PortfolioStocks): Observable<any> {
-    let url=this.Url+"portfolioStocks/name="+stock.name;
-    return this.http
-      .delete<PortfolioStocks>(url)
-      .pipe(catchError(this.handleError));
+    else {
+      return this.http
+        .put<PortfolioMutualFunds>(`${this.Url}portfolioMutualFunds/${mfund.id}`, mfund, httpOptions)
+        .pipe(catchError(this.handleError));
+
+    }
+
   }
+
+  updatePortfolioStocks(stock: PortfolioStocks): Observable<any> {
+    if (stock.quantity == 0) {
+      return this.http
+        .delete<PortfolioStocks>(`${this.Url}portfolioStocks/${stock.id}`)
+        .pipe(catchError(this.handleError));
+    }
+    else {
+      console.log(`${this.Url}portfolioStocks/${stock.id}`);
+      console.log(stock.id);
+      return this.http
+        .put<PortfolioStocks>(`${this.Url}portfolioStocks/${stock.id}`, stock, httpOptions)
+        .pipe(catchError(this.handleError));
+
+    }
+
+
+  }
+
 
   getWalletAmount(): Observable<Wallet> {
     return this.http

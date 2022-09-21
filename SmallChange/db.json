@@ -81,29 +81,26 @@
   ],
   "portfolioStocks": [
     {
-      "name": "Apple",
+      "id": 1,
+      "name": "zaza",
       "code": "APP",
-      "quantity": 7,
-      "buyPrice": 130.5,
-      "currentPrice": 150
+      "quantity": 11,
+      "buyPrice": 130,
+      "currentPrice": 10,
+      "no of time b": 2
     },
     {
+      "id": 2,
       "name": "Microsoft",
       "code": "MSFT",
-      "quantity": 3,
+      "quantity": 2,
       "buyPrice": 150,
       "currentPrice": 200
     }
   ],
   "portfolioMutualFunds": [
     {
-      "name": "Amazon",
-      "code": "AMZN",
-      "quantity": 2,
-      "buyPrice": 130.5,
-      "currentPrice": 135
-    },
-    {
+      "id": 2,
       "name": "Microsoft",
       "code": "AMZN",
       "quantity": 3,
@@ -149,7 +146,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 9185
+    "amount": 11615
   },
   "tradeHistory": [
     {
