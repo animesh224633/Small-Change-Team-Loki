@@ -84,10 +84,10 @@ selected : number =0;// indicates selected stock or mfund to sell
     }
     if (this.cNumber == 2 && this.quantity != 0) {
 
-      this.total_price = this.quantity * this.mFunds[0].currentPrice;
+      this.total_price = this.quantity * this.mFunds[this.selected].currentPrice;
       console.log(this.total_price);
 
-      if (this.quantity > this.mFunds[0].quantity) {
+      if (this.quantity > this.mFunds[this.selected].quantity) {
         // if(this.total_price > 90){
 
         console.log(this.total_price);
