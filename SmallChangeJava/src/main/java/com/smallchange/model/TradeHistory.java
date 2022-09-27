@@ -1,19 +1,16 @@
-package com.smallchange.dao;
+package com.smallchange.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class OrderDAO {
+public class TradeHistory {
 	
 	String code;
 	int quantity;
 	BigDecimal buyPrice;
-	String clientId;
 	String orderId;
 	LocalDate timestamp;
 	String direction;
-	
-	
 	public String getCode() {
 		return code;
 	}
@@ -31,12 +28,6 @@ public class OrderDAO {
 	}
 	public void setBuyPrice(BigDecimal buyPrice) {
 		this.buyPrice = buyPrice;
-	}
-	public String getClientId() {
-		return clientId;
-	}
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
 	}
 	public String getOrderId() {
 		return orderId;
@@ -57,4 +48,6 @@ public class OrderDAO {
 		this.direction = direction;
 	}
 	
+	
+
 }
