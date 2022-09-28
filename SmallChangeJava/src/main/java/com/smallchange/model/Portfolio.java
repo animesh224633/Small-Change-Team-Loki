@@ -18,7 +18,4 @@ public class Portfolio {
 	public void setPortfolioMutualFuundView(PortfolioMutalFund portfolioMutualFuundView) {
 		this.portfolioMutualFuundView = portfolioMutualFuundView;
 	}
-	
-	
-
 }

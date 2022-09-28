@@ -65,5 +65,4 @@ public class PortfolioService {
 		
 		return portfolioList;
 	}
-
 }
