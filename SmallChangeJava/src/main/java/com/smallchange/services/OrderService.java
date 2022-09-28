@@ -1,7 +1,9 @@
 package com.smallchange.services;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.smallchange.dao.ClientFinanceDetailsDAO;
 import com.smallchange.dao.HoldingsDAO;
@@ -42,19 +44,33 @@ public class OrderService {
 			throw new IllegalArgumentException("clientId cannot be empty");
 		}
 		
-		Boolean clientIdFlag=orderTable.stream().filter(o -> o.getClientId().equals(clientId)).findFirst().isPresent();
-		if(clientIdFlag) {
+		OrderDAO orderDAO = new OrderDAO();
+		orderDAO.setBuyPrice(buyPrice);
+		orderDAO.setClientId(clientId);
+		orderDAO.setCode(code);
+		orderDAO.setDirection("Buy");
+		orderDAO.setOrderId(UUID.randomUUID().toString());
+		orderDAO.setTimestamp(LocalDate.now());
+		orderTable.add(orderDAO);
 			for(HoldingsDAO holdingTableIter:holdingsTable) {
 				if(holdingTableIter.getClientId().equals(clientId)&&holdingTableIter.getCode().equals(code)) {
 					holdingTableIter.setClientId(clientId);
 					holdingTableIter.setCode(code);
-					holdingTableIter.setBuyPrice(BigDecimal.valueOf(ge));
+					BigDecimal totalNewBuyPrice = BigDecimal.valueOf(quantity).multiply(buyPrice);
+					BigDecimal totalOldBuyPrice = holdingTableIter.getBuyPrice().multiply(BigDecimal.valueOf(holdingTableIter.getQuantity()));
+					BigDecimal newBuyPrice = (totalNewBuyPrice.add(totalOldBuyPrice)).divide((BigDecimal.valueOf(quantity).add(BigDecimal.valueOf(holdingTableIter.getQuantity()))));
+					holdingTableIter.setBuyPrice(newBuyPrice);
+					holdingTableIter.setQuantity(quantity + holdingTableIter.getQuantity());
+					holdingTableIter.setHoldingId(UUID.randomUUID().toString());
 				}
 			}
-		}
-		else {
-			throw new IllegalArgumentException("clientId not available");
-		}
+			HoldingsDAO holdingsDAO = new HoldingsDAO();
+			holdingsDAO.setClientId(clientId);
+			holdingsDAO.setCode(code);
+			holdingsDAO.setBuyPrice(buyPrice);
+			holdingsDAO.setQuantity(quantity);
+			holdingsDAO.setHoldingId(UUID.randomUUID().toString());
+			holdingsTable.add(holdingsDAO);
 		return null;
 	}
 		
