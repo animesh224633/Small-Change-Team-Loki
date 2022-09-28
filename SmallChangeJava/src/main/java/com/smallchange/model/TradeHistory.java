@@ -1,6 +1,7 @@
 package com.smallchange.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class TradeHistory {
 	String name;
@@ -46,6 +47,28 @@ public class TradeHistory {
 	}
 	public void setAssetClass(String assetClass) {
 		this.assetClass = assetClass;
+	}
+	@Override
+	public String toString() {
+		return "TradeHistory [name=" + name + ", code=" + code + ", quantity=" + quantity + ", type=" + type
+				+ ", price=" + price + ", assetClass=" + assetClass + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(assetClass, code, name, price, quantity, type);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TradeHistory other = (TradeHistory) obj;
+		return Objects.equals(assetClass, other.assetClass) && Objects.equals(code, other.code)
+				&& Objects.equals(name, other.name) && Objects.equals(price, other.price) && quantity == other.quantity
+				&& Objects.equals(type, other.type);
 	}
 	
 

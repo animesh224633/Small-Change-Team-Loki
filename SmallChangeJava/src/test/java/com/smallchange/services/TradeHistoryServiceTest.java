@@ -29,14 +29,16 @@ class TradeHistoryServiceTest {
 		orderDAO.setClientId("loki");
 		orderDAO.setCode("AMZN");
 		orderDAO.setQuantity(3);
-		orderDAO.setBuyPrice(new BigDecimal("100.00"));
+		orderDAO.setBuyPrice(BigDecimal.valueOf(100));
+		orderDAO.setDirection("Buy");
 		orderDAOList.add(orderDAO);
 		
 		OrderDAO orderDAO1 = new OrderDAO();
 		orderDAO1.setClientId("seneha");
 		orderDAO1.setCode("AMZN");
 		orderDAO1.setQuantity(4);
-		orderDAO1.setBuyPrice(new BigDecimal("100.00"));
+		orderDAO1.setDirection("Buy");
+		orderDAO1.setBuyPrice(BigDecimal.valueOf(100));
 		orderDAOList.add(orderDAO1);
 		
 		
@@ -44,7 +46,8 @@ class TradeHistoryServiceTest {
 		orderDAO2.setClientId("loki");
 		orderDAO2.setCode("MF");
 		orderDAO2.setQuantity(5);
-		orderDAO2.setBuyPrice(new BigDecimal("110.00"));
+		orderDAO2.setDirection("Sell");
+		orderDAO2.setBuyPrice(BigDecimal.valueOf(100));
 		orderDAOList.add(orderDAO2);
 		
 		
@@ -70,8 +73,25 @@ class TradeHistoryServiceTest {
 	@DisplayName("should test the lenght of history fetched")
 	@Test
 	void testBasicTradeHistoryLength() throws Exception {
-		List<TradeHistory> tradeHistoryList=tradeHistoryService.getTradeHistory("loki", orderDAOList, instrumentDAOList);
-		assertEquals(2,tradeHistoryList.size());
+		List<TradeHistory> tradeHistoryList=tradeHistoryService.getTradeHistory("seneha", orderDAOList, instrumentDAOList);
+		assertEquals(1,tradeHistoryList.size());
+		
+	}
+	
+	@DisplayName("should test the data fetched")
+	@Test
+	void testBasicTradeHistoryData() throws Exception {
+		List<TradeHistory> tradeHistory=new ArrayList<>();
+		TradeHistory tradeHistoryData=new TradeHistory();
+		tradeHistoryData.setAssetClass("Stocks");
+		tradeHistoryData.setCode("AMZN");
+		tradeHistoryData.setName("AMAZON");
+		tradeHistoryData.setPrice(BigDecimal.valueOf(100));
+		tradeHistoryData.setQuantity(4);
+		tradeHistoryData.setType("Buy");
+		tradeHistory.add(tradeHistoryData);
+		List<TradeHistory> tradeHistoryList=tradeHistoryService.getTradeHistory("seneha", orderDAOList, instrumentDAOList);
+		assertEquals(tradeHistory,tradeHistoryList);
 		
 	}
 	
