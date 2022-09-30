@@ -17,6 +17,18 @@ public class TradeHistoryService {
 		if(clientId.equals("")) {
 			throw new IllegalArgumentException("clientId cannot be empty");
 		}
+		if(orderTable ==null) {
+			throw new NullPointerException("Order history table cannot be null");
+		}
+		if(orderTable.size()==0) {
+			throw new IllegalArgumentException("order table cannot be empty");
+		}
+		if(instrumentTable==null) {
+			throw new NullPointerException("instrument table cannot be null");
+		}
+		if(instrumentTable.size()==0) {
+			throw new IllegalArgumentException("instrument table cannot be empty");
+		}
 		Boolean flag=orderTable.stream().filter(o -> o.getClientId().equals(clientId)).findFirst().isPresent();
 		if(flag) {
 		for(OrderDAO orderTableIterator: orderTable) {
@@ -42,5 +54,6 @@ public class TradeHistoryService {
 		return TradeHistoryList;
 	}
 
+	
 
 }

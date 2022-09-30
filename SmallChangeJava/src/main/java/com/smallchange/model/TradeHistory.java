@@ -12,51 +12,86 @@ public class TradeHistory {
 	String assetClass;
 	
 	
+	@Generated
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
+		if(name==null)
+			throw new NullPointerException("Name cannot be null");
+		if(name=="")
+			throw new IllegalArgumentException("Name cannot be empty");
 		this.name = name;
 	}
+	@Generated
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
+		if(code==null)
+			throw new NullPointerException("Code cannot be null");
+		if(code=="")
+			throw new IllegalArgumentException("Code cannot be empty");
 		this.code = code;
 	}
+	@Generated
 	public int getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(int quantity) {
+		
+		if(quantity<0) {
+			throw new IllegalArgumentException("Quantity cannot be negative");
+		}
 		this.quantity = quantity;
 	}
+	@Generated
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
+		if(type==null)
+			throw new NullPointerException("Type cannot be null");
+		if(type=="")
+			throw new IllegalArgumentException("Type cannot be empty");
 		this.type = type;
 	}
+	@Generated
 	public BigDecimal getPrice() {
 		return price;
 	}
 	public void setPrice(BigDecimal price) {
+		if(price==null) {
+			throw new NullPointerException("Price cannot be null");
+		}
+		if(price.compareTo(BigDecimal.ZERO)<0) {
+			throw new IllegalArgumentException("Price cannot be negative");
+		}
 		this.price = price;
 	}
+	@Generated
 	public String getAssetClass() {
 		return assetClass;
 	}
 	public void setAssetClass(String assetClass) {
+		if(assetClass==null)
+			throw new NullPointerException("Asset class cannot be null");
+		if(assetClass=="")
+			throw new IllegalArgumentException("Asset class cannot be empty");
 		this.assetClass = assetClass;
 	}
+	@Generated
 	@Override
 	public String toString() {
 		return "TradeHistory [name=" + name + ", code=" + code + ", quantity=" + quantity + ", type=" + type
 				+ ", price=" + price + ", assetClass=" + assetClass + "]";
 	}
+	@Generated
 	@Override
 	public int hashCode() {
 		return Objects.hash(assetClass, code, name, price, quantity, type);
 	}
+	@Generated
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,6 +105,7 @@ public class TradeHistory {
 				&& Objects.equals(name, other.name) && Objects.equals(price, other.price) && quantity == other.quantity
 				&& Objects.equals(type, other.type);
 	}
+	
 	
 
 }
