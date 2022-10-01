@@ -3,8 +3,7 @@ package com.smallchange.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class BuyInstrument {
-
+public class SellInstrument {
 	private String code;
 
 	private String name;
@@ -25,10 +24,14 @@ public class BuyInstrument {
 	public BigDecimal getCurrentPrice() {
 		return currentPrice;
 	}
-	@Override
-	public String toString() {
-		return "BuyInstrument [code=" + code + ", name=" + name + ", currentPrice=" + currentPrice + ", category="
-				+ category + "]";
+	public void setCurrentPrice(BigDecimal currentPrice) {
+		this.currentPrice = currentPrice;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	@Override
 	public int hashCode() {
@@ -42,17 +45,14 @@ public class BuyInstrument {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BuyInstrument other = (BuyInstrument) obj;
+		SellInstrument other = (SellInstrument) obj;
 		return Objects.equals(category, other.category) && Objects.equals(code, other.code)
 				&& Objects.equals(currentPrice, other.currentPrice) && Objects.equals(name, other.name);
 	}
-	public void setCurrentPrice(BigDecimal currentPrice) {
-		this.currentPrice = currentPrice;
+	@Override
+	public String toString() {
+		return "SellInstrument [code=" + code + ", name=" + name + ", currentPrice=" + currentPrice + ", category="
+				+ category + "]";
 	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+
 }
