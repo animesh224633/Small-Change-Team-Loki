@@ -150,9 +150,13 @@ class PortfolioServiceTest {
 	}
 	@Test
 	void checkTeslaStockHolding() {
+		System.out.println("hello");
 		List<Portfolio> portfolioList = portfolioService.getUserPortfolio("loki", holdingList, instrumentDAOList);
+		
 		for (Portfolio portfolioIterator:portfolioList) {
-			if(portfolioIterator.getPortfolioStockView().getCode().equals("TSLA")) {
+			
+			if (portfolioIterator.getPortfolioStockView().getCode().equals("TSLA")){
+				
 				assertEquals("Tesla",portfolioIterator.getPortfolioStockView().getName());
 				assertEquals(BigDecimal.valueOf(4000).setScale(2), portfolioIterator.getPortfolioStockView().getBuyPrice());
 				assertEquals(BigDecimal.valueOf(5000).setScale(2),portfolioIterator.getPortfolioStockView().getCurrentPrice());
@@ -161,8 +165,11 @@ class PortfolioServiceTest {
 				assertEquals(BigDecimal.valueOf(20).setScale(2),portfolioIterator.getPortfolioStockView().getPercentageChange());
 				assertEquals(BigDecimal.valueOf(214000).setScale(2),portfolioIterator.getPortfolioStockView().getProfiOrLoss());
 				assertEquals(Integer.valueOf(214),portfolioIterator.getPortfolioStockView().getQuantity());
+				
+				break;
 			}
 		}
+		System.out.println("over");
 	}
 	@Test
 	void checkSbiMutualFund() {

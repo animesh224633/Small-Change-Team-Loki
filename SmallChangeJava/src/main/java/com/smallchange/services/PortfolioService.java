@@ -58,6 +58,7 @@ public class PortfolioService {
 					portfolioStock.setPercentageChange(new BigDecimal("20.00"));
 
 					portfolio.setPortfolioStockView(portfolioStock);
+					
 					this.portfolioList.add(portfolio);
 
 					
