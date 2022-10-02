@@ -40,9 +40,9 @@
             <mat-form-field appearance="outline"  *ngIf="this.cNumber === 1">
             <mat-label>Select Holding</mat-label>
                <!-- <mat-select [(ngModel)]="stock_code">-->
-                    <mat-select>
-                    <mat-option *ngFor="let stock of stocks" [value]="stock.code"> 
-                        {{stock.name}}
+                    <mat-select [(value)]="selected">
+                        <mat-option *ngFor="let stock of stocks; let i = index" [value]="i"> 
+                            {{stock.name}}
                     </mat-option>
                 </mat-select>
         </mat-form-field>
@@ -67,9 +67,9 @@
 
                 <mat-form-field appearance="outline" *ngIf="this.cNumber === 2">
               <mat-label>Select Holding</mat-label>
-                  <mat-select>
-                      <mat-option *ngFor="let mFund of mFunds" [value]="mFund.code"> 
-                          {{mFund.name}}
+                  <mat-select  [(value)]="selected">
+                    <mat-option *ngFor="let mFund of mFunds; let i=index" [value]="i"> 
+                        {{mFund.name}}
                       </mat-option>
                   </mat-select>
           </mat-form-field>
@@ -95,7 +95,7 @@
         -->
           <mat-form-field appearance="outline">
             <mat-label>Quantity</mat-label>
-            <input matInput type="number" min="0" [(ngModel)]="quantity">
+            <input  matInput id="quantity" type="number" min="0" [(ngModel)]="quantity">
           </mat-form-field>
       <!--  </div>
 
@@ -113,7 +113,7 @@
     
     
         <mat-card-actions class="submitbutton">
-            <button mat-stroked-button (click)="done()">Check Total Price</button>
+            <button mat-stroked-button id="check" (click)="done()">Check Total Price</button>
         </mat-card-actions>
 
         <mat-card class="total" appearance="outline">
@@ -128,7 +128,7 @@
  
         <!--BUTTON-->
         <mat-card-actions align="end">
-            <button mat-stroked-button (click)="submit()">Execute</button>
+            <button mat-stroked-button id="execute" (click)="submit()">Execute</button>
         </mat-card-actions>
   </mat-card>
   <br>

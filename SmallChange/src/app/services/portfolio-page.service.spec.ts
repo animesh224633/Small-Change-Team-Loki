@@ -14,14 +14,16 @@ describe('PortfolioPageService', () => {
     "code": "AMZN",
     "quantity": 2,
     "buyPrice": 130.5,
-    "currentPrice": 135
+    "currentPrice": 135,
+    "id":100
   },
   {
     "name": "Microsoft",
     "code": "MSFT",
     "quantity": 3,
     "buyPrice": 150,
-    "currentPrice": 170
+    "currentPrice": 170,
+    "id":101
   }];
 
   const mockMf: PortfolioMutualFunds[] = [{
@@ -29,14 +31,16 @@ describe('PortfolioPageService', () => {
     "code": "AMZN",
     "quantity": 2,
     "buyPrice": 130.5,
-    "currentPrice": 135
+    "currentPrice": 135,
+    "id":102
   },
   {
     "name": "Microsoft",
     "code": "MSFT",
     "quantity": 3,
     "buyPrice": 150,
-    "currentPrice": 170
+    "currentPrice": 170,
+    "id":103
   }];
   const mockwallet:Wallet={
     amount: 3000

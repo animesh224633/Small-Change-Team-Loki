@@ -5,108 +5,33 @@
       "name": "teamloki",
       "email": "teamloki",
       "password": "123456"
-    },
-    {
-      "id": 2,
-      "name": "seneha",
-      "email": "seneha",
-      "password": "seneha"
-    },
-    {
-      "name": "sss",
-      "email": "treww",
-      "password": "erewss",
-      "id": 3
-    },
-    {
-      "name": "teams",
-      "email": "teamlokis",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 5
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 6
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 7
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 8
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 9
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 10
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 11
-    },
-    {
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456",
-      "id": 12
-    },
-    {
-      "id": 30,
-      "name": "teams",
-      "email": "teamloki1",
-      "password": "123456"
     }
   ],
   "portfolioStocks": [
     {
-      "name": "Apple",
+      "id": 1,
+      "name": "zaza",
       "code": "APP",
-      "quantity": 2,
-      "buyPrice": 130.5,
-      "currentPrice": 150
+      "quantity": 11,
+      "buyPrice": 130,
+      "currentPrice": 10,
+      "no of time b": 2
     },
     {
+      "id": 2,
       "name": "Microsoft",
       "code": "MSFT",
-      "quantity": 3,
+      "quantity": 2,
       "buyPrice": 150,
       "currentPrice": 200
     }
   ],
   "portfolioMutualFunds": [
     {
-      "name": "Amazon",
-      "code": "AMZN",
-      "quantity": 2,
-      "buyPrice": 130.5,
-      "currentPrice": 135
-    },
-    {
+      "id": 2,
       "name": "Microsoft",
       "code": "AMZN",
-      "quantity": 3,
+      "quantity": 1,
       "buyPrice": 150,
       "currentPrice": 170
     }
@@ -149,7 +74,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 120
+    "amount": 10485
   },
   "tradeHistory": [
     {

@@ -8,7 +8,7 @@ describe('My First Test', () => {
     form.login("teamloki","123456")
     cy.url().should('include','portfolio')
     nav.portfolio()
-    nav.getCarTableRowColumn(1, 1).should('eq','Amazon')
+    nav.getCarTableRowColumn(1, 1).should('eq','zaza')
   });
 
   it('should go to trade history page', () => {
@@ -17,6 +17,14 @@ describe('My First Test', () => {
     nav.portfolio()
     cy.visit("/trade")
     nav.getCarTableRowColumn(1, 1).should('eq','Amazon')
+  });
+
+  it('should go to trade page', () => {
+    form.login("teamloki","123456")
+    cy.url().should('include','portfolio')
+    nav.portfolio()
+    cy.visit("/tradeBuySell")
+    nav.tradeBuySell("1")
   });
 
  

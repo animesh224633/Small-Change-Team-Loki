@@ -12,6 +12,11 @@ export default class NavPage {
         cy.visit("/portfolio")
     }
 
+    tradeBuySell(quantity:string){
+        cy.get('#quantity').type(quantity)
+        cy.get('#check').click()
+        cy.get("#execute").click()
+    }
     getCarTableRowColumn(row: number, column: number) {
         return cy.get(`tbody tr:nth-child(${row}) :nth-child(${column})`)
                  .invoke('text');

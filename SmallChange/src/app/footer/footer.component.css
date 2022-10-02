@@ -15,7 +15,14 @@
     padding:0.5rem 1rem 0.5rem 1rem;
     margin-left: auto;
     margin-right: auto;
-    text-align:left;
-    font-family: "Fidelity Sans", Arial, sans-serif; ;
+    text-align:center;
+    font-family: "Fidelity Sans", Arial, sans-serif; 
+  }
+  footer{
+    position: absolute;
+    min-width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
   }
   
