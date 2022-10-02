@@ -56,6 +56,7 @@ export class BuySellService {
 
     }
     else {
+      console.log(mfund.id)
       return this.http
         .put<PortfolioMutualFunds>(`${this.Url}portfolioMutualFunds/${mfund.id}`, mfund, httpOptions)
         .pipe(catchError(this.handleError));
