@@ -95,7 +95,7 @@
         -->
           <mat-form-field appearance="outline">
             <mat-label>Quantity</mat-label>
-            <input matInput type="number" min="0" [(ngModel)]="quantity">
+            <input  matInput id="quantity" type="number" min="0" [(ngModel)]="quantity">
           </mat-form-field>
       <!--  </div>
 
@@ -113,7 +113,7 @@
     
     
         <mat-card-actions class="submitbutton">
-            <button mat-stroked-button (click)="done()">Check Total Price</button>
+            <button mat-stroked-button id="check" (click)="done()">Check Total Price</button>
         </mat-card-actions>
 
         <mat-card class="total" appearance="outline">
@@ -128,7 +128,7 @@
  
         <!--BUTTON-->
         <mat-card-actions align="end">
-            <button mat-stroked-button (click)="submit()">Execute</button>
+            <button mat-stroked-button id="execute" (click)="submit()">Execute</button>
         </mat-card-actions>
   </mat-card>
   <br>
