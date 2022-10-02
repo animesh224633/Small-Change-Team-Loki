@@ -83,8 +83,7 @@ else{
 
       if (this.total_price > this.wallet_limit) {
         // if(this.total_price > 90){
-
-
+          
         console.log(this.total_price);
         this.transaction = 0;
       }
@@ -120,7 +119,7 @@ else{
       if (this.cNumber == 1) {
 
 
-        console.log(this.stocks[this.selected].name, this.stocks[this.selected].quantity - this.quantity);
+        console.log(this.stocks[this.selected].name, this.stocks[this.selected].quantity + this.quantity);
         const updatedStock = this.stocks[this.selected];
         updatedStock.buyPrice=((updatedStock.quantity*updatedStock.buyPrice)+(this.quantity*updatedStock.currentPrice))/(this.quantity+updatedStock.quantity);
         updatedStock.quantity = updatedStock.quantity + this.quantity;
@@ -136,7 +135,7 @@ else{
       if (this.cNumber == 2) {
 
 
-        console.log(this.mFunds[this.selected].name, this.mFunds[this.selected].quantity - this.quantity);
+        console.log(this.mFunds[this.selected].name, this.mFunds[this.selected].quantity + this.quantity);
         const updatedMfund = this.mFunds[this.selected];
         updatedMfund.buyPrice=((updatedMfund.quantity*updatedMfund.buyPrice)+(this.quantity*updatedMfund.currentPrice))/(this.quantity+updatedMfund.quantity);
         updatedMfund.quantity = updatedMfund.quantity + this.quantity;

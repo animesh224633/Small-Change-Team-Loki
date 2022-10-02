@@ -24,6 +24,21 @@
       "quantity": 2,
       "buyPrice": 150,
       "currentPrice": 200
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
     }
   ],
   "portfolioMutualFunds": [

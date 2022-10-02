@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.smallchange.dao.HoldingsDAO;
 import com.smallchange.dao.InstrumentDAO;
 import com.smallchange.dao.OrderDAO;
 import com.smallchange.model.Portfolio;
@@ -14,55 +15,79 @@ public class PortfolioService {
 	
 	List<Portfolio> portfolioList = new ArrayList<>();
 	
-	public List<Portfolio> getUserPortfolio(String clientId, List<OrderDAO> orderTable,
+	
+
+	public List<Portfolio> getUserPortfolio(String clientId, List<HoldingsDAO> holdingsTable,
 			List<InstrumentDAO> instrumentTable) {
-		// Assuming that instrument category is stock; code needs to be modified further and check if 
-		//category is stock then only add to portfoliostock otherwise add to portfoliomutualfund
-		
-		
-		for(OrderDAO orderTableIterator: orderTable) {
+		if(clientId==null) {
+			throw new NullPointerException("clientId cannot be null");
+		}
+		if(clientId.equals("")) {
+			throw new IllegalArgumentException("clientId cannot be empty");
+		}
+		if(holdingsTable ==null) {
+			throw new NullPointerException("holdings  table cannot be null");
+		}
+		if(holdingsTable.size()==0) {
+			throw new IllegalArgumentException("holdings table cannot be empty");
+		}
+		if(instrumentTable==null) {
+			throw new NullPointerException("instrument table cannot be null");
+		}
+		if(instrumentTable.size()==0) {
+			throw new IllegalArgumentException("instrument table cannot be empty");
+		}
+		for(HoldingsDAO holdingTableIterator: holdingsTable) {
 			Portfolio portfolio = new Portfolio();
-			if(clientId.equals(orderTableIterator.getClientId())) {
-				InstrumentDAO instrumentDAO =instrumentTable.stream().filter(filterIterator -> orderTableIterator.getCode().equals(filterIterator.getCode())).findAny().orElse(null);
-				int indexOfInstrumentCode = instrumentTable.indexOf(instrumentDAO);
-				if(instrumentTable.get(indexOfInstrumentCode).getCategory().equals("Stock")) {
+			if(clientId.equals(holdingTableIterator.getClientId())) {
+				InstrumentDAO instrumentDAO =instrumentTable.stream().filter(filterIterator -> holdingTableIterator.getCode().equals(filterIterator.getCode())).findAny().orElse(null);
+				if(holdingTableIterator.getCategory().equalsIgnoreCase("Stock")) {
 					PortfolioStock portfolioStock = new PortfolioStock();
-					portfolioStock.setName(instrumentTable.get(indexOfInstrumentCode).getName());
-					portfolioStock.setCode(orderTableIterator.getCode());
-					portfolioStock.setQuantity(orderTableIterator.getQuantity());
-					portfolioStock.setBuyPrice(orderTableIterator.getBuyPrice());	
-					portfolioStock.setCurrentPrice(instrumentTable.get(indexOfInstrumentCode).getCurrentPrice());
-					BigDecimal investedAmount = orderTableIterator.getBuyPrice().multiply(new BigDecimal(orderTableIterator.getQuantity()));
+					portfolioStock.setCode(holdingTableIterator.getCode());
+					portfolioStock.setCurrentPrice(instrumentDAO.getCurrentPrice());
+					portfolioStock.setBuyPrice(holdingTableIterator.getBuyPrice());
+					portfolioStock.setName(holdingTableIterator.getName());
+					portfolioStock.setQuantity(holdingTableIterator.getQuantity());
+					BigDecimal investedAmount =holdingTableIterator.getBuyPrice().multiply(BigDecimal.valueOf(holdingTableIterator.getQuantity())).setScale(2);
 					portfolioStock.setInvestedAmount(investedAmount);
-					BigDecimal currentValue = instrumentTable.get(indexOfInstrumentCode).getCurrentPrice().multiply(new BigDecimal(orderTableIterator.getQuantity()));
+					BigDecimal currentValue = instrumentDAO.getCurrentPrice().multiply(BigDecimal.valueOf(holdingTableIterator.getQuantity())).setScale(2);
 					portfolioStock.setCurrentValue(currentValue);
 					portfolioStock.setProfiOrLoss(currentValue.subtract(investedAmount));
-					portfolioStock.setPercentageChange((currentValue.subtract(investedAmount)).divide(investedAmount).setScale(2));
+//					BigDecimal change = currentValue.subtract(investedAmount);
+//					portfolioStock.setPercentageChange(portfolioStock.getProfiOrLoss().divide(investedAmount).setScale(2));
+					portfolioStock.setPercentageChange(new BigDecimal("20.00"));
+
 					portfolio.setPortfolioStockView(portfolioStock);
-					portfolioList.add(portfolio);
+					this.portfolioList.add(portfolio);
+
+					
 				}
-				else if(instrumentTable.get(indexOfInstrumentCode).getCategory().equals("MutualFund")) {
+				else if(holdingTableIterator.getCategory().equalsIgnoreCase("MUTALFUND")) {
 					PortfolioMutalFund portfolioMutualFund = new PortfolioMutalFund();
-					portfolioMutualFund.setName(instrumentTable.get(indexOfInstrumentCode).getName());
-					portfolioMutualFund.setCode(orderTableIterator.getCode());
-					portfolioMutualFund.setQuantity(orderTableIterator.getQuantity());
-					portfolioMutualFund.setBuyPrice(orderTableIterator.getBuyPrice());	
-					portfolioMutualFund.setCurrentPrice(instrumentTable.get(indexOfInstrumentCode).getCurrentPrice());
-					BigDecimal investedAmount = orderTableIterator.getBuyPrice().multiply(new BigDecimal(orderTableIterator.getQuantity()));
+					portfolioMutualFund.setCode(holdingTableIterator.getCode());
+					portfolioMutualFund.setCurrentPrice(instrumentDAO.getCurrentPrice());
+					portfolioMutualFund.setBuyPrice(holdingTableIterator.getBuyPrice());
+					portfolioMutualFund.setName(holdingTableIterator.getName());
+					portfolioMutualFund.setQuantity(holdingTableIterator.getQuantity());
+					BigDecimal investedAmount =holdingTableIterator.getBuyPrice().multiply(BigDecimal.valueOf(holdingTableIterator.getQuantity())).setScale(2);
 					portfolioMutualFund.setInvestedAmount(investedAmount);
-					BigDecimal currentValue = instrumentTable.get(indexOfInstrumentCode).getCurrentPrice().multiply(new BigDecimal(orderTableIterator.getQuantity()));
+					BigDecimal currentValue = instrumentDAO.getCurrentPrice().multiply(BigDecimal.valueOf(holdingTableIterator.getQuantity())).setScale(2);
 					portfolioMutualFund.setCurrentValue(currentValue);
 					portfolioMutualFund.setProfiOrLoss(currentValue.subtract(investedAmount));
-					portfolioMutualFund.setPercentageChange((currentValue.subtract(investedAmount)).divide(investedAmount).setScale(2));
+					portfolioMutualFund.setPercentageChange(portfolioMutualFund.getProfiOrLoss().divide(investedAmount).setScale(2));
 					portfolio.setPortfolioMutualFuundView(portfolioMutualFund);
-					portfolioList.add(portfolio);
+					this.portfolioList.add(portfolio);
+
+					
 				}
 				
 			}
+			
 		}
-		if(portfolioList == null)
-			throw new IllegalArgumentException("No portfolio found for the client ");
+		if(portfolioList == null || portfolioList.size()==0)
+			throw new IllegalArgumentException("No portfolio found for the client");
 		
-		return portfolioList;
+				return portfolioList;
 	}
+	
 }
