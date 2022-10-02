@@ -149,7 +149,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 4535
+    "amount": 0
   },
   "tradeHistory": [
     {
@@ -194,4 +194,5 @@
       "account_number": 982167897543
     }
   ]
+  
 }

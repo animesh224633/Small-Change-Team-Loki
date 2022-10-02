@@ -9,6 +9,20 @@ import { Wallet } from '../models/wallet.model';
   providedIn: 'root',
 })
 export class BuySellService {
+   mockpStocks: PortfolioStocks[]=[{
+    name: "Apple",
+    code: "APP",
+    quantity: 2,
+    buyPrice: 130.5,
+    currentPrice: 150
+  },
+  {
+    name: "Microsoft",
+    code: "MSFT",
+    quantity: 3,
+    buyPrice: 150,
+    currentPrice: 200
+  }];
   portfolioMfs: PortfolioMutualFunds[] = [];
   portfolioStocks: PortfolioStocks[] = [];
   constructor(private http: HttpClient) {}
