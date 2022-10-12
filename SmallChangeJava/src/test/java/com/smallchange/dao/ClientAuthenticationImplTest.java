@@ -1,6 +1,8 @@
 package com.smallchange.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.jdbc.JdbcTestUtils.countRowsInTable;
+import static org.springframework.test.jdbc.JdbcTestUtils.countRowsInTableWhere;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -70,8 +72,14 @@ class ClientAuthenticationImplTest {
 	@DisplayName("Should return success insert")
 	@Test
 	void insert_client() {
-		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("Seneha", "seneha@gmail.com", "seneha1561");
+		int ClientOldSize = countRowsInTable(jdbcTemplate, "client");
+		assertEquals(0, countRowsInTableWhere(jdbcTemplate, "client", "client_name = 'Seneha1'"));
+
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("Seneha1", "seneha@gmail.com", "seneha1561");
 		assertEquals(successlogin.getMessage(),"registered successfully");
+		assertEquals(ClientOldSize + 1, countRowsInTable(jdbcTemplate, "client"));
+		assertEquals(1, countRowsInTableWhere(jdbcTemplate, "client", "client_name = 'Seneha1'" ));
+
 	}
 	
 	@DisplayName("Should return client mail already exist")

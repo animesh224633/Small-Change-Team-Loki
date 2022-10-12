@@ -105,6 +105,7 @@ public class ClientAuthenticationImpl implements ClientAuthenticationDao{
 				stmt1.setFloat(4,0.0f);
 				stmt1.setString(5, password);
 				stmt1.executeUpdate();
+				
 				message = "registered successfully";
 			}
 			clientSendBackDetails.setMessage(message);
