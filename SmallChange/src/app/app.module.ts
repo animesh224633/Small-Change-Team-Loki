@@ -42,6 +42,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
+import { PreferencesPageComponent } from './preferences-page/preferences-page.component';
+import { PreferencesSubmitPageComponent } from './preferences-submit-page/preferences-submit-page.component';
+
 
 
 @NgModule({
@@ -58,16 +61,19 @@ import { MatSortModule } from '@angular/material/sort';
     PortfolioComponent,
     ActivityComponent,
     TradeComponent,
-    PreferencesComponent,
+    PreferencesPageComponent,
     PortfolioStockTableComponent,
     PortfolioMfTableComponent,
     PortfolioDetailsComponent,
     BuyComponent,
     SellComponent,
-    BuysellComponent
+    BuysellComponent,
+    PreferencesComponent,
+    PreferencesSubmitPageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -89,7 +95,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatSelectModule,
     MatOptionModule,
     MatSlideToggleModule,
-    MatSortModule
+    MatSortModule,
+    
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]

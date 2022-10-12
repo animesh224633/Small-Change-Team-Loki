@@ -24,21 +24,6 @@
       "quantity": 2,
       "buyPrice": 150,
       "currentPrice": 200
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
     }
   ],
   "portfolioMutualFunds": [
@@ -46,7 +31,7 @@
       "id": 2,
       "name": "Microsoft",
       "code": "AMZN",
-      "quantity": 3,
+      "quantity": 1,
       "buyPrice": 150,
       "currentPrice": 170
     }
@@ -89,7 +74,7 @@
     "amount": 2000
   },
   "walletMoney": {
-    "amount": 11165
+    "amount": 10485
   },
   "tradeHistory": [
     {

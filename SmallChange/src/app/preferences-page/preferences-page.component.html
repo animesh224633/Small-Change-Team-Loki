@@ -1,0 +1,100 @@
+<app-nav-bar></app-nav-bar>
+
+<div style="margin: 5%;">
+  <mat-form-field appearance="fill">
+    <mat-label>Investment Purpose</mat-label>
+    <mat-select (selectionChange)="onChange($event)" >
+      <mat-option *ngFor="let investment of investmentList" [value]="investment">{{investment}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Risk Tolerance</mat-label>
+    <mat-select (selectionChange)="onChange($event)" >
+      <mat-option *ngFor="let risk of riskToleranceList" [value]="risk">{{risk}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Income  Category</mat-label>
+    <mat-select (selectionChange)="onChange($event)" >
+      <mat-option *ngFor="let income of incomeCategoryList" [value]="income">{{income}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Length of investmentList</mat-label>
+    <mat-select (selectionChange)="onChange($event)" >
+      <mat-option *ngFor="let length of lengthOfinvestmentList" [value]="length">{{length}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+<div>
+    <button mat-raised-button color="primary" (click)="PreferenceSubmit()"> Submit Preferences</button>
+    </div>
+</div>
+<!--<app-nav-bar></app-nav-bar>
+
+<h1>Please set your Investment Preferences:</h1>
+
+
+
+<form id="outerContainer" [formGroup]="preferencesForm" (ngSubmit)="add()">
+  <div class="formGroup">
+    <label for="ip">Investment Purpose</label>
+    <input type="text" id="ip" name="ip" formControlName="investmentPurpose" />
+  </div>
+
+
+
+ <div class="formGroup">
+    <label for="rt">Risk Tolerance</label>
+    <input
+      type="range"
+      min="1"
+      max="5"
+      value="2"
+      class="slider"
+      id="rt"
+      formControlName="riskTolerance"
+    />
+  </div>
+
+
+
+ <div class="formGroup">
+    Note: 5-point scale stands for Conservative, Below Average, Average, Above
+    Average, Aggressive.
+  </div>
+
+
+
+ <div class="formGroup">
+    <label for="ic">Income Category</label>
+    <select id="ic" name="ic" formControlName="incomeCategory">
+      <option value="1">0 - 20,000</option>
+      <option value="2">20,001 - 40,000</option>
+      <option value="3">40,001 - 60,000</option>
+      <option value="4">60,001 - 80,000</option>
+      <option value="5">80,001 - 100,000</option>
+      <option value="6">100,001 - 150,000</option>
+      <option value="7">150,001+</option>
+    </select>
+  </div>
+
+
+
+ <div class="formGroup">
+    <label for="loi">Length of Investments</label>
+    <select id="loi" name="loi" formControlName="lengthOfInvestments">
+      <option value="1">0 - 5years</option>
+      <option value="2">5 - 7years</option>
+      <option value="3">7 - 10years</option>
+      <option value="4">10 - 15years</option>
+      <option value="5">15+ years</option>
+    </select>
+  </div>
+
+
+
+ <div class="formGroup">
+    <button type="submit" [disabled]="!preferencesForm.valid">Submit</button>
+  </div>
+</form>-->
