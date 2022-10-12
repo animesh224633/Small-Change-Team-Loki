@@ -2,10 +2,8 @@ package com.smallchange.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -14,16 +12,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.smallchange.uimodel.ClientSendBackDetails;
 import com.smallchange.uimodel.TradeHistory;
 
+class ClientAuthenticationImplTest {
 
-
-
-class TradeHistoryImplTest {
-	
 	JdbcTemplate jdbcTemplate;
 	DbTestUtils dbTestUtils;
-	TradeHistoryDao dao;
+	ClientAuthenticationDao dao;
 	SimpleDataSource dataSource;
 	Connection connection;
 	
@@ -45,7 +41,7 @@ class TradeHistoryImplTest {
 		jdbcTemplate = dbTestUtils.initJdbcTemplate();
 		
 		
-		dao=new TradeHistoryImpl(dataSource);
+		dao=new ClientAuthenticationImpl(dataSource);
 				
 	}
 
@@ -60,16 +56,8 @@ class TradeHistoryImplTest {
 	@DisplayName("Should check whether we are getting all the trade")
 	@Test
 	void getAll_Client() {
-		List<TradeHistory> tradehistory=dao.getTradeHistory("1");
-		assertEquals(tradehistory.size(),2);
-	}
-	
-	@DisplayName("Should return 0 when client id is null")
-	@Test
-	void getclient_null() {
-		List<TradeHistory> tradehistory=dao.getTradeHistory(null);
-		assertEquals(tradehistory.size(),0);
+		ClientSendBackDetails tradehistory=dao.loginAuthenticationService("TEAMLOKI", "teamloki");
+		assertEquals(tradehistory.getMessage(),"authentication successful");
 	}
 
-	
 }
