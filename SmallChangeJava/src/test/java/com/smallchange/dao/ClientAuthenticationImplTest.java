@@ -53,11 +53,73 @@ class ClientAuthenticationImplTest {
 		dataSource.shutdown();
 	}
 
-	@DisplayName("Should check whether we are getting all the trade")
+	@DisplayName("Should return success login")
 	@Test
-	void getAll_Client() {
-		ClientSendBackDetails tradehistory=dao.loginAuthenticationService("TEAMLOKI", "teamloki");
-		assertEquals(tradehistory.getMessage(),"authentication successful");
+	void get_login() {
+		ClientSendBackDetails successlogin=dao.loginAuthenticationService("TEAMLOKI", "teamloki");
+		assertEquals(successlogin.getMessage(),"authentication successful");
+	}
+	
+	@DisplayName("Should return wrong login")
+	@Test
+	void Wrong_login() {
+		ClientSendBackDetails successlogin=dao.loginAuthenticationService("TEAMLOKIs", "teamloki");
+		assertEquals(successlogin.getMessage(),"client mail or password incorrect");
 	}
 
+	@DisplayName("Should return success insert")
+	@Test
+	void insert_client() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("Seneha", "seneha@gmail.com", "seneha1561");
+		assertEquals(successlogin.getMessage(),"registered successfully");
+	}
+	
+	@DisplayName("Should return client mail already exist")
+	@Test
+	void insert_client_alreadyPresent() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("TEAMLOKI", "seneha@gmail.com", "teamloki");
+		assertEquals(successlogin.getMessage(),"client mail already exists.");
+	}
+	
+	@DisplayName("Should return null password")
+	@Test
+	void insert_client_withnullpassword() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("TEAMLOKI", "seneha@gmail.com", null);
+		assertEquals(successlogin.getMessage(),"Password cannot be empty or null");
+	}
+	
+	@DisplayName("Should return null name")
+	@Test
+	void insert_client_withnullname() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService(null, "seneha@gmail.com", "seneha");
+		assertEquals(successlogin.getMessage(),"Name cannot be empty or null");
+	}
+	
+	@DisplayName("Should return null mail")
+	@Test
+	void insert_client_withnullmail() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("TEAMLOKI", null, "seneha");
+		assertEquals(successlogin.getMessage(),"Mail cannot be empty or null");
+	}
+	
+	@DisplayName("Should return null empty")
+	@Test
+	void insert_client_withemptypassword() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("TEAMLOKI", "seneha@gmail.com", "");
+		assertEquals(successlogin.getMessage(),"Password cannot be empty or null");
+	}
+	
+	@DisplayName("Should return empty name")
+	@Test
+	void insert_client_withemptyname() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("", "seneha@gmail.com", "seneha");
+		assertEquals(successlogin.getMessage(),"Name cannot be empty or null");
+	}
+	
+	@DisplayName("Should return empty mail")
+	@Test
+	void insert_client_withemptymail() {
+		ClientSendBackDetails successlogin=dao.registrationAuthenticationService("TEAMLOKI", "", "seneha");
+		assertEquals(successlogin.getMessage(),"Mail cannot be empty or null");
+	}
 }
