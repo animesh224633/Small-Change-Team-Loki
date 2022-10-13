@@ -1,0 +1,8 @@
+
+.card{
+    background-color: aliceblue;
+    margin: 5%;
+    display: inline-block;
+    min-width: 22%;
+    text-align: center;
+}

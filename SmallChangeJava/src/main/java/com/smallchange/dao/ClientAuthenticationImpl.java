@@ -28,11 +28,9 @@ public class ClientAuthenticationImpl implements ClientAuthenticationDao{
 				""";
 		try (Connection conn = datasource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(sql)){
-			System.out.println("hi");
 			stmt.setString(1, clientMail);
 			stmt.setString(2, password);
 			ResultSet rs=stmt.executeQuery();
-			System.out.println("hhh");
 			int count=0;
 			while(rs.next()) {
 				count++;

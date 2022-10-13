@@ -1,0 +1,66 @@
+ <mat-card *ngIf="loginRegistrationCardSwitch" class="card">
+  <mat-card-content>
+    <form [formGroup]="registrationForm">
+      <h2>Register</h2>
+      <mat-error *ngIf="!loginValid">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field>
+        <mat-label>Enter your name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" required>
+        <mat-error>
+          Please provide your name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter a User ID</mat-label>
+        <input matInput placeholder="Email" formControlName="userName"
+          [class.is-invalid]="userNameFieldRegister.touched && userNameFieldRegister.invalid" id="id_userName" required>
+        <mat-error>
+          User ID should be 4 to 20 characters long
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password"
+          [class.is-invalid]="passwordFieldRegister.touched && passwordFieldRegister.invalid" type="password" id="id_Password" required>
+        <mat-error>
+          Password must be 6 to 20 characters long
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="registrationFormSubmit()" [disabled]="registrationForm.invalid">
+        Create Account</button>
+    </form>
+  </mat-card-content>
+</mat-card> 
+
+<mat-card *ngIf="!loginRegistrationCardSwitch" class="card">
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <h2>Login</h2>
+      <mat-error *ngIf="showError">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field>
+        <mat-label>User ID</mat-label>
+        <input matInput placeholder="Username" formControlName="userName"
+          [class.is-invalid]="userNameField.touched && userNameField.invalid" id="id_userName" required>
+        <mat-error>
+          User ID should be 4 to 20 characters long
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select a password</mat-label>
+        <input matInput placeholder="Password" formControlName="password"
+          [class.is-invalid]="passwordField.touched && passwordField.invalid" type="password" id="id_Password" required>
+        <mat-error>
+          Password must be 6 to 20 characters long
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="loginFormSubmit()" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    
+  </mat-card-content>
+  <mat-card-footer>
+    <a mat-button (click)="toggleToRegistrationForm()" target="_blank">New User? Create an account</a>
+  </mat-card-footer>
+</mat-card>

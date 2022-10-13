@@ -32,17 +32,14 @@ public class TradeHistoryImpl implements TradeHistoryDao {
 				""";
 		try (Connection conn = datasource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(sql)){
-			System.out.println("hi");
+		
 			stmt.setString(1, clientId);
 			ResultSet rs=stmt.executeQuery();
-			System.out.println("hhh");
 			List<TradeHistory> tradeHistory=new ArrayList<>();
-			int count=0;
+	
 			while(rs.next()) {
-				count++;
 				tradeHistory.add(getResult(rs));
 			}
-			System.out.println(count);
 			return tradeHistory;
 			
 		}catch(SQLException e){

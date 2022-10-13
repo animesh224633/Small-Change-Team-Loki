@@ -1,0 +1,28 @@
+
+/**********************************************************************************
+  Note: SCSS is a superset of CSS3 - normal CSS will work in this file. SCSS adds
+  additional functionality such as variables and nesting.
+
+  If interested, check out: https://sass-lang.com/guide for additional information.
+***********************************************************************************/
+
+
+/* Your CSS goes here: */
+.copyrights{
+    max-width:62.5em;
+    display: block;
+    background-color: transparent;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    font-family: "Fidelity Sans", Arial, sans-serif; 
+  }
+  footer{
+    position: absolute;
+    min-width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  

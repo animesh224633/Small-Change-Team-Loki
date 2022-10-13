@@ -1,0 +1,16 @@
+.card{
+    background-color: aliceblue;
+    margin: 1%;
+    display: inline-block;
+    min-width: 22%;
+}
+.selecteddetails{
+display: flex;    
+justify-content: space-around;
+}
+.loss{
+    color: red;
+}
+.profit{
+    color: green;
+}
