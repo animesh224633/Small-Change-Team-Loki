@@ -15,6 +15,23 @@ public class PortfolioStock {
 	BigDecimal percentageChange;
 	
 	
+	
+	public PortfolioStock(String name, String code, int quantity, BigDecimal buyPrice, BigDecimal currentPrice,
+			BigDecimal investedAmount, BigDecimal currentValue, BigDecimal profiOrLoss, BigDecimal percentageChange) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.quantity = quantity;
+		this.buyPrice = buyPrice;
+		this.currentPrice = currentPrice;
+		this.investedAmount = investedAmount;
+		this.currentValue = currentValue;
+		this.profiOrLoss = profiOrLoss;
+		this.percentageChange = percentageChange;
+	}
+	public PortfolioStock() {
+		
+	}
 	public String getName() {
 		return name;
 	}
