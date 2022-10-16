@@ -41,7 +41,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 				WHERE H.CLIENT_ID=?
 				""";
 		if (clientId <=0) {
-			throw new IllegalArgumentException("Client Id cannot be less than or equal to zero " + clientId);
+			throw new DatabaseException("Client Id cannot be less than or equal to zero " + clientId);
 		}
 		try (Connection conn = datasource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -82,7 +82,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		BigDecimal currentValue=currentPrice.multiply(BigDecimal.valueOf(quantity)).setScale(2, RoundingMode.HALF_DOWN);
 		BigDecimal profitLoss=currentValue.subtract(investedAmount).setScale(2, RoundingMode.HALF_DOWN);
 		BigDecimal percentChange=profitLoss.divide(investedAmount, 2, RoundingMode.HALF_DOWN).multiply(BigDecimal.valueOf(100)).setScale(2, RoundingMode.HALF_DOWN);
-		
+//		System.out.println(code + "percentcahnge" + percentChange);
 		//based on category we add mutualfund or stock to our portfolio list
 		if(rs.getString("CATEGORY").equalsIgnoreCase("stock")) {
 			PortfolioStock StockIterator= new PortfolioStock( name,  code,  quantity,  buyPrice,  currentPrice,
@@ -94,6 +94,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 					 investedAmount,  currentValue,  profitLoss,  percentChange);
 			portfolioIterator.setPortfolioMutualFuundView(newMutuaFund);	
 			}
+		System.out.println(name+ "code " + code + "quantity "+quantity + "buyp "+buyPrice+"currp "+currentPrice+"investamt "+investedAmount + "currv "+currentValue+ "profitloss "+profitLoss+ "percentChange "+percentChange);
 				
 		
 		
