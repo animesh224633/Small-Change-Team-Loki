@@ -35,13 +35,13 @@ public class OrderDaoImpl implements OrderDao {
 	public List<SellInstrument> getSellTrade() {
 		String sql="""
 			SELECT h.holding_id,
-h.client_id,
-h.code,
-i.name,
-i.category,
-h.quantity,
-i.current_price
-FROM holdings h join instrument i on h.code=i.code
+     h.client_id,
+     h.code,
+     i.name,
+     i.category,
+     h.quantity,
+     i.current_price
+     FROM holdings h join instrument i on h.code=i.code
 				""";
 		try (Connection conn = datasource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -83,9 +83,9 @@ FROM holdings h join instrument i on h.code=i.code
 			
 		String sql="""
 				
-select * 
-from 
-instrument
+       select * 
+        from 
+      instrument
 				"""
 		;
 		try (Connection conn = datasource.getConnection();

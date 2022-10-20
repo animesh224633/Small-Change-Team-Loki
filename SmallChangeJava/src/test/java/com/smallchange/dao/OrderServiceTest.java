@@ -55,7 +55,7 @@ import com.smallchange.exception.InsufficientHoldingsException;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class OrderServiceTest {
-	public List<Orders> orderDAOList;
+	/*public List<Orders> orderDAOList;
 	public List<Instrument> instrumentDAOList;
 	public Instrument instrumentDAO;
 	public List<Holdings> holdingsDAOList;
@@ -248,7 +248,7 @@ private Client clientDAO;
 		});
 		assertEquals(e.getMessage(), "Order cannot be null");
 	}*/
-	@DisplayName("should successfully complete BUY trade operation 1")
+	/*@DisplayName("should successfully complete BUY trade operation 1")
 	@Test
 	public void putBuyTradeTest() throws InsufficientFundsException {
 		/*OrderDAO no= new OrderDAO();
@@ -261,7 +261,7 @@ private Client clientDAO;
 		no.setDirection("buy");
 		List<OrderDAO>tempList=orderDAOList;
 		tempList.add(no);*/
-		assertEquals("Success",
+		/*assertEquals("Success",
 				OrderService.putBuyTrade("loki",clientDAOList, orderDAOList, instrumentDAOList,bo,holdingsDAOList));
 	}
 	@DisplayName("should successfully complete BUY trade operation 2")
@@ -370,6 +370,6 @@ private Client clientDAO;
 		sellInstrumentList.add(s);
 		sellInstrumentList.add(s1);
 		assertEquals(sellInstrumentList,OrderService.getSellTrade(holdingsDAOList, instrumentDAOList));
-	}
+	}*/
 	}
 

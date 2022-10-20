@@ -13,7 +13,7 @@ import com.smallchange.uimodel.SellInstrument;
 public interface OrderDao {
 	 List<SellInstrument> getSellTrade();
 	 List<BuyInstrument> getBuyTrade();
-	void putSellTrade();
+	 void putSellTrade();
 	 void putBuyTrade(List<Orders> orderTable, List<Instrument> instrumentTable,Orders bo,List<Holdings> holdingsTable) throws InsufficientFundsException;
 
 }

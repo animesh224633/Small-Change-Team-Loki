@@ -23,7 +23,7 @@ public class OrderService {
 			return sellTrade(clientId,o,orderTable,instrumentTable);
 		}
 	}*/
-	public static List<SellInstrument> getSellTrade(List<Holdings> holdingsTable,List<Instrument> instrumentTable){
+	/*public static List<SellInstrument> getSellTrade(List<Holdings> holdingsTable,List<Instrument> instrumentTable){
 		List<SellInstrument> sellInstrumentList=new ArrayList<>();
 		for(Holdings holdingsTableIterator: holdingsTable) {
 			SellInstrument sellInstrument=new SellInstrument();
@@ -122,7 +122,7 @@ public class OrderService {
 				break;
 				}
 			}
-		}
+		}*/
 		//HoldingsDAO holdingsDAO = new HoldingsDAO();
 		/*holdingsDAO.setClientId(clientId);
 		holdingsDAO.setCode(so.getCode());
@@ -131,7 +131,7 @@ public class OrderService {
 		holdingsDAO.setName(so.getName());
 		holdingsDAO.setHoldingId(UUID.randomUUID().toString());
 		holdingsTable.add(holdingsDAO);*/
-		System.out.println("Orders table after sell trade:");
+		/*System.out.println("Orders table after sell trade:");
 		//String s= orderTable.
 		//orderTable.forEach();
 		System.out.println("No. of Orders:"+orderTable.size());
@@ -251,5 +251,5 @@ public class OrderService {
 			}
 		return "Success";
 	
-	}	
+	}	*/
 }
