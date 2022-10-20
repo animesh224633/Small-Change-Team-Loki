@@ -14,6 +14,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.smallchange.uimodel.TradeHistory;
+
 
 
 
@@ -21,7 +23,7 @@ class TradeHistoryImplTest {
 	
 	JdbcTemplate jdbcTemplate;
 	DbTestUtils dbTestUtils;
-	TradeHistory dao;
+	TradeHistoryDao dao;
 	SimpleDataSource dataSource;
 	Connection connection;
 	
@@ -55,10 +57,18 @@ class TradeHistoryImplTest {
 		dataSource.shutdown();
 	}
 
-	@DisplayName("Should check whether we are getting all the client")
+	@DisplayName("Should check whether we are getting all the trade")
 	@Test
 	void getAll_Client() {
-		List<TradeHistory> client=dao.getTradeHistory("1");
+		List<TradeHistory> tradehistory=dao.getTradeHistory("1");
+		assertEquals(tradehistory.size(),2);
+	}
+	
+	@DisplayName("Should return 0 when client id is null")
+	@Test
+	void getclient_null() {
+		List<TradeHistory> tradehistory=dao.getTradeHistory(null);
+		assertEquals(tradehistory.size(),0);
 	}
 
 	

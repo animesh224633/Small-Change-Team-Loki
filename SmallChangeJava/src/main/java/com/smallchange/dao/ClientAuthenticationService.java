@@ -10,6 +10,8 @@ import java.util.UUID;
 public class ClientAuthenticationService {
 	
 	//Function for logging the client in
+	
+	
 	public ClientSendBackDetails loginAuthenticationService(String clientMail,String password,
 			List<Client> clientTable) {
 		

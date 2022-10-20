@@ -5,6 +5,15 @@ import java.util.Objects;
 
 public class TradeHistory {
 	String name;
+	public TradeHistory(String name, String code, int quantity, String type, BigDecimal price, String assetClass) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.quantity = quantity;
+		this.type = type;
+		this.price = price;
+		this.assetClass = assetClass;
+	}
 	String code;
 	int quantity;
 	String type;
@@ -80,18 +89,15 @@ public class TradeHistory {
 			throw new IllegalArgumentException("Asset class cannot be empty");
 		this.assetClass = assetClass;
 	}
-	@Generated
 	@Override
 	public String toString() {
 		return "TradeHistory [name=" + name + ", code=" + code + ", quantity=" + quantity + ", type=" + type
 				+ ", price=" + price + ", assetClass=" + assetClass + "]";
 	}
-	@Generated
 	@Override
 	public int hashCode() {
 		return Objects.hash(assetClass, code, name, price, quantity, type);
 	}
-	@Generated
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

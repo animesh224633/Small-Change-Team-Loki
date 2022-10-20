@@ -32,7 +32,7 @@ public class TradeHistoryService {
 		Boolean flag=orderTable.stream().filter(o -> o.getClientId().equals(clientId)).findFirst().isPresent();
 		if(flag) {
 		for(Orders orderTableIterator: orderTable) {
-			TradeHistory tradeHistory=new TradeHistory();
+			TradeHistory tradeHistory=new TradeHistory(clientId, clientId, 0, clientId, null, clientId);
 			if(clientId.equals(orderTableIterator.getClientId())) {
 				tradeHistory.setCode(orderTableIterator.getCode());
 				tradeHistory.setQuantity(orderTableIterator.getQuantity());

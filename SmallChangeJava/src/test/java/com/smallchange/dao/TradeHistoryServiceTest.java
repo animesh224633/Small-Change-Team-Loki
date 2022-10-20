@@ -83,7 +83,7 @@ class TradeHistoryServiceTest {
 	@Test
 	void testBasicTradeHistoryData() throws Exception {
 		List<TradeHistory> tradeHistory=new ArrayList<>();
-		TradeHistory tradeHistoryData=new TradeHistory();
+		TradeHistory tradeHistoryData=new TradeHistory(null, null, 0, null, null, null);
 		tradeHistoryData.setAssetClass("Stocks");
 		tradeHistoryData.setCode("AMZN");
 		tradeHistoryData.setName("AMAZON");
