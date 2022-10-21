@@ -14,6 +14,25 @@ public class PortfolioMutalFund {
 	BigDecimal profiOrLoss;
 	BigDecimal percentageChange;
 	
+	public PortfolioMutalFund(String name, String code, int quantity, BigDecimal buyPrice, BigDecimal currentPrice,
+			BigDecimal investedAmount, BigDecimal currentValue, BigDecimal profiOrLoss, BigDecimal percentageChange) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.quantity = quantity;
+		this.buyPrice = buyPrice;
+		this.currentPrice = currentPrice;
+		this.investedAmount = investedAmount;
+		this.currentValue = currentValue;
+		this.profiOrLoss = profiOrLoss;
+		this.percentageChange = percentageChange;
+	}
+
+
+	public PortfolioMutalFund() {
+		
+	}
+	
 	
 	public String getName() {
 		return name;
