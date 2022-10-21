@@ -5,8 +5,16 @@
       "name": "teamloki",
       "email": "teamloki",
       "password": "123456"
-    }
+    },
+  
+  {
+    "id": 30,
+    "name": "teams",
+    "email": "teamloki1",
+    "password": "123456"
+  }
   ],
+
   "portfolioStocks": [
     {
       "id": 1,

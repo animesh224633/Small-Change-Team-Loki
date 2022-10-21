@@ -6,10 +6,17 @@ import java.util.Objects;
 public class BuyInstrument {
 
 	private String code;
-
 	private String name;
+    private String category;
 	private BigDecimal currentPrice;
-	private String category;
+	
+	public BuyInstrument(String code2, String name2, String category2, BigDecimal current) {
+	    this.code=code2;
+		this.name=name2;
+		this.category=category2;
+		this.currentPrice=current;
+		
+	}
 	public String getCode() {
 		return code;
 	}
@@ -25,10 +32,15 @@ public class BuyInstrument {
 	public BigDecimal getCurrentPrice() {
 		return currentPrice;
 	}
-	@Override
-	public String toString() {
-		return "BuyInstrument [code=" + code + ", name=" + name + ", currentPrice=" + currentPrice + ", category="
-				+ category + "]";
+	
+	public void setCurrentPrice(BigDecimal currentPrice) {
+		this.currentPrice = currentPrice;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	@Override
 	public int hashCode() {
@@ -46,13 +58,12 @@ public class BuyInstrument {
 		return Objects.equals(category, other.category) && Objects.equals(code, other.code)
 				&& Objects.equals(currentPrice, other.currentPrice) && Objects.equals(name, other.name);
 	}
-	public void setCurrentPrice(BigDecimal currentPrice) {
-		this.currentPrice = currentPrice;
+	@Override
+	public String toString() {
+		return "BuyInstrument [code=" + code + ", name=" + name + ", category=" + category + ", currentPrice="
+				+ currentPrice + "]";
 	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	
+	
 }
+

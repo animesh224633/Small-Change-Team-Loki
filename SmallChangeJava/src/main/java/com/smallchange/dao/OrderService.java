@@ -14,7 +14,7 @@ import com.smallchange.model.Instrument;
 import com.smallchange.model.Orders;
 import com.smallchange.uimodel.*;
 public class OrderService {
-	public List<Order> orders=new ArrayList<>();
+	public List<OrderDao> orders=new ArrayList<>();
 	/*public List<OrderDAO> executeTrade(String clientId,Order o, List<OrderDAO> orderTable, List<InstrumentDAO> instrumentTable){
 		if(o.getType()=="buy") {
 			return buyTrade(clientId,o,orderTable,instrumentTable);
@@ -23,7 +23,7 @@ public class OrderService {
 			return sellTrade(clientId,o,orderTable,instrumentTable);
 		}
 	}*/
-	public static List<SellInstrument> getSellTrade(List<Holdings> holdingsTable,List<Instrument> instrumentTable){
+	/*public static List<SellInstrument> getSellTrade(List<Holdings> holdingsTable,List<Instrument> instrumentTable){
 		List<SellInstrument> sellInstrumentList=new ArrayList<>();
 		for(Holdings holdingsTableIterator: holdingsTable) {
 			SellInstrument sellInstrument=new SellInstrument();
@@ -66,7 +66,7 @@ public class OrderService {
 		}
 		return buyInstrumentList;
 	}
-	public static String putSellTrade(String clientId,List<Client> clientTable, List<Orders> orderTable,Order so,List<Holdings> holdingsTable) throws InsufficientHoldingsException {
+	public static String putSellTrade(String clientId,List<Client> clientTable, List<Orders> orderTable,OrderDao so,List<Holdings> holdingsTable) throws InsufficientHoldingsException {
 		if(clientId==null) {
 			throw new NullPointerException("clientId cannot be null");
 		}
@@ -122,7 +122,7 @@ public class OrderService {
 				break;
 				}
 			}
-		}
+		}*/
 		//HoldingsDAO holdingsDAO = new HoldingsDAO();
 		/*holdingsDAO.setClientId(clientId);
 		holdingsDAO.setCode(so.getCode());
@@ -131,7 +131,7 @@ public class OrderService {
 		holdingsDAO.setName(so.getName());
 		holdingsDAO.setHoldingId(UUID.randomUUID().toString());
 		holdingsTable.add(holdingsDAO);*/
-		System.out.println("Orders table after sell trade:");
+		/*System.out.println("Orders table after sell trade:");
 		//String s= orderTable.
 		//orderTable.forEach();
 		System.out.println("No. of Orders:"+orderTable.size());
@@ -158,7 +158,7 @@ public class OrderService {
 	return "Success";
 	}
 	
-	public static String putBuyTrade(String clientId,List<Client> clientTable, List<Orders> orderTable, List<Instrument> instrumentTable,Order bo,List<Holdings> holdingsTable) throws InsufficientFundsException {
+	public static String putBuyTrade(String clientId,List<Client> clientTable, List<Orders> orderTable, List<Instrument> instrumentTable,OrderDao bo,List<Holdings> holdingsTable) throws InsufficientFundsException {
 	
 		if(clientId==null) {
 			throw new NullPointerException("clientId cannot be null");
@@ -251,5 +251,5 @@ public class OrderService {
 			}
 		return "Success";
 	
-	}	
+	}	*/
 }
