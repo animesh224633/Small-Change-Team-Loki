@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 
-@Repository("tradeHistoryDao")
+@Repository("tradeHistoryDao1")
 public class TradeHistoryDaoMyBatisImpl {
 
 	@Autowired
