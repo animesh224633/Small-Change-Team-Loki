@@ -15,21 +15,20 @@
 		FROM holdings H
 		JOIN instrument I
 		ON h.code=i.code
-		WHERE H.CLIENT_ID=1
+		WHERE H.CLIENT_ID=#{clientId}
 	</select>
 	
 	<resultMap type="Portfolio" id="ClientPortfolio">
 
 		<association property="portfolioStockView"
-			resultMap="portfolioStockResult" javaType="PortfolioStock"/>
+			resultMap="portfolioStockResult" />
 		<association property="portfolioMutualFuundView"
-			resultMap="portfolioMutualFundResult" javaType="PortfolioMutalFund" />
+			resultMap="portfolioMutualFundResult"  />
 
 	</resultMap>
 
 
-	<resultMap type="PortfolioStock" id="portfolioStockResult"
-		extends="ClientPortfolio">
+	<resultMap type="PortfolioStock" id="portfolioStockResult">
 		<result property="name" column="NAME" />
 		<result property="code" column="CODE" />
 		<result property="quantity" column="QUANTITY" />
@@ -42,8 +41,7 @@
 	</resultMap>
 
 
-	<resultMap type="PortfolioMutalFund"
-		id="portfolioMutualFundResult" extends="ClientPortfolio">
+	<resultMap type="PortfolioMutalFund" id="portfolioMutualFundResult" >
 		<result property="name" column="NAME" />
 		<result property="code" column="CODE" />
 		<result property="quantity" column="QUANTITY" />

@@ -79,7 +79,7 @@ class PortfolioDaoImplTest {
 	void client1ShouldConatinAmazon() {
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio(1);
 		System.out.println(clientPortfolio.get(0).getPortfolioStockView().getCode());
-		assertEquals(client1.getPortfolioStockView(),clientPortfolio.get(0).getPortfolioStockView());
+		assertEquals(client1.getPortfolioStockView().getCode(),clientPortfolio.get(0).getPortfolioStockView().getCode());
 		
 		//assertTrue(clientPortfolio.contains(client1));
 	}

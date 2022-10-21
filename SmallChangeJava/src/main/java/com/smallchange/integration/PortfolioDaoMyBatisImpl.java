@@ -19,7 +19,13 @@ public class PortfolioDaoMyBatisImpl {
 	@Autowired
 	private PortfolioMapper portfolioMapper;
 	
-	public List<Portfolio> getUserPortfolio(String clientId) {
+	public List<Portfolio> getUserPortfolio(String clientId)  {
+		if(clientId==null) {
+			throw new NullPointerException("client id cannot be null");
+			
+			
+			
+		}
 		
 		System.out.println("Hello seneha" + portfolioMapper.getUserPortfolio("1").get(0).getPortfolioStockView().getName());
 		logger.debug("enter");
