@@ -5,6 +5,9 @@ import java.util.Objects;
 
 public class TradeHistory {
 	String name;
+	public TradeHistory() {
+		
+	}
 	public TradeHistory(String name, String code, int quantity, String type, BigDecimal price, String assetClass) {
 		super();
 		this.name = name;

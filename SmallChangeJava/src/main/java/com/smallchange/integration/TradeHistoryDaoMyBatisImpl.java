@@ -3,14 +3,15 @@ package com.smallchange.integration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.smallchange.integration.mapper.TradeHistoryMapper;
 import com.smallchange.uimodel.TradeHistory;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 
-@Repository("tradeHistoryDao1")
-public class TradeHistoryDaoMyBatisImpl {
+@Repository
+public class TradeHistoryDaoMyBatisImpl implements TradeHistoryMyBatisDao {
 
 	@Autowired
 	private Logger logger;
@@ -18,6 +19,7 @@ public class TradeHistoryDaoMyBatisImpl {
 	@Autowired
 	private TradeHistoryMapper tradeHistoryMapper;
 	
+	@Override
 	public List<TradeHistory> getTradeHistory(String clientId) {
 		
 		System.out.println("Hello seneha");
