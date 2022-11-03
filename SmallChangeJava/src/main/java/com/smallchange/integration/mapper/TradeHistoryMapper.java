@@ -10,5 +10,7 @@ import com.smallchange.uimodel.TradeHistory;
 @Mapper
 public interface TradeHistoryMapper {
 		List<TradeHistory> getTradeHistory(String clientId);
+		List<TradeHistory> getTradeHistoryBySell(String clientId);
+		List<TradeHistory> getTradeHistoryByBuy(String clientId);
 
 }

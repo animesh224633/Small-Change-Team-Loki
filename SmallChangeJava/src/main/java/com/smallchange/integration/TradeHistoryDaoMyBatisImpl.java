@@ -27,4 +27,22 @@ public class TradeHistoryDaoMyBatisImpl implements TradeHistoryMyBatisDao {
 		
 		return tradeHistoryMapper.getTradeHistory(clientId);
 	}
+
+	@Override
+	public List<TradeHistory> getTradeHistoryBySell(String clientId) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello seneha");
+		logger.debug("enter");
+		
+		return tradeHistoryMapper.getTradeHistoryBySell(clientId);
+	}
+
+	@Override
+	public List<TradeHistory> getTradeHistoryByBuy(String clientId) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello seneha");
+		logger.debug("enter");
+		
+		return tradeHistoryMapper.getTradeHistoryByBuy(clientId);
+	}
 }

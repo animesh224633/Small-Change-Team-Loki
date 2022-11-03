@@ -57,5 +57,65 @@ public class TradeHistoryService {
 		}
 		return result;
 	}
+	
+	@GetMapping(value = "/{id}/Sell", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdSell(@PathVariable int id) {
+		ResponseEntity<List<TradeHistory>> result;
+		List<TradeHistory> tradeHistory;
+		
+		if (id <= 0) {
+			logger.error("negative id received");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+		}
+		
+		try {
+			tradeHistory = dao.getTradeHistoryBySell(Integer.toString(id));
+
+		} catch (RuntimeException e) {
+			logger.error(e.getMessage());
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
+		}
+		System.out.println("Size"+tradeHistory.size());
+		if (tradeHistory != null && tradeHistory.size()>0) {
+			logger.info("Successful retrieval");
+			result = ResponseEntity.ok(tradeHistory);
+			System.out.println(result.getBody());
+		} else {
+			logger.error("No trade history in the db with that client id");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+		}
+		return result;
+	}
+
+
+	@GetMapping(value = "/{id}/Buy", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdBuy(@PathVariable int id) {
+		ResponseEntity<List<TradeHistory>> result;
+		List<TradeHistory> tradeHistory;
+		
+		if (id <= 0) {
+			logger.error("negative id received");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+		}
+		
+		try {
+			tradeHistory = dao.getTradeHistoryByBuy(Integer.toString(id));
+
+		} catch (RuntimeException e) {
+			logger.error(e.getMessage());
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
+		}
+		System.out.println("Size"+tradeHistory.size());
+		if (tradeHistory != null && tradeHistory.size()>0) {
+			logger.info("Successful retrieval");
+			result = ResponseEntity.ok(tradeHistory);
+			System.out.println(result.getBody());
+		} else {
+			logger.error("No trade history in the db with that client id");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+		}
+		return result;
+	}
+
 
 }

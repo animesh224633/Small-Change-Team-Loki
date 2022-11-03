@@ -6,6 +6,14 @@
 	<select id="getTradeHistory" resultMap="TradeHistoryMap">
 		select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=#{id}
 	</select>
+	
+	<select id="getTradeHistoryBySell" resultMap="TradeHistoryMap">
+		select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=#{id}
+	</select>
+	
+	<select id="getTradeHistoryByBuy" resultMap="TradeHistoryMap">
+		select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=#{id}
+	</select>
 
 	<resultMap type="TradeHistory" id="TradeHistoryMap">
 		<result property="name"			column="NAME" />
