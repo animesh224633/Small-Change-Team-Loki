@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smallchange.integration.mapper.PortfolioMapper">
+	<select id="getUserPortfolio" resultMap="ClientPortfolio">
+		SELECT I.NAME, I.CODE, I.CURRENT_PRICE,
+		I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS
+		CURRENT_VALUE,
+		H.QUANTITY*H.BUYPRICE AS
+		INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE))
+		AS PROFIT_OR_LOSS,
+		(((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100
+		AS PERCENTAGE_CAHNGE
+		FROM holdings H
+		JOIN instrument I
+		ON h.code=i.code
+		WHERE H.CLIENT_ID=#{clientId}
+	</select>
+	
+	<resultMap type="Portfolio" id="ClientPortfolio">
+
+		<association property="portfolioStockView"
+			resultMap="portfolioStockResult" />
+		<association property="portfolioMutualFuundView"
+			resultMap="portfolioMutualFundResult"  />
+
+	</resultMap>
+
+
+	<resultMap type="PortfolioStock" id="portfolioStockResult">
+		<result property="name" column="NAME" />
+		<result property="code" column="CODE" />
+		<result property="quantity" column="QUANTITY" />
+		<result property="buyPrice" column="BUYPRICE" />
+		<result property="currentPrice" column="CURRENT_PRICE" />
+		<result property="investedAmount" column="INVESTED_AMOUNT" />
+		<result property="currentValue" column="CURRENT_VALUE" />
+		<result property="profiOrLoss" column="PROFIT_OR_LOSS" />
+		<result property="percentageChange" column="PERCENTAGE_CAHNGE" />
+	</resultMap>
+
+
+	<resultMap type="PortfolioMutalFund" id="portfolioMutualFundResult" >
+		<result property="name" column="NAME" />
+		<result property="code" column="CODE" />
+		<result property="quantity" column="QUANTITY" />
+		<result property="buyPrice" column="BUYPRICE" />
+		<result property="currentPrice" column="CURRENT_PRICE" />
+		<result property="investedAmount" column="INVESTED_AMOUNT" />
+		<result property="currentValue" column="CURRENT_VALUE" />
+		<result property="profiOrLoss" column="PROFIT_OR_LOSS" />
+		<result property="percentageChange" column="PERCENTAGE_CAHNGE" />
+	</resultMap>
+
+
+
+
+</mapper>

@@ -250,3 +250,37 @@
 2022-11-03 10:16:47.464 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 2(String)
 2022-11-03 10:16:47.465 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 1
 2022-11-03 10:16:47.466  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-03 11:49:12.846  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-03 11:49:14.098  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-03 11:49:26.753 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-03 11:49:26.776 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 2(String)
+2022-11-03 11:49:26.801 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-03 11:49:26.802  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-03 11:50:09.647 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-03 11:50:09.648 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 2(String)
+2022-11-03 11:50:09.649 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-03 11:50:09.650  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-03 11:50:23.164 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-03 11:50:23.166 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 2(String)
+2022-11-03 11:50:23.167 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 1
+2022-11-03 11:50:23.167  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-03 11:50:30.084 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-03 11:50:30.085 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 2(String)
+2022-11-03 11:50:30.086 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 1
+2022-11-03 11:50:30.086  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-03 13:24:49.896  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-03 13:24:51.286  WARN --- ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-11-03 13:24:51.339 ERROR --- o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
