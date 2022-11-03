@@ -32,7 +32,9 @@ public class ClientAuthenticationImpl implements ClientAuthenticationDao{
 			stmt.setString(2, password);
 			ResultSet rs=stmt.executeQuery();
 			int count=0;
+			String clientId="";
 			while(rs.next()) {
+				clientId = rs.getString("client_id");
 				count++;
 			}
 			String message;
@@ -43,6 +45,7 @@ public class ClientAuthenticationImpl implements ClientAuthenticationDao{
 				message = "client mail or password incorrect";
 			}
 			clientSendBackDetails.setMessage(message);
+			clientSendBackDetails.setClientId(clientId);
 			return clientSendBackDetails;
 			
 		}catch(SQLException e){
