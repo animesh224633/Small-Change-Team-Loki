@@ -31,11 +31,7 @@ class PortfolioDaoMyBatisImplTest {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-
 	
-
-	
-
 	@DisplayName("Should retrieve the portfolio of a client")
 	@Test
 	void getClientPortfolioById() {
