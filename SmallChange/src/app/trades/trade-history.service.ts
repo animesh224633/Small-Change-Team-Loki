@@ -18,7 +18,7 @@ export class TradeHistoryService {
       }
       else{
         console.log("hi")
-      return this.http.get<TradeHistory[]>('http://localhost:3000/tradeHistory').pipe(catchError(this.handleError));
+      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/1').pipe(catchError(this.handleError));
       }
   }
 
