@@ -1,5 +1,6 @@
 package com.smallchange.integration.mapper;
 
+import java.time.LocalDate;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -42,11 +43,9 @@ public interface OrderMapper {
 
 	@Insert("Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp)" + " Values ("
 			+ "#{buyPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
-
+	int putBuyTrade(@Param("buyPrice") BigDecimal buyPrice,@Param("clientId") String clientId,@Param("code") String code,@Param("direction") String Direction,@Param("orderId") String orderId,@Param("quantity") int quantity,@Param("timestamp") LocalDate timestamp, @Param("wallet") float wallet) throws InsufficientFundsException;
 	
-	
-int putBuyTrade(BuyOrder bo, @Param("wallet") float wallet) throws InsufficientFundsException;
 	@Update("Update client set client_smallchange_wallet =#{wallet}where client_id=#{clientId}")
-		 void updateClientWallet(BuyOrder bo,@Param("wallet") float wallet);
+		 void updateClientWallet(@Param("clientId") String clientId,@Param("wallet") float wallet);
 }
 
