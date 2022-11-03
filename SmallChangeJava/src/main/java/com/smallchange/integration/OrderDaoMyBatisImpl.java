@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.smallchange.dao.DatabaseException;
 import com.smallchange.exception.InsufficientFundsException;
+import com.smallchange.integration.mapper.OrderMapper;
 import com.smallchange.model.Holdings;
 import com.smallchange.model.Instrument;
 import com.smallchange.model.Orders;
@@ -23,7 +24,7 @@ import com.smallchange.uimodel.BuyOrder;
 import com.smallchange.uimodel.Order;
 import com.smallchange.uimodel.SellInstrument;
 import com.smallchange.uimodel.TradeHistory;
-@Repository("OrderDao")
+@Repository
 public class OrderDaoMyBatisImpl {
 
 

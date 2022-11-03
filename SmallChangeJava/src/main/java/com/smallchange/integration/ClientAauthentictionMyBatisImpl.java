@@ -6,10 +6,11 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.smallchange.integration.mapper.ClientAuthenticationMapper;
 import com.smallchange.uimodel.ClientSendBackDetails;
 import com.smallchange.uimodel.Portfolio;
 
-@Repository("ClientAauthentictionDAO")
+@Repository
 public class ClientAauthentictionMyBatisImpl {
 	
 	@Autowired

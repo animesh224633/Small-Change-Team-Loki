@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.smallchange.integration.mapper.PortfolioMapper;
 import com.smallchange.uimodel.Portfolio;
 
 
-@Repository("PortfolioDao")
+@Repository
 public class PortfolioDaoMyBatisImpl {
 
 	@Autowired

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.smallchange.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,12 +83,9 @@ class PortfolioDaoImplTest {
 		
 		//assertTrue(clientPortfolio.contains(client1));
 	}
-	
-	
-
 
 }
-=======
+
 //package com.smallchange.dao;
 //
 //import static org.junit.jupiter.api.Assertions.*;
@@ -180,4 +176,4 @@ class PortfolioDaoImplTest {
 //
 //
 //}
->>>>>>> 247b21ed3ccdcb37e66b8428dee8dbc2c16faf46
+

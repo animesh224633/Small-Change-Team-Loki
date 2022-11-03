@@ -1,10 +1,11 @@
-package com.smallchange.integration;
+package com.smallchange.integration.mapper;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
@@ -18,7 +19,7 @@ import com.smallchange.uimodel.BuyInstrument;
 import com.smallchange.uimodel.BuyOrder;
 import com.smallchange.uimodel.Order;
 import com.smallchange.uimodel.SellInstrument;
-
+@Mapper
 public interface OrderMapper {
 	@Select("SELECT h.holding_id,\r\n" + "     h.client_id,\r\n" + "     h.code,\r\n" + "     i.name,\r\n"
 			+ "     i.category,\r\n" + "     h.quantity,\r\n"
@@ -27,13 +28,13 @@ public interface OrderMapper {
 
 			+ "     FROM holdings h join instrument i on h.code=i.code\r\n")
 
-	@ResultMap("com.smallchange.integration.OrderMapper.SellInstrument")
+	@ResultMap("com.smallchange.integration.mapper.OrderMapper.SellInstrument")
 
 	List<SellInstrument> getSellInstrument();
 
 	@Select("		\r\n" + "       select \r\n" + "code," + " name, category,"
 			+ " cast(round(current_price,2) as numeric(16,2))\r\n" + "        from \r\n" + "      instrument\r\n")
-	@ResultMap("com.smallchange.integration.OrderMapper.BuyInstrument")
+	@ResultMap("com.smallchange.integration.mapper.OrderMapper.BuyInstrument")
 	List<BuyInstrument> getBuyInstrument();
 
 	@Select("select coalesce(client_smallchange_wallet,0) from client where client_id=#{clientId}\r\n")

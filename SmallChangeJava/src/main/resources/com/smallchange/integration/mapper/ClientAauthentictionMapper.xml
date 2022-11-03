@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.smallchange.integration.ClientauthenticationMapper">
+<mapper namespace="com.smallchange.integration.mapper.ClientAuthenticationMapper">
 
 	<select id="getLoginAuthenticationDetails" resultMap="LoginAuthenticationDetails">
 		select client_id  from client where client_mail=#{clientMail} and password=#{password}
