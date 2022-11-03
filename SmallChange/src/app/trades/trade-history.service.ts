@@ -13,12 +13,16 @@ export class TradeHistoryService {
   getTradeHistory(type:string):Observable<TradeHistory[]>{
      
       if(type!="All" && type!="all" && type!=''){
+        if(type=="sell"){
         console.log(type)
-      return this.http.get<TradeHistory[]>('http://localhost:3000/tradeHistory?type='+type).pipe(catchError(this.handleError));
+      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2/Sell').pipe(catchError(this.handleError));
+        }
+        else
+        return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2/Buy').pipe(catchError(this.handleError));
       }
       else{
         console.log("hi")
-      return this.http.get<TradeHistory[]>('http://localhost:3000/tradeHistory').pipe(catchError(this.handleError));
+      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2').pipe(catchError(this.handleError));
       }
   }
 

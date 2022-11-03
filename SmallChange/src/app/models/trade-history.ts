@@ -4,5 +4,5 @@ export interface TradeHistory {
     quantity:number,
     type:string,
     price:number,
-    asset_class:string
+    assetClass:string
 }

@@ -20,7 +20,7 @@ export class TradeComponent implements OnInit {
     'quantity',
     'type',
     'price',
-    'asset_class'
+    'assetClass'
   ];
 
   constructor(private tradeHistoryService: TradeHistoryService) {}
@@ -32,6 +32,8 @@ export class TradeComponent implements OnInit {
   getTrades() {
     this.tradeHistoryService.getTradeHistory('').subscribe((data) => {
       this.trades = data;
+      console.log("helllo seneha");
+      console.log(data);
       this.dataSource = new MatTableDataSource(this.trades);
     });
   }
