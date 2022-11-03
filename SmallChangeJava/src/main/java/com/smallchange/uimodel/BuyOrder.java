@@ -13,6 +13,13 @@ public class BuyOrder extends Order{
 	String orderId;
 	LocalDate timestamp;
 	String direction;
+	String holding_id;
+	public String getHolding_id() {
+		return holding_id;
+	}
+	public void setHolding_id(String holding_id) {
+		this.holding_id = holding_id;
+	}
 	public String getCode() {
 		return code;
 	}
@@ -58,13 +65,15 @@ public class BuyOrder extends Order{
 	@Override
 	public String toString() {
 		return "BuyOrder [code=" + code + ", quantity=" + quantity + ", buyPrice=" + buyPrice + ", clientId=" + clientId
-				+ ", orderId=" + orderId + ", timestamp=" + timestamp + ", direction=" + direction + "]";
+				+ ", orderId=" + orderId + ", timestamp=" + timestamp + ", direction=" + direction + ", holding_id="
+				+ holding_id + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(buyPrice, clientId, code, direction, orderId, quantity, timestamp);
+		result = prime * result
+				+ Objects.hash(buyPrice, clientId, code, direction, holding_id, orderId, quantity, timestamp);
 		return result;
 	}
 	@Override
@@ -78,8 +87,8 @@ public class BuyOrder extends Order{
 		BuyOrder other = (BuyOrder) obj;
 		return Objects.equals(buyPrice, other.buyPrice) && Objects.equals(clientId, other.clientId)
 				&& Objects.equals(code, other.code) && Objects.equals(direction, other.direction)
-				&& Objects.equals(orderId, other.orderId) && quantity == other.quantity
-				&& Objects.equals(timestamp, other.timestamp);
+				&& Objects.equals(holding_id, other.holding_id) && Objects.equals(orderId, other.orderId)
+				&& quantity == other.quantity && Objects.equals(timestamp, other.timestamp);
 	}
 	
 }

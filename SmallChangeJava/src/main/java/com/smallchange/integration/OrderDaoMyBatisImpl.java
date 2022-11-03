@@ -52,9 +52,9 @@ public List<BuyInstrument> getBuyInstrument() {
 public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 
 	 Objects.requireNonNull(bo);
-	
+	 String iou = null;
 		boolean flag=false;
-		Float wallet_amount=orderMapper.getClientWallet(bo.getClientId())
+		float wallet_amount=orderMapper.getClientWallet(bo.getClientId())
 				;
 		
 				
@@ -67,7 +67,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						}
 					
 					
-					
+					//if(bo.getClientId().equals(cli))
 						BigDecimal wallet=new BigDecimal(wallet_amount).setScale(2,RoundingMode.HALF_DOWN);
 						
 						if((bo.getBuyPrice().multiply(new BigDecimal(bo.getQuantity()))).compareTo(wallet) >0 ){
@@ -78,17 +78,46 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						BigDecimal newWalletMoney=(oldWalletMoney).subtract(bo.getBuyPrice().multiply(new BigDecimal(bo.getQuantity())));
 					float newWallet=newWalletMoney.floatValue();
 						System.out.println("Old Wallet amount:"+oldWalletMoney);
-						orderMapper.updateClientWallet(bo, newWallet);
+					orderMapper.updateClientWallet(bo, newWallet);
 						
 						
-						//System.out.println("New Wallet amount:"+newWalletMoney);
+						System.out.println("New Wallet amount:"+newWalletMoney);
 			
 
-		if(!flag) {
+		/*if(!flag) {
 			throw new IllegalArgumentException("Client doesn't exist");
-		}
+		}*/
+						
+						//SellInstrument ho
+						String code=bo.getCode();
+						List<SellInstrument> holdings=getSellInstrument();
+						for(SellInstrument holding : holdings) {
+							System.out.println(holding.getCode());
+							System.out.println(code);
+							if(holding.getCode().equals(code)) {
+								
+								iou="u";
+								break;
+							}
+							else {
+								
+								iou="i";
+								
+							}
+						}
+						if(iou=="u") {
+							orderMapper.putBuyTradeHoldingsUpdate(bo);
+							flag=true;
+							System.out.println("executing update!");
+						}
+						else if( iou=="i") {
+							orderMapper.putBuyTradeHoldingsInsert(bo);
+							flag=true;
+							System.out.println("executing insert!");
+						}
+						
 		
-	 return orderMapper.putBuyTrade(bo,newWallet) == 1;
+	 return orderMapper.putBuyTradeOrder(bo) == 1 && flag;
 	}
 	
 
