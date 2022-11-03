@@ -42,6 +42,7 @@ public class OrderDaoImpl implements OrderDao {
      h.quantity,
      i.current_price
      FROM holdings h join instrument i on h.code=i.code
+     
 				""";
 		try (Connection conn = datasource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
