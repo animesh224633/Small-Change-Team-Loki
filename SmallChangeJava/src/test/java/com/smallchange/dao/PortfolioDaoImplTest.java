@@ -74,7 +74,7 @@ class PortfolioDaoImplTest {
 			dao.getUserPortfolio(0);
 		});
 	}
-	@DisplayName("Should contain amazon when retrieving client 1's portfolio")
+	/*@DisplayName("Should contain amazon when retrieving client 1's portfolio")
 	@Test
 	void client1ShouldConatinAmazon() {
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio(1);
@@ -82,7 +82,7 @@ class PortfolioDaoImplTest {
 		assertEquals(client1.getPortfolioStockView(),clientPortfolio.get(0).getPortfolioStockView());
 		
 		//assertTrue(clientPortfolio.contains(client1));
-	}
+	}*/
 	
 	
 
