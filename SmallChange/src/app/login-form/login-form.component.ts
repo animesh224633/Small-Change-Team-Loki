@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ClientIdService } from '../client-id.service';
 import { LoginService } from '../login.service';
+import { Login } from '../models/login';
+import { LoginClientDetails } from '../models/loginClientDetails';
+import { RegistrationClientDetails } from '../models/registrationClientDetails';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -15,11 +19,13 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   registrationForm!: FormGroup;
   public loginRegistrationCardSwitch: boolean = false;
+  loginClientDetails?: LoginClientDetails;
+  registrationClientDetails?: RegistrationClientDetails;
 
   errorMessage: string = '';
   showError: boolean = false;
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private router: Router, private loginService: LoginService, private clientIdService: ClientIdService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -66,39 +72,49 @@ export class LoginFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if(this.loginValid == true){
-    this.submitted=true;
-    this.loginValid = true;
-    console.log('');
+    if (this.loginValid == true) {
+      this.submitted = true;
+      this.loginValid = true;
+      console.log('');
     }
   }
 
   loginFormSubmit() {
-    this.submitted=true;
-    this.loginValid=true;
-    console.log(this.loginForm.value);
-    this.loginService.login().subscribe((data) => {
-        data.find((a: any) => {
-          if (
-            a.email == this.loginForm.value.userName &&
-            a.password == this.loginForm.value.password
-          )
-            this.router.navigate(['portfolio']);
-          else this.showError = true;
-        });
-      });
+    this.submitted = true;
+    this.loginValid = true;
+    // console.log(this.loginForm.value);
+
+    this.loginClientDetails = new LoginClientDetails(
+      this.loginForm.value.userName,
+      this.loginForm.value.password
+    );
+    // console.log(this.loginClientDetails);
+
+    this.loginService.login(this.loginClientDetails).subscribe((data) => {
+      console.log('looooo', data);
+      if (data.clientId == null) {
+        this.showError = true;
+      } else {
+        this.clientIdService.clientId = data.clientId;
+        console.log('injectable client id is ', this.clientIdService.clientId);
+        this.router.navigate(['portfolio']);
+      }
+    });
   }
 
   registrationFormSubmit() {
     console.log(this.registrationForm.value);
+
+    this.registrationClientDetails = new RegistrationClientDetails(
+      this.registrationForm.value.userName,
+      this.registrationForm.value.password,
+      this.registrationForm.value.name
+    );
+
+    console.log(this.registrationClientDetails);
     this.loginRegistrationCardSwitch = false;
     this.loginService
-      .register(
-        this.registrationForm.value.name,
-        this.registrationForm.value.userName,
-        this.registrationForm.value.password
-      )
-      .subscribe((data) => {
+      .register(this.registrationClientDetails).subscribe((data) => {
         console.log(data);
       });
   }
@@ -107,4 +123,3 @@ export class LoginFormComponent implements OnInit {
     this.loginRegistrationCardSwitch = true;
   }
 }
-

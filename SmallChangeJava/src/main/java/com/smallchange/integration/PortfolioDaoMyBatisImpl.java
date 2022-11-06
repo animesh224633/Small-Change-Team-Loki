@@ -12,7 +12,7 @@ import com.smallchange.uimodel.Portfolio;
 
 
 @Repository
-public class PortfolioDaoMyBatisImpl {
+public class PortfolioDaoMyBatisImpl implements PortfolioMyBatisDao{
 
 	@Autowired
 	private Logger logger;
@@ -20,6 +20,7 @@ public class PortfolioDaoMyBatisImpl {
 	@Autowired
 	private PortfolioMapper portfolioMapper;
 	
+	@Override
 	public List<Portfolio> getUserPortfolio(String clientId)  {
 		if(clientId==null) {
 			throw new NullPointerException("client id cannot be null");

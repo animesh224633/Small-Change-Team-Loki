@@ -10,19 +10,19 @@ export class TradeHistoryService {
 
   constructor(private http:HttpClient) { }
 
-  getTradeHistory(type:string):Observable<TradeHistory[]>{
+  getTradeHistory(type:string, clientId: string):Observable<TradeHistory[]>{
      
       if(type!="All" && type!="all" && type!=''){
         if(type=="sell"){
         console.log(type)
-      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2/Sell').pipe(catchError(this.handleError));
+      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/'+clientId+'/Sell').pipe(catchError(this.handleError));
         }
         else
-        return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2/Buy').pipe(catchError(this.handleError));
+        return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/'+clientId+'/Buy').pipe(catchError(this.handleError));
       }
       else{
         console.log("hi")
-      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/2').pipe(catchError(this.handleError));
+      return this.http.get<TradeHistory[]>('http://localhost:8080/tradeHistory/' + clientId).pipe(catchError(this.handleError));
       }
   }
 

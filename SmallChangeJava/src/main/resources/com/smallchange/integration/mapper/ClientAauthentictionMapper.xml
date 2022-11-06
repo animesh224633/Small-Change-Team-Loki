@@ -11,6 +11,11 @@
 	<resultMap type="ClientSendBackDetails" id="LoginAuthenticationDetails">
 		<result property="clientId"	 column="client_id" />
 	</resultMap>
+	
+	<insert id="putRegistrationAuthenticationDetails">
+        insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) 
+        values(#{clientId},#{clientName},#{clientMail},#{clientWallet},#{password})
+    </insert>
 
 	
 </mapper>
