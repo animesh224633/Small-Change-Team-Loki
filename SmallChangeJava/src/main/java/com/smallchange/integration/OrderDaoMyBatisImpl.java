@@ -78,30 +78,27 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						BigDecimal newWalletMoney=(oldWalletMoney).subtract(bo.getBuyPrice().multiply(new BigDecimal(bo.getQuantity())));
 					float newWallet=newWalletMoney.floatValue();
 						System.out.println("Old Wallet amount:"+oldWalletMoney);
-<<<<<<< HEAD
-						orderMapper.updateClientWallet(bo, newWallet);
-						
-=======
+
+
 						orderMapper.updateClientWallet(bo.getClientId(), newWallet);
 						System.out.println("updated");
->>>>>>> b9f00cf57cb0bdbb45213e2dce723eed850cf8ed
+
 						
 						//System.out.println("New Wallet amount:"+newWalletMoney);
 			
 
-<<<<<<< HEAD
+
 		if(!flag) {
 			throw new IllegalArgumentException("Client doesn't exist");
 		}
 		
 	 return orderMapper.putBuyTrade(bo,newWallet) == 1;
-=======
+
 //		if(!flag) {
 //			throw new IllegalArgumentException("Client doesn't exist");
 //		}
 		
-	 return orderMapper.putBuyTrade(bo.getBuyPrice(),bo.getClientId(),bo.getCode(),bo.getDirection(),bo.getOrderId(),bo.getQuantity(),bo.getTimestamp(),newWallet) == 1;
->>>>>>> b9f00cf57cb0bdbb45213e2dce723eed850cf8ed
+
 	}
 	
 

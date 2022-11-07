@@ -1,9 +1,7 @@
 package com.smallchange.integration.mapper;
 
-<<<<<<< HEAD
-=======
 import java.time.LocalDate;
->>>>>>> b9f00cf57cb0bdbb45213e2dce723eed850cf8ed
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -46,7 +44,7 @@ public interface OrderMapper {
 
 	@Insert("Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp)" + " Values ("
 			+ "#{buyPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
-<<<<<<< HEAD
+
 
 	
 	
@@ -58,6 +56,7 @@ int putBuyTrade(BuyOrder bo, @Param("wallet") float wallet) throws InsufficientF
 	
 	@Update("Update client set client_smallchange_wallet =#{wallet}where client_id=#{clientId}")
 		 void updateClientWallet(@Param("clientId") String clientId,@Param("wallet") float wallet);
->>>>>>> b9f00cf57cb0bdbb45213e2dce723eed850cf8ed
+
 }
+
 
