@@ -13,7 +13,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -29,9 +28,8 @@ import com.smallchange.uimodel.TradeHistory;
 
 
 
-	//@ExtendWith(SpringExtension.class)
-	//@ContextConfiguration("classpath:beans.xml")
-@SpringBootTest
+	@ExtendWith(SpringExtension.class)
+	@ContextConfiguration("classpath:beans.xml")
 	@Transactional
 	class OrderDaoMyBatisImplTest {
 		
@@ -46,11 +44,7 @@ import com.smallchange.uimodel.TradeHistory;
 		 BuyOrder bo=new BuyOrder();
 		 
 			Client clientDAO = new Client();
-		@BeforeEach
-		void setUp() {
-			clientDAO.setClientSmallChangeWallet(new BigDecimal("4000.00"));
-		clientDAO.setClientId("1");
-		}
+			
 			
 	
 		@Autowired
@@ -58,7 +52,7 @@ import com.smallchange.uimodel.TradeHistory;
 		
 		@Autowired
 		private JdbcTemplate jdbcTemplate;
-		@DisplayName("Get Sell Instrument Positive Test ")
+		@DisplayName("Get Sell Instrument Positive Test")
 		@Test
 		void testGetSellInstrument_Success() {
  List<SellInstrument> allSellInstrument = dao.getSellInstrument();
@@ -67,7 +61,7 @@ import com.smallchange.uimodel.TradeHistory;
 			assertTrue(allSellInstrument.contains(sell));
 			assertTrue(allSellInstrument.contains(sell1));
 			assertTrue(allSellInstrument.contains(sell2));
-			//assertEquals()
+			
 			
 		}
 		@DisplayName(" Get Buy Trade Positive Test")
@@ -80,46 +74,26 @@ import com.smallchange.uimodel.TradeHistory;
 			assertTrue(allBuyInstrument.contains(buy2));
 				
 		}
-		@DisplayName("Put Buy Trade Positive Test for holdings insert")
+		/*@DisplayName("Put Buy Trade Positive Test")
 		@Test
-		void putBuyTradeTest_Success1() throws InsufficientFundsException {
+		void putBuyTradeTest_Success() throws InsufficientFundsException {
 		
-			
-				bo.setCode("SBIMF");
+			bo.setCode("APP");
+				bo.setCode("APP");
 				bo.setOrderId(UUID.randomUUID().toString());
 				bo.setBuyPrice(new BigDecimal("240.00"));
 				bo.setQuantity(6);
 				bo.setDirection("buy");
-				bo.setClientId("1");
+				bo.setClientId("loki");
 				bo.setTimestamp(LocalDate.now());
-				clientDAO.setClientId("1");
+				clientDAO.setClientId("loki");
 				clientDAO.setClientMail("loki@gmail.com");
 				clientDAO.setClientName("loki");
 				clientDAO.setClientSmallChangeWallet(new BigDecimal("1000.00"));
 				clientDAO.setPassword("loki123");
 				
 				assertTrue(dao.putBuyTrade(bo));
-		}
-		@DisplayName("Put Buy Trade Positive Test for holdings update")
-		@Test
-		void putBuyTradeTest_Success2() throws InsufficientFundsException {
-		
-			
-				bo.setCode("APL");
-				bo.setOrderId(UUID.randomUUID().toString());
-				bo.setBuyPrice(new BigDecimal("240.00"));
-				bo.setQuantity(6);
-				bo.setDirection("buy");
-				bo.setClientId("1");
-				bo.setTimestamp(LocalDate.now());
-				clientDAO.setClientId("1");
-				clientDAO.setClientMail("loki@gmail.com");
-				clientDAO.setClientName("loki");
-				clientDAO.setClientSmallChangeWallet(new BigDecimal("1000.00"));
-				clientDAO.setPassword("loki123");
-				
-				assertTrue(dao.putBuyTrade(bo));
-		}
+		}*/
 	
 		
 		

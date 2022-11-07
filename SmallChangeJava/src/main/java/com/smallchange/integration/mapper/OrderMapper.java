@@ -1,5 +1,6 @@
 package com.smallchange.integration.mapper;
 
+import java.time.LocalDate;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -37,22 +38,14 @@ public interface OrderMapper {
 	@ResultMap("com.smallchange.integration.mapper.OrderMapper.BuyInstrument")
 	List<BuyInstrument> getBuyInstrument();
 
-	@Select("select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=#{bo.clientId}\r\n")
+	@Select("select coalesce(client_smallchange_wallet,0) from client where client_id=#{clientId}\r\n")
 	float getClientWallet(String clientId);
 
 	@Insert("Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp)" + " Values ("
 			+ "#{buyPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
-
+	int putBuyTrade(@Param("buyPrice") BigDecimal buyPrice,@Param("clientId") String clientId,@Param("code") String code,@Param("direction") String Direction,@Param("orderId") String orderId,@Param("quantity") int quantity,@Param("timestamp") LocalDate timestamp, @Param("wallet") float wallet) throws InsufficientFundsException;
 	
-	int putBuyTradeOrder(BuyOrder bo) throws InsufficientFundsException;
-	@Update("Update client set client_smallchange_wallet =#{wallet} where client_id=#{bo.clientId}")
-		 void updateClientWallet(BuyOrder bo,@Param("wallet") float wallet);
-	
-     @Insert("Insert into holdings (holding_id,buyprice,client_id,code,quantity)" + " Values ("
- 			+ "#{holding_id},#{buyPrice},#{clientId},#{code},#{quantity})\r\n")
-int putBuyTradeHoldingsInsert(BuyOrder bo);
-     @Update("Update holdings set holding_id=#{holding_id},buyprice=#{buyPrice},client_id=#{clientId},code=#{code},quantity=#{quantity}")
- int putBuyTradeHoldingsUpdate(BuyOrder bo);
-
+	@Update("Update client set client_smallchange_wallet =#{wallet}where client_id=#{clientId}")
+		 void updateClientWallet(@Param("clientId") String clientId,@Param("wallet") float wallet);
 }
 
