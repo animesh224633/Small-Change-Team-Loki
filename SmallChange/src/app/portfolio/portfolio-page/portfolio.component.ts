@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientIdService } from 'src/app/client-id.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,9 +11,10 @@ export class PortfolioComponent implements OnInit {
   currentValue=0;
   dangerclass =false;
 
-  constructor() { }
+  constructor(private clientIdService: ClientIdService) { }
 
   ngOnInit(): void {
+    console.log('on portfolio ', this.clientIdService.clientId);
     if(this.totalInvestment <= this.currentValue){
       this.dangerclass=false;
     }
