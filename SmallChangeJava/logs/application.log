@@ -1154,3 +1154,94 @@ com.smallchange.exception.InsufficientFundsException: You do not have enough wal
 2022-11-08 14:27:52.685 DEBUG --- c.s.i.mapper.OrderMapper.putBuyTrade     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
 2022-11-08 14:27:52.685 DEBUG --- c.s.i.mapper.OrderMapper.putBuyTrade     : ==> Parameters: 300.45(BigDecimal), 1(String), AMZN(String), SELL(String), 7(String), 2(Integer), 2018-03-29(LocalDate)
 2022-11-08 14:27:52.686 DEBUG --- c.s.i.mapper.OrderMapper.putBuyTrade     : <==    Updates: 1
+2022-11-08 14:40:04.052  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 14:40:05.992  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 14:40:10.126 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-08 14:40:10.145 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: 1(String)
+2022-11-08 14:40:10.165 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-08 14:40:10.169 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-08 14:40:10.171 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : ==> Parameters: 2843.7(Float), 1(String)
+2022-11-08 14:40:10.173 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : <==    Updates: 1
+2022-11-08 14:40:10.174 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code
+2022-11-08 14:40:10.175 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 
+2022-11-08 14:40:10.176 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 3
+2022-11-08 14:40:10.177 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==>  Preparing: Update holdings set holding_id=?,buyprice=?,client_id=?,code=?,quantity=?
+2022-11-08 14:40:10.177 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==> Parameters: null, 300.45(BigDecimal), 1(String), AMZN(String), 2(Integer)
+2022-11-08 14:40:10.178 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : <==    Updates: 3
+2022-11-08 14:40:10.178 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-08 14:40:10.179 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 300.45(BigDecimal), 1(String), AMZN(String), SELL(String), 7(String), 2(Integer), 2018-03-29(LocalDate)
+2022-11-08 14:40:10.180 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : <==    Updates: 1
+2022-11-08 14:40:43.591 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 14:40:43.592 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 14:40:43.593 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 3
+2022-11-08 14:40:43.594  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:40:45.489 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 14:40:45.491 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 14:40:45.493 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 1
+2022-11-08 14:40:45.494  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:40:47.154 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 14:40:47.156 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-08 14:40:47.157 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-08 14:40:47.158  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:42:21.404 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 14:42:21.406 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 14:42:21.407 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 14:42:21.408  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 14:42:29.935 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 14:42:29.936 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 14:42:29.938 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 3
+2022-11-08 14:42:29.939  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:42:31.337 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 14:42:31.338 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 14:42:31.340 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 1
+2022-11-08 14:42:31.341  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:42:43.640 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 14:42:43.643 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 14:42:43.645 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 3
+2022-11-08 14:42:43.647  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:43:24.647 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 14:43:24.648 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 14:43:24.650 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 1
+2022-11-08 14:43:24.652  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:43:26.011 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 14:43:26.013 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 14:43:26.017 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 3
+2022-11-08 14:43:26.018  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:43:45.692 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-08 14:43:45.693 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: 1(String)
+2022-11-08 14:43:45.694 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-08 14:43:45.695 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-08 14:43:45.696 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : ==> Parameters: 2242.8(Float), 1(String)
+2022-11-08 14:43:45.697 DEBUG --- c.s.i.m.OrderMapper.updateClientWallet   : <==    Updates: 1
+2022-11-08 14:43:45.698 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code
+2022-11-08 14:43:45.699 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 
+2022-11-08 14:43:45.700 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 3
+2022-11-08 14:43:45.700 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==>  Preparing: Update holdings set holding_id=?,buyprice=?,client_id=?,code=?,quantity=?
+2022-11-08 14:43:45.701 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==> Parameters: null, 300.45(BigDecimal), 1(String), AMZN(String), 2(Integer)
+2022-11-08 14:43:45.702 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : <==    Updates: 3
+2022-11-08 14:43:45.702 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-08 14:43:45.703 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 300.45(BigDecimal), 1(String), AMZN(String), SELL(String), 78(String), 2(Integer), 2018-03-29(LocalDate)
+2022-11-08 14:43:45.703 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : <==    Updates: 1
+2022-11-08 14:44:20.857  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-08 14:44:29.790  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-08 14:44:31.922  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-08 14:44:38.057 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 14:44:38.058 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 14:44:38.059 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 14:44:38.060  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 14:44:40.886 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 14:44:40.888 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 14:44:40.890 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 4
+2022-11-08 14:44:40.890  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 14:45:29.223  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2022-11-08 14:45:31.970 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, (((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-08 14:45:31.972 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-08 14:45:31.975 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 3
+2022-11-08 14:45:31.976 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, (((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-08 14:45:31.977 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-08 14:45:31.981 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 3
+2022-11-08 14:45:31.981  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-08 14:52:14.824 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-08 14:52:14.825 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-08 14:52:14.826 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 4
+2022-11-08 14:52:14.827  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
