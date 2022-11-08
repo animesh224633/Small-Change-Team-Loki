@@ -12,6 +12,10 @@ public interface PortfolioMapper {
 	List<Portfolio> getUserPortfolio(
 			@Param("clientId") String clientId
 			);
+//	<association property="portfolioStockView"
+//			resultMap="portfolioStockResult" />
+//		<association property="portfolioMutualFuundView"
+//			resultMap="portfolioMutualFundResult"  />
 	
 
 }
