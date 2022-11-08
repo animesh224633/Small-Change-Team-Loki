@@ -554,3 +554,44 @@ Caused by: java.io.FileNotFoundException: class path resource [beans.xml] cannot
 2022-11-08 13:03:25.838 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
 2022-11-08 13:03:25.839 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
 2022-11-08 13:03:25.842  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 13:07:10.080 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 13:07:10.112 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 99(String)
+2022-11-08 13:07:10.154 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-08 13:07:10.186 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 13:07:10.187 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 13:07:10.192 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 13:07:10.229 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, (((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-08 13:07:10.231 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-08 13:07:10.235 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-08 13:07:10.245 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, (((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-08 13:07:10.247 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-08 13:07:10.249 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-08 13:07:10.295 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-08 13:07:10.296 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-08 13:07:10.298 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 4
+2022-11-08 13:07:10.307 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity,     cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code
+2022-11-08 13:07:10.309 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 
+2022-11-08 13:07:10.311 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 3
+2022-11-08 13:07:10.610  INFO --- c.s.r.TradeHistoryServiceWebLayerTest    : Starting TradeHistoryServiceWebLayerTest using Java 17.0.1 on a683691win with PID 7240 (started by a683691 in C:\Users\Associate\Desktop\New folder (2)\Small-Change-Team-Loki\SmallChangeJava)
+2022-11-08 13:07:10.611 DEBUG --- c.s.r.TradeHistoryServiceWebLayerTest    : Running with Spring Boot v2.6.7, Spring v5.3.19
+2022-11-08 13:07:10.614  INFO --- c.s.r.TradeHistoryServiceWebLayerTest    : The following 1 profile is active: "dev"
+2022-11-08 13:07:11.396  INFO --- c.s.r.TradeHistoryServiceWebLayerTest    : Started TradeHistoryServiceWebLayerTest in 0.831 seconds (JVM running for 9.56)
+2022-11-08 13:07:11.496  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 13:07:11.714 ERROR --- c.s.restService.TradeHistoryService      : negative id received
+2022-11-08 13:07:11.745 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-08 13:07:11.759 ERROR --- c.s.restService.TradeHistoryService      : mock exception
+2022-11-08 13:07:11.782 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 13:07:11.785 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 13:07:11.788 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 13:07:11.788  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 13:07:11.805 ERROR --- c.s.restService.TradeHistoryService      : negative id received
+2022-11-08 13:07:11.913  INFO --- c.s.r.TradeHistoryServiceE2ETest         : Starting TradeHistoryServiceE2ETest using Java 17.0.1 on a683691win with PID 7240 (started by a683691 in C:\Users\Associate\Desktop\New folder (2)\Small-Change-Team-Loki\SmallChangeJava)
+2022-11-08 13:07:11.914 DEBUG --- c.s.r.TradeHistoryServiceE2ETest         : Running with Spring Boot v2.6.7, Spring v5.3.19
+2022-11-08 13:07:11.914  INFO --- c.s.r.TradeHistoryServiceE2ETest         : The following 1 profile is active: "dev"
+2022-11-08 13:07:12.781  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-11-08 13:07:14.206  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50440 (http) with context path ''
+2022-11-08 13:07:14.216  INFO --- c.s.r.TradeHistoryServiceE2ETest         : Started TradeHistoryServiceE2ETest in 2.376 seconds (JVM running for 12.379)
+2022-11-08 13:07:14.403 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 13:07:14.405 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 13:07:14.406 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 13:07:14.408  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
