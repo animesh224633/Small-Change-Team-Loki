@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -28,8 +29,9 @@ import com.smallchange.uimodel.TradeHistory;
 
 
 
-	@ExtendWith(SpringExtension.class)
-	@ContextConfiguration("classpath:beans.xml")
+	//@ExtendWith(SpringExtension.class)
+	//@ContextConfiguration("classpath:beans.xml")
+	@SpringBootTest
 	@Transactional
 	class OrderDaoMyBatisImplTest {
 		
