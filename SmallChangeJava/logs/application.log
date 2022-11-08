@@ -1245,3 +1245,160 @@ com.smallchange.exception.InsufficientFundsException: You do not have enough wal
 2022-11-08 14:52:14.825 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
 2022-11-08 14:52:14.826 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 4
 2022-11-08 14:52:14.827  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-08 15:30:17.741  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 15:30:20.491  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 15:32:25.938 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:32:25.958 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 15:32:25.977 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:32:25.979  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:32:28.259 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:32:28.261 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 15:32:28.262 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 15:32:28.263  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:32:30.874 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:32:30.875 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:32:30.876 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:32:30.877 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-08 15:32:34.499 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:32:34.500 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-08 15:32:34.502 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-08 15:32:34.503  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:35:03.959  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 15:35:05.662  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 15:35:19.602 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:35:19.620 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 15:35:19.638 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:35:19.640  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:35:21.570 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:35:21.571 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 15:35:21.573 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 15:35:21.574  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:35:23.235 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:35:23.237 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:35:23.238 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:35:23.239  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:35:28.800 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:35:28.802 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-08 15:35:28.804 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-08 15:35:28.805  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:36:16.891 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:36:16.892 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:36:16.893 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:36:16.894  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:36:19.188 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:36:19.189 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 15:36:19.191 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 15:36:19.191  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:36:26.607 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:36:26.610 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:36:26.610 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:36:26.611  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:37:00.021 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-08 15:37:00.022 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 9b72d855-ec51-44f2-95c9-0c13ad8da031(String), seneha(String), seneha@gmail.com(String), 0(BigDecimal), seneha1561(String)
+2022-11-08 15:37:00.022 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-08 15:37:00.024  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-08 15:37:11.758 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:37:11.760 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: seneha@gmail.com(String), seneha1561(String)
+2022-11-08 15:37:11.761 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:37:11.761  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:37:13.359  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "9b72d855-ec51-44f2-95c9-0c13ad8da031"]
+2022-11-08 15:37:18.809  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "9b72d855-ec51-44f2-95c9-0c13ad8da031"]
+2022-11-08 15:37:21.771  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "9b72d855-ec51-44f2-95c9-0c13ad8da031"]
+2022-11-08 15:43:27.674  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 15:43:29.344  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 15:43:59.718 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-08 15:43:59.736 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 4f8f472d-c468-4791-965d-c49fddfd745d(String), seneha(String), ss@gmail.com(String), 0(BigDecimal), seneha1561(String)
+2022-11-08 15:43:59.737 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-08 15:43:59.738  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-08 15:44:10.526 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:44:10.527 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: ss@gmail.com(String), seneha1561(String)
+2022-11-08 15:44:10.547 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:44:10.549  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:44:12.879 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:44:12.880 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 4f8f472d-c468-4791-965d-c49fddfd745d(String)
+2022-11-08 15:44:12.881 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-08 15:44:12.881  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:44:17.066  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "4f8f472d-c468-4791-965d-c49fddfd745d"]
+2022-11-08 15:44:19.009  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "4f8f472d-c468-4791-965d-c49fddfd745d"]
+2022-11-08 15:45:57.617 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:45:57.619 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 15:45:57.619 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:45:57.620  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:45:59.473 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:45:59.474 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 15:45:59.476 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 15:45:59.477  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:46:01.547 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:46:01.549 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:46:01.550 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:46:01.551  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:46:02.983 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:46:02.985 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-08 15:46:02.986 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-08 15:46:02.987  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:46:27.640 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-08 15:46:27.641 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 37dd9dba-27a6-476d-b0ca-a5e24b207ee9(String), sss(String), sss@gmail.com(String), 0(BigDecimal), seneha1561(String)
+2022-11-08 15:46:27.642 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-08 15:46:27.642  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-08 15:46:38.159 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:46:38.160 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: sss@gmail.com(String), seneha1561(String)
+2022-11-08 15:46:38.161 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:46:38.161  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:46:39.970 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:46:39.972 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 37dd9dba-27a6-476d-b0ca-a5e24b207ee9(String)
+2022-11-08 15:46:39.973 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-08 15:46:39.973  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:46:42.082  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "37dd9dba-27a6-476d-b0ca-a5e24b207ee9"]
+2022-11-08 15:46:49.713  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "37dd9dba-27a6-476d-b0ca-a5e24b207ee9"]
+2022-11-08 15:52:14.671  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 15:52:16.316  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 15:52:45.610 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-08 15:52:45.629 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String), sss(String), seneha@gmail.com(String), 0(BigDecimal), seneha1561(String)
+2022-11-08 15:52:45.629 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-08 15:52:45.630  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-08 15:52:55.876 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:52:55.877 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: seneha@gmail.com(String), seneha1561(String)
+2022-11-08 15:52:55.898 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:52:55.899  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:52:58.792 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:52:58.793 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:52:58.794 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-08 15:52:58.795  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:53:07.126 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:53:07.128 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:53:07.129 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:53:07.130  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:53:14.477 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:53:14.479 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:53:14.479 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 0
+2022-11-08 15:53:14.480  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:53:18.506 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:53:18.508 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:53:18.508 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:53:18.509  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:53:20.537 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:53:20.539 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:53:20.540 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 0
+2022-11-08 15:53:20.540  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:53:22.761 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:53:22.763 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 6dba0931-1d72-472c-b3ca-5537f8dd1721(String)
+2022-11-08 15:53:22.763 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-08 15:53:22.764  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:54:41.607  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-08 15:54:43.882  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-08 15:55:03.470 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-08 15:55:03.488 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-08 15:55:03.507 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-08 15:55:03.509  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-08 15:55:08.177 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-08 15:55:08.178 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-08 15:55:08.180 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-08 15:55:08.181  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:55:14.177 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-08 15:55:14.179 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-08 15:55:14.180 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-08 15:55:14.180  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-08 15:55:17.310 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-08 15:55:17.311 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-08 15:55:17.313 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-08 15:55:17.313  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval

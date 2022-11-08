@@ -30,24 +30,24 @@ public class TradeHistoryService {
 	Logger logger;
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientId(@PathVariable int id) {
+	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientId(@PathVariable String id) {
 		ResponseEntity<List<TradeHistory>> result;
 		List<TradeHistory> tradeHistory;
 		
-		if (id <= 0) {
-			logger.error("negative id received");
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
-		}
+//		if (id <= 0) {
+//			logger.error("negative id received");
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+//		}
 		
 		try {
-			tradeHistory = dao.getTradeHistory(Integer.toString(id));
+			tradeHistory = dao.getTradeHistory(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
 		}
 		System.out.println("Size"+tradeHistory.size());
-		if (tradeHistory != null && tradeHistory.size()>0) {
+		if (tradeHistory != null && tradeHistory.size()>=0) {
 			logger.info("Successful retrieval");
 			result = ResponseEntity.ok(tradeHistory);
 			System.out.println(result.getBody());
@@ -59,24 +59,26 @@ public class TradeHistoryService {
 	}
 	
 	@GetMapping(value = "/{id}/Sell", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdSell(@PathVariable int id) {
+	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdSell(@PathVariable String id) {
 		ResponseEntity<List<TradeHistory>> result;
 		List<TradeHistory> tradeHistory;
+		System.out.println(id);
+		System.out.println("hel1");
 		
-		if (id <= 0) {
-			logger.error("negative id received");
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
-		}
+//		if (id <= 0) {
+//			logger.error("negative id received");
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+//		}
 		
 		try {
-			tradeHistory = dao.getTradeHistoryBySell(Integer.toString(id));
+			tradeHistory = dao.getTradeHistoryBySell(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
 		}
 		System.out.println("Size"+tradeHistory.size());
-		if (tradeHistory != null && tradeHistory.size()>0) {
+		if (tradeHistory != null && tradeHistory.size()>=0) {
 			logger.info("Successful retrieval");
 			result = ResponseEntity.ok(tradeHistory);
 			System.out.println(result.getBody());
@@ -89,24 +91,24 @@ public class TradeHistoryService {
 
 
 	@GetMapping(value = "/{id}/Buy", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdBuy(@PathVariable int id) {
+	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdBuy(@PathVariable String id) {
 		ResponseEntity<List<TradeHistory>> result;
 		List<TradeHistory> tradeHistory;
 		
-		if (id <= 0) {
-			logger.error("negative id received");
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
-		}
+//		if (id <= 0) {
+//			logger.error("negative id received");
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+//		}
 		
 		try {
-			tradeHistory = dao.getTradeHistoryByBuy(Integer.toString(id));
+			tradeHistory = dao.getTradeHistoryByBuy(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
 		}
 		System.out.println("Size"+tradeHistory.size());
-		if (tradeHistory != null && tradeHistory.size()>0) {
+		if (tradeHistory != null && tradeHistory.size()>=0) {
 			logger.info("Successful retrieval");
 			result = ResponseEntity.ok(tradeHistory);
 			System.out.println(result.getBody());
