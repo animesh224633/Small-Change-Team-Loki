@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.smallchange.uimodel.Portfolio;
 
-@Mapper
+@Mapper  
 public interface PortfolioMapper {
 	List<Portfolio> getUserPortfolio(
 			@Param("clientId") String clientId

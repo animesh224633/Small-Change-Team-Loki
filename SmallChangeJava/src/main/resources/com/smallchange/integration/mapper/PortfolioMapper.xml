@@ -20,10 +20,16 @@
 	
 	<resultMap type="Portfolio" id="ClientPortfolio">
 
-		<association property="portfolioStockView"
-			resultMap="portfolioStockResult" />
-		<association property="portfolioMutualFuundView"
-			resultMap="portfolioMutualFundResult"  />
+		<discriminator javaType="String" column="CATEGORY">
+            <case value="STOCK" resultType="Portfolio">
+                <association property="portfolioStockView"
+                    resultMap="portfolioStockResult" />
+            </case>
+            <case value="MUTUALFUND" resultType="Portfolio">
+                <association property="portfolioMutualFuundView"
+                    resultMap="portfolioMutualFundResult" />
+            </case>
+        </discriminator>
 
 	</resultMap>
 
