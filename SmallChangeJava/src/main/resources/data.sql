@@ -15,7 +15,7 @@ INSERT INTO ORDERS(CODE,QUANTITY,BUY_PRICE,CLIENT_ID,ORDER_ID,TIMESTAMP,DIRECTIO
 INSERT INTO ORDERS(CODE,QUANTITY,BUY_PRICE,CLIENT_ID,ORDER_ID,TIMESTAMP,DIRECTION) VALUES('LMF',5,232.6,'1','103',TO_DATE('2022-10-12','YYYY-MM-DD'),'BUY');
 INSERT INTO ORDERS(CODE,QUANTITY,BUY_PRICE,CLIENT_ID,ORDER_ID,TIMESTAMP,DIRECTION) VALUES('APL',12,54.7,'2','104',TO_DATE('2022-10-12','YYYY-MM-DD'),'SELL');
 
-insert into holdings(holding_id,client_id,code,quantity,buyprice) values ('1101','1','AMZN',10,5694.7);
+insert into holdings(holding_id,client_id,code,quantity,buyprice) values ('1101','1','AMZN',10,150.7);
 insert into holdings(holding_id,client_id,code,quantity,buyprice) values ('1102','1','LMF',1,232.6);
 insert into holdings(holding_id,client_id,code,quantity,buyprice) values ('1103','2','APL',1,54.7);
 commit;

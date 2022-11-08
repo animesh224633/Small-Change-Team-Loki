@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +99,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							
 							System.out.println(holding.getCode());
 							System.out.println(code);
-							if(holding.getCode().equals(code)) {
+							if(holding.getCode().equals(code) && holding.getClientId().equals(bo.getClientId())) {
 								
 								iou="u";
 								holdingPrice=holding.getCurrentPrice(); 
@@ -107,6 +108,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 								break;
 							}
 							else {
+								bo.setHolding_id(UUID.randomUUID().toString());
 								
 								iou="i";
 								
@@ -116,7 +118,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							BigDecimal newBuySum=bo.getBuyPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
 							BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
 							BigDecimal quntitySum=BigDecimal.valueOf(bo.getQuantity()).add(holdingQuantity);
-							BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum);
+							BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum,2, RoundingMode.HALF_DOWN);
 							bo.setBuyPrice(updatedBuyprice);
 							bo.setQuantity(quntitySum.intValue());
 							orderMapper.putBuyTradeHoldingsUpdate(bo);
@@ -172,9 +174,7 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						System.out.println("New Wallet amount:"+newWalletMoney);
 			
 
-		/*if(!flag) {
-			throw new IllegalArgumentException("Client doesn't exist");
-		}*/
+		
 						
 						//SellInstrument ho
 						String code=bo.getCode();
@@ -185,7 +185,7 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 							
 							System.out.println(holding.getCode());
 							System.out.println(code);
-							if(holding.getCode().equals(code)) {
+							if(holding.getCode().equals(code)&& holding.getClientId().equals(bo.getClientId())) {
 								
 								iou="u";
 								//holdingPrice=holding.getCurrentPrice(); 
@@ -202,17 +202,17 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						if(iou=="u") {
 							//BigDecimal newBuySum=bo.getSellPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
 							//BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
-							BigDecimal quntitySum=BigDecimal.valueOf(bo.getQuantity()).subtract(holdingQuantity);
+							BigDecimal quntitySum=holdingQuantity.subtract(BigDecimal.valueOf(bo.getQuantity()));
 							//BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum);
 							//bo.setBuyPrice(updatedBuyprice);
-							bo.setQuantity(2);
+							bo.setQuantity(quntitySum.intValue());
 							orderMapper.putSellTradeHoldingsUpdate(bo);
 							flag=true;
 							System.out.println("executing update!");
 						}
 						else if( iou=="i") {
 							//orderMapper.putSellTradeHoldingsInsert(bo);
-							flag=true;
+							flag=false;
 							System.out.println("executing insert!");
 						}
 						

@@ -52,10 +52,10 @@ public interface OrderMapper {
      @Insert("Insert into holdings (holding_id,buyprice,client_id,code,quantity)" + " Values ("
  			+ "#{holding_id},#{buyPrice},#{clientId},#{code},#{quantity})\r\n")
 int putBuyTradeHoldingsInsert(BuyOrder bo);
-     @Update("Update holdings set buyprice=#{bo.buyPrice}quantity=#{bo.quantity} where holding_id=#{bo.holding_id)")
+     @Update("Update holdings set buyprice=#{buyPrice}, quantity=#{quantity} where client_id=#{clientId} and code=#{code}")
  int putBuyTradeHoldingsUpdate(BuyOrder bo);
      @Insert("Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp)" + " Values ("
- 			+ "#{buyPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
+ 			+ "#{sellPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
 
  	
  	int putSellTradeOrder(SellOrder bo) throws InsufficientFundsException;
@@ -63,7 +63,7 @@ int putBuyTradeHoldingsInsert(BuyOrder bo);
  		 void updateClientWalletSell(SellOrder bo,@Param("wallet") float wallet);
  	
     
-      @Update("Update holdings set quantity=#{bo.quantity} where holding_id=#{bo.holding_id)")
+      @Update("Update holdings set quantity=#{quantity} where client_id=#{clientId} and code=#{code}")
   int putSellTradeHoldingsUpdate(SellOrder bo);
 
 }

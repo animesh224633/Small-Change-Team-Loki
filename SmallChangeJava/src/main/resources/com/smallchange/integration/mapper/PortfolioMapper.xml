@@ -24,6 +24,8 @@
 
 
 
+
+
 		<discriminator javaType="String" column="CATEGORY">
 			<case value="STOCK" resultType="Portfolio">
 				<association property="portfolioStockView"
