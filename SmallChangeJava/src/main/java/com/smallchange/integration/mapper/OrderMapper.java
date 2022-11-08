@@ -19,6 +19,7 @@ import com.smallchange.uimodel.BuyInstrument;
 import com.smallchange.uimodel.BuyOrder;
 import com.smallchange.uimodel.Order;
 import com.smallchange.uimodel.SellInstrument;
+import com.smallchange.uimodel.SellOrder;
 @Mapper
 public interface OrderMapper {
 	@Select("SELECT h.holding_id,\r\n" + "     h.client_id,\r\n" + "     h.code,\r\n" + "     i.name,\r\n"
@@ -46,12 +47,23 @@ public interface OrderMapper {
 	
 	int putBuyTradeOrder(BuyOrder bo) throws InsufficientFundsException;
 	@Update("Update client set client_smallchange_wallet =#{wallet} where client_id=#{bo.clientId}")
-		 void updateClientWallet(BuyOrder bo,@Param("wallet") float wallet);
+		 void updateClientWalletBuy(BuyOrder bo,@Param("wallet") float wallet);
 	
      @Insert("Insert into holdings (holding_id,buyprice,client_id,code,quantity)" + " Values ("
  			+ "#{holding_id},#{buyPrice},#{clientId},#{code},#{quantity})\r\n")
 int putBuyTradeHoldingsInsert(BuyOrder bo);
-     @Update("Update holdings set holding_id=#{holding_id},buyprice=#{buyPrice},client_id=#{clientId},code=#{code},quantity=#{quantity}")
+     @Update("Update holdings set buyprice=#{bo.buyPrice}quantity=#{bo.quantity} where holding_id=#{bo.holding_id)")
  int putBuyTradeHoldingsUpdate(BuyOrder bo);
+     @Insert("Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp)" + " Values ("
+ 			+ "#{buyPrice},#{clientId},#{code},#{direction},#{orderId},#{quantity},#{timestamp})\r\n")
+
+ 	
+ 	int putSellTradeOrder(SellOrder bo) throws InsufficientFundsException;
+ 	@Update("Update client set client_smallchange_wallet =#{wallet} where client_id=#{bo.clientId}")
+ 		 void updateClientWalletSell(SellOrder bo,@Param("wallet") float wallet);
+ 	
+    
+      @Update("Update holdings set quantity=#{bo.quantity} where holding_id=#{bo.holding_id)")
+  int putSellTradeHoldingsUpdate(SellOrder bo);
 
 }

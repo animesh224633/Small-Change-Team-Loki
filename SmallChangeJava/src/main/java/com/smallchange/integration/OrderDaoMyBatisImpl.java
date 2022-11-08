@@ -23,6 +23,7 @@ import com.smallchange.uimodel.BuyInstrument;
 import com.smallchange.uimodel.BuyOrder;
 import com.smallchange.uimodel.Order;
 import com.smallchange.uimodel.SellInstrument;
+import com.smallchange.uimodel.SellOrder;
 import com.smallchange.uimodel.TradeHistory;
 @Repository
 public class OrderDaoMyBatisImpl {
@@ -78,7 +79,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						BigDecimal newWalletMoney=(oldWalletMoney).subtract(bo.getBuyPrice().multiply(new BigDecimal(bo.getQuantity())));
 					float newWallet=newWalletMoney.floatValue();
 						System.out.println("Old Wallet amount:"+oldWalletMoney);
-					orderMapper.updateClientWallet(bo, newWallet);
+					orderMapper.updateClientWalletBuy(bo, newWallet);
 						
 						
 						System.out.println("New Wallet amount:"+newWalletMoney);
@@ -91,12 +92,18 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						//SellInstrument ho
 						String code=bo.getCode();
 						List<SellInstrument> holdings=getSellInstrument();
+						BigDecimal holdingPrice=null;
+						BigDecimal holdingQuantity=null;
 						for(SellInstrument holding : holdings) {
+							
 							System.out.println(holding.getCode());
 							System.out.println(code);
 							if(holding.getCode().equals(code)) {
 								
 								iou="u";
+								holdingPrice=holding.getCurrentPrice(); 
+								holdingQuantity=BigDecimal.valueOf(holding.getQuantity());
+								
 								break;
 							}
 							else {
@@ -106,6 +113,12 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							}
 						}
 						if(iou=="u") {
+							BigDecimal newBuySum=bo.getBuyPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
+							BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
+							BigDecimal quntitySum=BigDecimal.valueOf(bo.getQuantity()).add(holdingQuantity);
+							BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum);
+							bo.setBuyPrice(updatedBuyprice);
+							bo.setQuantity(quntitySum.intValue());
 							orderMapper.putBuyTradeHoldingsUpdate(bo);
 							flag=true;
 							System.out.println("executing update!");
@@ -118,6 +131,93 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						
 		
 	 return orderMapper.putBuyTradeOrder(bo) == 1 && flag;
+	}
+
+
+
+
+
+
+
+public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
+
+	 Objects.requireNonNull(bo);
+	 String iou = null;
+		boolean flag=false;
+		float wallet_amount=orderMapper.getClientWallet(bo.getClientId())
+				;
+		
+				
+					
+					 if(bo.getClientId()==null) {
+							throw new NullPointerException("clientId cannot be null");
+						}
+						if(bo.getClientId().equals("")) {
+							throw new IllegalArgumentException("clientId cannot be empty");
+						}
+					
+					
+					//if(bo.getClientId().equals(cli))
+						BigDecimal wallet=new BigDecimal(wallet_amount).setScale(2,RoundingMode.HALF_DOWN);
+						
+						
+
+						BigDecimal oldWalletMoney=wallet;
+						BigDecimal newWalletMoney=(oldWalletMoney).add(bo.getSellPrice().multiply(new BigDecimal(bo.getQuantity())));
+					float newWallet=newWalletMoney.floatValue();
+						System.out.println("Old Wallet amount:"+oldWalletMoney);
+					orderMapper.updateClientWalletSell(bo, newWallet);
+						
+						
+						System.out.println("New Wallet amount:"+newWalletMoney);
+			
+
+		/*if(!flag) {
+			throw new IllegalArgumentException("Client doesn't exist");
+		}*/
+						
+						//SellInstrument ho
+						String code=bo.getCode();
+						List<SellInstrument> holdings=getSellInstrument();
+						//BigDecimal holdingPrice=null;
+						BigDecimal holdingQuantity=null;
+						for(SellInstrument holding : holdings) {
+							
+							System.out.println(holding.getCode());
+							System.out.println(code);
+							if(holding.getCode().equals(code)) {
+								
+								iou="u";
+								//holdingPrice=holding.getCurrentPrice(); 
+								holdingQuantity=BigDecimal.valueOf(holding.getQuantity());
+								
+								break;
+							}
+							else {
+								
+								iou="i";
+								
+							}
+						}
+						if(iou=="u") {
+							//BigDecimal newBuySum=bo.getSellPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
+							//BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
+							BigDecimal quntitySum=BigDecimal.valueOf(bo.getQuantity()).subtract(holdingQuantity);
+							//BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum);
+							//bo.setBuyPrice(updatedBuyprice);
+							bo.setQuantity(2);
+							orderMapper.putSellTradeHoldingsUpdate(bo);
+							flag=true;
+							System.out.println("executing update!");
+						}
+						else if( iou=="i") {
+							//orderMapper.putSellTradeHoldingsInsert(bo);
+							flag=true;
+							System.out.println("executing insert!");
+						}
+						
+		
+	 return orderMapper.putSellTradeOrder(bo) == 1 && flag;
 	}
 	
 
