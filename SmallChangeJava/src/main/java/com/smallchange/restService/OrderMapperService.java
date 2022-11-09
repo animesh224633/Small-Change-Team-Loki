@@ -23,6 +23,7 @@ import com.smallchange.integration.OrderDaoMyBatisImpl;
 import com.smallchange.integration.TradeHistoryMyBatisDao;
 import com.smallchange.uimodel.BuyInstrument;
 import com.smallchange.uimodel.BuyOrder;
+import com.smallchange.uimodel.BuySellResponse;
 import com.smallchange.uimodel.SellInstrument;
 import com.smallchange.uimodel.SellOrder;
 import com.smallchange.uimodel.TradeHistory;
@@ -38,12 +39,16 @@ public class OrderMapperService {
 	@Autowired
 	Logger logger;
 	
-	@GetMapping(value = "/sell", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<SellInstrument>> querySellInstrument() {
+	@GetMapping(value = "/sell/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<SellInstrument>> querySellInstrument(@PathVariable String id) {
 		ResponseEntity<List<SellInstrument>> result;
 		List<SellInstrument> sellInstrument;
+		if (id == null) {
+			logger.error("null id received");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+		}
 		try {
-			sellInstrument = dao.getSellInstrument();
+			sellInstrument = dao.getSellInstrument(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
@@ -86,20 +91,25 @@ public class OrderMapperService {
 	
 	@PostMapping(path="buyUpdate",consumes = MediaType.APPLICATION_JSON_VALUE, 
 	        produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Boolean> queryPutBuyTrade(@RequestBody BuyOrder buyorder) throws InsufficientFundsException {
+	public ResponseEntity<BuySellResponse> queryPutBuyTrade(@RequestBody BuyOrder buyorder) throws InsufficientFundsException {
 		System.out.println("Hello seneha 1");
 		Boolean response=dao.putBuyTrade(buyorder);
+		BuySellResponse buySellResponse=new BuySellResponse();
+		buySellResponse.setResponse(response);
 		System.out.println(response);
-		return new ResponseEntity<>(response, HttpStatus.CREATED);
+		return new ResponseEntity<>(buySellResponse, HttpStatus.CREATED);
 	}
 	@PostMapping(path="sellUpdate",consumes = MediaType.APPLICATION_JSON_VALUE, 
 	        produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Boolean> queryPutSellTrade(@RequestBody SellOrder sellorder) throws InsufficientFundsException{
-		System.out.println("Hello seneha 1");
+	public ResponseEntity<BuySellResponse> queryPutSellTrade(@RequestBody SellOrder sellorder) throws InsufficientFundsException {
+		System.out.println("Hello seneha 2");
 		Boolean response=dao.putSellTrade(sellorder);
+		BuySellResponse buySellResponse=new BuySellResponse();
+		buySellResponse.setResponse(response);
 		System.out.println(response);
-		return new ResponseEntity<>(response, HttpStatus.CREATED);
+		return new ResponseEntity<>(buySellResponse, HttpStatus.CREATED);
 	}
+	
 //	@GetMapping(value = "/{id}/Sell", produces = MediaType.APPLICATION_JSON_VALUE)
 //	public ResponseEntity<List<TradeHistory>> queryTradeHistoryByClientIdSell(@PathVariable int id) {
 //		ResponseEntity<List<TradeHistory>> result;

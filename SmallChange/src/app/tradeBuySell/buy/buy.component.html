@@ -7,7 +7,7 @@
         <mat-card-title>Buy</mat-card-title>
         <mat-card-subtitle>Buy new Stock/ Mutual Fund Holdings</mat-card-subtitle>
       </header>
-      <div>
+      <div>       
         <div class="category">{{!this.check ? 'Stocks' : 'Mutual Funds'}}</div>
         <mat-slide-toggle (change)="toggle($event)" class="category" [ngModel]="chosen"></mat-slide-toggle>
       </div>

@@ -56,43 +56,16 @@
                       </mat-option>
                   </mat-select>
           </mat-form-field>
-<!--
-          <mat-form-field appearance="outline"  *ngIf="this.asset_num === 5">
-            <mat-label>Select Holding</mat-label>
-                <mat-select [(ngModel)]="bond_code">
-                    <mat-option *ngFor="let bond of GB" [value]="bond.code"> 
-                        {{bond.name}}
-                    </mat-option>
-                </mat-select>
-        </mat-form-field>-->
-<!--
-        <mat-form-field appearance="outline" *ngIf="!this.check">
-            <mat-label>{{stock_code}}</mat-label>
-            <input disabled matInput type="text">
+
+          <mat-form-field appearance="outline"*ngIf="this.cNumber === 2">
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" min="0" [(ngModel)]="quantity" max={{this.mFunds[this.selected].quantity}}>
+          </mat-form-field>
+          <mat-form-field appearance="outline"*ngIf="this.cNumber === 1">
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" min="0" [(ngModel)]="quantity" max={{this.stocks[this.selected].quantity}}>
           </mat-form-field>
       
-          <mat-form-field appearance="outline" *ngIf="this.check">
-            <mat-label>{{bond_code}}</mat-label>
-            <input disabled matInput type="text">
-          </mat-form-field>
-        -->
-          <mat-form-field appearance="outline">
-            <mat-label>Quantity</mat-label>
-            <input matInput type="number" min="0" [(ngModel)]="quantity">
-          </mat-form-field>
-      <!--  </div>
-
-      <div class="bank">
-        <mat-form-field   appearance="outline">
-          <mat-label>Bank Account</mat-label>
-              <mat-select [(ngModel)]="bankbalance">
-                  <mat-option *ngFor="let acc of bankacc" [value]="acc.balance"> 
-                      {{acc.bank_name}}
-                  </mat-option>
-              </mat-select>
-      </mat-form-field>
-      </div>
-    -->
     
     
         <mat-card-actions class="submitbutton">

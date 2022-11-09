@@ -29,46 +29,44 @@
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="buy-price">
-    <th mat-header-cell *matHeaderCellDef>Buy Price</th>
-    <td mat-cell *matCellDef="let element">{{ element.buyPrice }}</td>
+    <th mat-header-cell *matHeaderCellDef >Buy Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.buyPrice | number:'1.0-1'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="current-price">
-    <th mat-header-cell *matHeaderCellDef>Current Price</th>
-    <td mat-cell *matCellDef="let element">{{ element.currentPrice }}</td>
+    <th mat-header-cell *matHeaderCellDef >Current Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.currentPrice | number:'1.0-1' }}</td>
   </ng-container>
 
   <ng-container matColumnDef="invested-amount">
-    <th mat-header-cell *matHeaderCellDef>Invested Amount</th>
+    <th mat-header-cell *matHeaderCellDef >Invested Amount</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.buyPrice * element.quantity }}
+      {{ element.investedAmount | number:'1.0-1'}}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="current-value">
-    <th mat-header-cell *matHeaderCellDef>Current Value</th>
+    <th mat-header-cell *matHeaderCellDef >Current Value</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.currentPrice * element.quantity }}
+      {{ element.currentValue | number:'1.0-1' }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="profit/loss">
-    <th mat-header-cell *matHeaderCellDef>Profit/Loss</th>
+    <th mat-header-cell *matHeaderCellDef >Profit/Loss</th>
     <td mat-cell *matCellDef="let element">
       {{
-        element.currentPrice * element.quantity -
-          element.buyPrice * element.quantity
+        element.profitOrLoss | number:'1.0-1' 
       }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="percent-change">
-    <th mat-header-cell *matHeaderCellDef>%Change</th>
+    <th mat-header-cell *matHeaderCellDef >%Change</th>
     <td mat-cell *matCellDef="let element">
       {{
-        element.currentPrice * element.quantity -
-          element.buyPrice * element.quantity
-      }}
+        element.percentageChange | number:'1.0-1' 
+      }} %
     </td>
   </ng-container>
 
