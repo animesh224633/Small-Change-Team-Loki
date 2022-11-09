@@ -45,7 +45,7 @@ public class SmallChangeWalletMyBatisImpl implements SmallChangeWalletMyBatisDao
 		list = getBankAccountDetails(clientId);
 		for (BankAccountDetails bankAccountDetails : list) {
 			if(bankAccountDetails.getAccountName().equals(walletUpdateValues.getAccountName())) {
-				if(bankAccountDetails.getAccountBalance().compareTo(walletUpdateValues.getRechargeAmount())>0) {
+				if(bankAccountDetails.getAccountBalance().compareTo(walletUpdateValues.getRechargeAmount())>=0) {
 					System.out.println("ola" + bankAccountDetails.getAccountName());
 					BigDecimal updatedWalletAmount = walletAmount.add(walletUpdateValues.getRechargeAmount());
 					BigDecimal updatedAccountValue = bankAccountDetails.getAccountBalance().subtract(walletUpdateValues.getRechargeAmount());
