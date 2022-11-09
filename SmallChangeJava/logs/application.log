@@ -379,3 +379,169 @@
 2022-11-09 04:02:14.336 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 2(String)
 2022-11-09 04:02:14.337 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 1
 2022-11-09 04:02:14.337  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 13:00:07.421  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 13:00:08.604  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 13:01:44.317 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:01:44.332 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com2(String)
+2022-11-09 13:01:44.346 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 13:01:44.347 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 13:01:44.347 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 3606dc57-427f-48a0-9152-af4af3a8afa9(String), danish(String), teamloki@gmail.com2(String), 0(BigDecimal), 122354Da(String)
+2022-11-09 13:01:44.347 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 13:01:44.347  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 13:01:52.350 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:01:52.351 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:01:52.353 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:12:25.925 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 13:12:25.926 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 13:12:25.926 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 13:12:25.926  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 13:12:42.500 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:12:42.501 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: 123456(String)
+2022-11-09 13:12:42.501 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 13:12:42.502 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 13:12:42.502 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: ca23f2fa-dde5-4054-b42f-5f17350a9503(String), dsadsad(String), 123456(String), 0(BigDecimal), dfdsfdsf(String)
+2022-11-09 13:12:42.503 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 13:12:42.503  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 13:12:48.166 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:12:48.168 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: 123456(String)
+2022-11-09 13:12:48.168 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:15:23.733 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:15:23.734 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:15:23.734 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:16:34.507 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:16:34.508 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:16:34.508 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:18:29.027 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:18:29.028 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:18:29.029 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:19:35.745 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:19:35.747 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:19:35.748 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:21:22.802 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:21:22.803 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:21:22.804 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:22:09.973 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:22:09.973 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:22:09.974 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:23:27.266 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:23:27.266 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:23:27.267 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:28:01.221 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:28:01.222 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:28:01.222 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:28:24.182 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 13:28:24.183 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: dsadas12(String), dsadasdasdsa(String)
+2022-11-09 13:28:24.184 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 0
+2022-11-09 13:28:24.185 ERROR --- c.s.r.ClientAuthenticationService        : Client Id and password do not match
+2022-11-09 13:30:32.473 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:30:32.475 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:30:32.475 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:30:53.000 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:30:53.001 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki2@gmail.com(String)
+2022-11-09 13:30:53.002 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 13:30:53.003 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 13:30:53.003 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: a0630b09-2914-4a64-abfe-5ca8d94629d7(String), dsadsa(String), teamloki2@gmail.com(String), 0(BigDecimal), dsadsad(String)
+2022-11-09 13:30:53.003 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 13:30:53.004  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 13:32:01.852 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:32:01.853 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 13:32:01.854 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:32:13.597 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:32:13.597 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki2@gmail.com(String)
+2022-11-09 13:32:13.598 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 13:32:25.272 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 13:32:25.273 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki21@gmail.com(String)
+2022-11-09 13:32:25.273 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 13:32:25.274 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 13:32:25.274 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: beb94671-14f3-4de6-9cff-295a8a1c5a4f(String), dsadsa(String), teamloki21@gmail.com(String), 0(BigDecimal), dsadsada(String)
+2022-11-09 13:32:25.274 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 13:32:25.275  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 13:33:53.376 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 13:33:53.377 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 13:33:53.378 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 13:33:53.378  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 13:33:56.851 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 13:33:56.853 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 13:33:56.854 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
+2022-11-09 13:33:56.854  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 13:33:58.948 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 13:33:58.950 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 13:33:58.951 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 13:33:58.952  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 15:26:57.641 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 15:26:57.642 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 15:26:57.643 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 15:26:57.643  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 16:01:00.313  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 16:01:01.538  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 16:01:19.682 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 16:01:19.697 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 16:01:19.711 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 16:01:19.712  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 16:01:25.294 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:01:25.295 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:01:25.296 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
+2022-11-09 16:01:25.296  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:01:34.775 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 16:01:34.776 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 16:01:34.776 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 16:01:34.777 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:01:34.777 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:01:34.778 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
+2022-11-09 16:01:34.778 DEBUG --- c.s.i.m.S.updateClientTable              : ==>  Preparing: update client set client_smallchange_wallet = ? where client_id = ?
+2022-11-09 16:01:34.779 DEBUG --- c.s.i.m.S.updateClientTable              : ==> Parameters: 10444.60000000000000000000000000000000(BigDecimal), 1(String)
+2022-11-09 16:01:34.780 DEBUG --- c.s.i.m.S.updateClientTable              : <==    Updates: 1
+2022-11-09 16:01:34.781 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==>  Preparing: update client_finance_details set account_balance = ? where client_id = ? and account_number = ?
+2022-11-09 16:01:34.782 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==> Parameters: 776.99000000000000000000000000000000(BigDecimal), 1(String), IIGG776(String)
+2022-11-09 16:01:34.782 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : <==    Updates: 1
+2022-11-09 16:01:34.782  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:01:34.790 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:01:34.791 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:01:34.791 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
+2022-11-09 16:01:34.792  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:09:24.364  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 16:09:25.553  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 16:09:49.468 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 16:09:49.482 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 16:09:49.495 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 16:09:49.496  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 16:09:54.857 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:09:54.858 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:09:54.859 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 16:09:54.859  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:10:15.315 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 16:10:15.316 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 16:10:15.316 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 16:10:15.316 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:10:15.317 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:10:15.318 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 16:10:15.319 DEBUG --- c.s.i.m.S.updateClientTable              : ==>  Preparing: update client set client_smallchange_wallet = ? where client_id = ?
+2022-11-09 16:10:15.319 DEBUG --- c.s.i.m.S.updateClientTable              : ==> Parameters: 3844.60000000000000000000000000000000(BigDecimal), 1(String)
+2022-11-09 16:10:15.320 DEBUG --- c.s.i.m.S.updateClientTable              : <==    Updates: 1
+2022-11-09 16:10:15.321 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==>  Preparing: update client_finance_details set account_balance = ? where client_id = ? and account_number = ?
+2022-11-09 16:10:15.321 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==> Parameters: 56.60000000000000000000000000000000(BigDecimal), 1(String), Kotak Bank(String)
+2022-11-09 16:10:15.322 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : <==    Updates: 1
+2022-11-09 16:10:15.322  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:10:15.330 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:10:15.331 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:10:15.332 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 16:10:15.332  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:10:20.867 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 16:10:20.868 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 16:10:20.868 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 16:10:20.869 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:10:20.869 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:10:20.870 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 16:10:20.870  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:10:20.884 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:10:20.885 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 16:10:20.887 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 16:10:20.887  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 16:10:53.111 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 16:10:53.112 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: loki@gmail.com(String), loki12345(String)
+2022-11-09 16:10:53.112 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 16:10:53.112  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 16:10:56.381 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 16:10:56.382 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 2(String)
+2022-11-09 16:10:56.383 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
+2022-11-09 16:10:56.384  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval

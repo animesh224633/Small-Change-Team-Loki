@@ -33,10 +33,14 @@
 
   <mat-form-field class="example-full-width" appearance="fill" style='margin-top:10%;'>
     <mat-label>Enter recharge amount</mat-label>
-    <input matInput [(ngModel)]="rechargeAmount">
+    <input matInput [(ngModel)]="rechargeAmount" (click)="onRechargeAmountChange()">
   </mat-form-field>
 </mat-dialog-content>
 <button mat-button (click)="executeWalletRecharge()">Recharge</button>
+
+<mat-error *ngIf="showError">
+  Insufficient funds. Try with a lesser amount.
+</mat-error>
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
