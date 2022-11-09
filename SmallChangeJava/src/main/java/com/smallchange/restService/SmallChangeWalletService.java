@@ -87,6 +87,7 @@ public class SmallChangeWalletService {
 	@PostMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
 	public WalletUpdateDetails updateSmallChangeWalletBalance(@RequestBody WalletUpdateValues walletUpdateValues) {
 		WalletUpdateDetails details = new WalletUpdateDetails();
+		System.out.println("00000 "+walletUpdateValues.getClientId());
 		
 		try {
 			details = dao.updateSmallChangeWallet(walletUpdateValues);

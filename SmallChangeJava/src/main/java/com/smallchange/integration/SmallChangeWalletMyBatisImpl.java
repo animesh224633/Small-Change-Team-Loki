@@ -38,18 +38,20 @@ public class SmallChangeWalletMyBatisImpl implements SmallChangeWalletMyBatisDao
 
 	@Override
 	public WalletUpdateDetails updateSmallChangeWallet(WalletUpdateValues walletUpdateValues) {
-		String cientId = walletUpdateValues.getClientId();
-		BigDecimal walletAmount = getUserSmallChangeWalletAmount(cientId).getClientSmallChangeWallet();
+		String clientId = walletUpdateValues.getClientId();
+		System.out.println("****" + clientId);
+		BigDecimal walletAmount = getUserSmallChangeWalletAmount(clientId).getClientSmallChangeWallet();
 		List<BankAccountDetails> list = new ArrayList<>();
-		list = getBankAccountDetails(cientId);
+		list = getBankAccountDetails(clientId);
 		for (BankAccountDetails bankAccountDetails : list) {
 			if(bankAccountDetails.getAccountName().equals(walletUpdateValues.getAccountName())) {
 				if(bankAccountDetails.getAccountBalance().compareTo(walletUpdateValues.getRechargeAmount())>0) {
+					System.out.println("ola" + bankAccountDetails.getAccountName());
 					BigDecimal updatedWalletAmount = walletAmount.add(walletUpdateValues.getRechargeAmount());
 					BigDecimal updatedAccountValue = bankAccountDetails.getAccountBalance().subtract(walletUpdateValues.getRechargeAmount());
-					smallChangeWalletMapper.updateClientTable(cientId,updatedWalletAmount);
+					smallChangeWalletMapper.updateClientTable(clientId,updatedWalletAmount);
 					//System.out.println(bankAccountDetails.getAccountName());
-					smallChangeWalletMapper.updateClientFinanceTable(cientId,bankAccountDetails.getAccountName(),updatedAccountValue);
+					smallChangeWalletMapper.updateClientFinanceTable(clientId,bankAccountDetails.getAccountName(),updatedAccountValue);
 				}
 			}
 		}

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavBarComponent } from './nav-bar/nav-bar/nav-bar.component';
+import { DialogContentExampleDialog, NavBarComponent } from './nav-bar/nav-bar/nav-bar.component';
 import { NavLinkComponent } from './Shared/nav-link/nav-link.component';
 import { PortfolioComponent } from './portfolio/portfolio-page/portfolio.component';
 import { ActivityComponent } from './activity/activity-page/activity.component';
@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ParatextComponent } from './paratext/paratext.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
@@ -69,7 +70,8 @@ import { PreferencesSubmitPageComponent } from './preferences-submit-page/prefer
     SellComponent,
     BuysellComponent,
     PreferencesComponent,
-    PreferencesSubmitPageComponent
+    PreferencesSubmitPageComponent,
+    DialogContentExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,7 @@ import { PreferencesSubmitPageComponent } from './preferences-submit-page/prefer
     MatOptionModule,
     MatSlideToggleModule,
     MatSortModule,
+    MatDialogModule
     
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],

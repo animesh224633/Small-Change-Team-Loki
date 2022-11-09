@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -20,8 +21,7 @@ import com.smallchange.dao.DatabaseException;
 import com.smallchange.uimodel.Portfolio;
 import com.smallchange.uimodel.PortfolioStock;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:beans.xml")
+@SpringBootTest
 @Transactional
 class PortfolioDaoMyBatisImplTest {
 	
