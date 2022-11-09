@@ -89,6 +89,19 @@ public class SellOrder extends Order{
 				+ clientId + ", orderId=" + orderId + ", timestamp=" + timestamp + ", direction=" + direction
 				+ ", holding_id=" + holding_id + "]";
 	}
+	public SellOrder(String code, int quantity, BigDecimal sellPrice, String clientId, String orderId,
+			LocalDate timestamp, String direction, String holding_id) {
+		super();
+		this.code = code;
+		this.quantity = quantity;
+		this.sellPrice = sellPrice;
+		this.clientId = clientId;
+		this.orderId = orderId;
+		this.timestamp = timestamp;
+		this.direction = direction;
+		this.holding_id = holding_id;
+	}
+	public SellOrder() {}
 
 
 	

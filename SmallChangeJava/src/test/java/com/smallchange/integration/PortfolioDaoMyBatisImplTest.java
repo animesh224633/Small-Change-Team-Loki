@@ -51,7 +51,7 @@ class PortfolioDaoMyBatisImplTest {
 	void client1ShouldConatinAmazon() {
 
 		Portfolio client1 = new Portfolio( "AMAZON",  "AMZN", 1 , BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),
-				BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),  BigDecimal.valueOf(-5593.90), BigDecimal.valueOf(-98.00).setScale(2));
+				BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),  BigDecimal.valueOf(-5593.90), BigDecimal.valueOf(-98.00).setScale(2),"STOCK");
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio("1");
 		assertEquals(client1.getCode(),clientPortfolio.get(0).getCode());
 		

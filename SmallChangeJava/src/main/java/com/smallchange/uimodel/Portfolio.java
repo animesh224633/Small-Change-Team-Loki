@@ -1,10 +1,26 @@
 package com.smallchange.uimodel;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Portfolio {
 	
 	String name;
+	public Portfolio(String name, String code, int quantity, BigDecimal buyPrice, BigDecimal currentPrice,
+			BigDecimal investedAmount, BigDecimal currentValue, BigDecimal profitOrLoss, BigDecimal percentageChange,
+			String category) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.quantity = quantity;
+		this.buyPrice = buyPrice;
+		this.currentPrice = currentPrice;
+		this.investedAmount = investedAmount;
+		this.currentValue = currentValue;
+		this.profitOrLoss = profitOrLoss;
+		this.percentageChange = percentageChange;
+		this.category = category;
+	}
 	String code;
 	int quantity;
 	BigDecimal buyPrice;
@@ -22,19 +38,6 @@ public class Portfolio {
 	}
 	public void setCategory(String category) {
 		this.category = category;
-	}
-	public Portfolio(String name, String code, int quantity, BigDecimal buyPrice, BigDecimal currentPrice,
-			BigDecimal investedAmount, BigDecimal currentValue, BigDecimal profitOrLoss, BigDecimal percentageChange) {
-		super();
-		this.name = name;
-		this.code = code;
-		this.quantity = quantity;
-		this.buyPrice = buyPrice;
-		this.currentPrice = currentPrice;
-		this.investedAmount = investedAmount;
-		this.currentValue = currentValue;
-		this.profitOrLoss = profitOrLoss;
-		this.percentageChange = percentageChange;
 	}
 	public Portfolio() {
 		
@@ -92,6 +95,34 @@ public class Portfolio {
 	}
 	public void setPercentageChange(BigDecimal percentageChange) {
 		this.percentageChange = percentageChange;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(buyPrice, category, code, currentPrice, currentValue, investedAmount, name,
+				percentageChange, profitOrLoss, quantity);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Portfolio other = (Portfolio) obj;
+		return Objects.equals(buyPrice, other.buyPrice) && Objects.equals(category, other.category)
+				&& Objects.equals(code, other.code) && Objects.equals(currentPrice, other.currentPrice)
+				&& Objects.equals(currentValue, other.currentValue)
+				&& Objects.equals(investedAmount, other.investedAmount) && Objects.equals(name, other.name)
+				&& Objects.equals(percentageChange, other.percentageChange)
+				&& Objects.equals(profitOrLoss, other.profitOrLoss) && quantity == other.quantity;
+	}
+	@Override
+	public String toString() {
+		return "Portfolio [name=" + name + ", code=" + code + ", quantity=" + quantity + ", buyPrice=" + buyPrice
+				+ ", currentPrice=" + currentPrice + ", investedAmount=" + investedAmount + ", currentValue="
+				+ currentValue + ", profitOrLoss=" + profitOrLoss + ", percentageChange=" + percentageChange
+				+ ", category=" + category + "]";
 	}
 	
 	

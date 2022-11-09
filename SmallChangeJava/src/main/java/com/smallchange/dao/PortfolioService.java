@@ -73,7 +73,7 @@ public class PortfolioService {
 					BigDecimal currentValue = instrumentDAO.getCurrentPrice().multiply(BigDecimal.valueOf(holdingTableIterator.getQuantity())).setScale(2);
 					portfolioMutualFund.setCurrentValue(currentValue);
 					portfolioMutualFund.setProfiOrLoss(currentValue.subtract(investedAmount));
-					portfolioMutualFund.setPercentageChange(portfolioMutualFund.getProfiOrLoss().divide(investedAmount).setScale(2));
+			//		portfolioMutualFund.setPercentageChange(portfolioMutualFund.getProfiOrLoss().divide(investedAmount).setScale(2));
 					this.portfolioList.add(portfolio);
 
 					
