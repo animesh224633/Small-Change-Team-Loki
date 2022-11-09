@@ -47,9 +47,17 @@ export class DialogContentExampleDialog implements OnInit{
   rechargeAmount!: number;
   walletUpdateValues!: WalletUpdateValues;
   showSuccessMessage = false;
+  showError = false;
 
   executeWalletRecharge(){
     this.walletUpdateValues = new WalletUpdateValues(this.clientIdService.clientId,this.selectedAccountName,this.rechargeAmount);
+  
+    var index = this.dataSource.findIndex((item: { accountName: any; }, i: any) =>{
+      return item.accountName === this.selectedAccountName;
+    });
+    if(this.dataSource[index].accountBalance < this.rechargeAmount){
+      this.showError = true;
+    }
     this.smallChangeWalletService.updateRechargeDetails(this.walletUpdateValues).subscribe(data => {
       console.log('response ',data);
       this.ngOnInit();
@@ -65,5 +73,9 @@ export class DialogContentExampleDialog implements OnInit{
       console.log('aaaaaaaaaaaaaa', data);
       this.dataSource = data;
     });
+  }
+
+  onRechargeAmountChange(){
+    this.showError = false;
   }
 }

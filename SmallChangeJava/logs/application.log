@@ -4155,3 +4155,989 @@ org.hsqldb.HsqlException: integrity constraint violation: unique constraint or i
 2022-11-09 17:47:57.599 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
 2022-11-09 17:47:57.600 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
 2022-11-09 17:47:57.600  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:51:06.616  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 17:51:06.616 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:51:06.618 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 17:51:06.619 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 17:51:06.620  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:51:06.625 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:51:06.627 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 17:51:06.628 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 17:51:06.629  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:52:44.861  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 17:52:50.343  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 17:53:10.411 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 17:53:10.445 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 17:53:10.474 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 17:53:10.476  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 17:53:10.632 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:53:10.633 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:53:10.634 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 17:53:10.635 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:53:10.636 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:53:10.636  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:53:10.639 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-09 17:53:10.639  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:53:10.663 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:53:10.665 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 17:53:10.669 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-09 17:53:10.670  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:53:33.943 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:53:33.944 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:53:33.946 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:53:33.947  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:53:50.091 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:53:50.092 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:53:50.094 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:53:50.095 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:53:50.096 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:53:50.097 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:53:50.098 DEBUG --- c.s.i.m.S.updateClientTable              : ==>  Preparing: update client set client_smallchange_wallet = ? where client_id = ?
+2022-11-09 17:53:50.099 DEBUG --- c.s.i.m.S.updateClientTable              : ==> Parameters: 862222.60000000000000000000000000000000(BigDecimal), 1(String)
+2022-11-09 17:53:50.103 DEBUG --- c.s.i.m.S.updateClientTable              : <==    Updates: 1
+2022-11-09 17:53:50.104 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==>  Preparing: update client_finance_details set account_balance = ? where client_id = ? and account_number = ?
+2022-11-09 17:53:50.106 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==> Parameters: 44786666.60000000000000000000000000000000(BigDecimal), 1(String), ICICI Bank(String)
+2022-11-09 17:53:50.106 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : <==    Updates: 1
+2022-11-09 17:53:50.106  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:53:50.128 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:53:50.129 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:53:50.130 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:53:50.130  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:06.039 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:54:06.042 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:54:06.043 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:54:06.043 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:06.046 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:06.048 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:06.048  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:06.078 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:06.079 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:06.080 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:06.081  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:28.952 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:54:28.954 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:54:28.955 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:54:28.957 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:28.958 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:28.960 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:28.961 DEBUG --- c.s.i.m.S.updateClientTable              : ==>  Preparing: update client set client_smallchange_wallet = ? where client_id = ?
+2022-11-09 17:54:28.964 DEBUG --- c.s.i.m.S.updateClientTable              : ==> Parameters: 862679.20000000000000000000000000000000(BigDecimal), 1(String)
+2022-11-09 17:54:28.965 DEBUG --- c.s.i.m.S.updateClientTable              : <==    Updates: 1
+2022-11-09 17:54:28.966 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==>  Preparing: update client_finance_details set account_balance = ? where client_id = ? and account_number = ?
+2022-11-09 17:54:28.967 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==> Parameters: 0E-32(BigDecimal), 1(String), KOTAK Bank(String)
+2022-11-09 17:54:28.968 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : <==    Updates: 1
+2022-11-09 17:54:28.968  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:28.980 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:28.982 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:28.983 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:28.984  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:36.338 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:54:36.339 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:54:36.341 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:54:36.342 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:36.342 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:36.345 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:36.349  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:54:36.365 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 17:54:36.365 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-09 17:54:36.366 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-09 17:54:36.367  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:55:20.716 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 17:55:20.717 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 17:55:20.718 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 17:55:30.482 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 17:55:30.483 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 17:55:30.484 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 17:55:30.485  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 17:55:30.536 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:55:30.537 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 17:55:30.538 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:55:30.539  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:55:30.541 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:55:30.542 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 17:55:30.549 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-09 17:55:30.549  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:55:30.562 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:55:30.563 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 17:55:30.565 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-09 17:55:30.566  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:56:21.328 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 17:56:21.330 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 17:56:21.330 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 17:56:30.072 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 17:56:30.073 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki@gmail.com(String)
+2022-11-09 17:56:30.074 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 1
+2022-11-09 17:56:49.057 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 17:56:49.058 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: teamloki00@gmail.com(String)
+2022-11-09 17:56:49.059 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 17:56:49.060 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 17:56:49.061 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String), iugiu(String), teamloki00@gmail.com(String), 0(BigDecimal), teamloki(String)
+2022-11-09 17:56:49.062 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 17:56:49.062  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 17:56:56.936 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 17:56:56.937 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki00@gmail.com(String), teamloki(String)
+2022-11-09 17:56:56.939 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 17:56:56.939  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 17:56:56.989 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:56:56.990 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:56:56.991 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:56:56.992  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:56:56.997 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:56:56.997 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:56:56.998 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 17:56:56.999  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:56:57.005 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 17:56:57.007 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:56:57.007 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 17:56:57.008  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 17:57:14.341 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:57:14.343 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:57:14.344 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:57:14.345  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:57:14.356 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 17:57:14.358 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:57:14.359 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 17:57:14.359 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 17:57:14.369 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 17:57:14.370 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 17:57:14.373 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 17:57:14.373  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 17:58:43.093 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 17:58:43.094 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:58:43.095 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-09 17:58:43.095  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 17:58:43.892 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 17:58:43.892 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:58:43.893 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 17:58:43.893 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 17:58:43.894 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 17:58:43.894  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 17:58:43.901 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 17:58:43.901  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 17:58:43.907 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 17:58:43.909 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1ef85f97-1fe5-4800-97ef-c4c88fcd8250(String)
+2022-11-09 17:58:43.910 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 17:58:43.910 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:02:24.519  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 18:02:26.388  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 18:02:52.045 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 18:02:52.070 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: ak@gmail.com(String)
+2022-11-09 18:02:52.093 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 18:02:52.095 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 18:02:52.096 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String), gi(String), ak@gmail.com(String), 2000(BigDecimal), teamloki(String)
+2022-11-09 18:02:52.097 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 18:02:52.097  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 18:02:57.730 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 18:02:57.731 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: ak@gmail.com(String), teamloki(String)
+2022-11-09 18:02:57.735 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 18:02:57.736  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 18:02:57.799 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:02:57.800 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:02:57.800 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:02:57.802 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:02:57.802 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:02:57.802 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:02:57.802  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:02:57.802  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:02:57.824 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:02:57.826 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:02:57.826 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:02:57.827  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:03:04.634 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:03:04.635 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:04.636 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:03:04.637  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:03:04.642 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:03:04.642 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:03:04.643 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:03:04.646 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:04.646 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:03:04.647  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:03:04.647 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:03:04.649 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:03:16.762 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:03:16.763 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:16.764 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:03:16.765 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-09 18:03:16.766 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 1500.0(Float), a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:16.767 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-09 18:03:16.768 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:03:16.769 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:16.769 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:03:16.769 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-09 18:03:16.771 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 12.5(BigDecimal), a62cae7c-aed6-48c8-a9ec-2d254d269743(String), MTA(String), BUY(String), null(String), 40(Integer), 1995-12-16(LocalDate)
+2022-11-09 18:03:16.771 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : <==    Updates: 1
+2022-11-09 18:03:27.820 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:03:27.821 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:27.821 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:03:27.823 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-09 18:03:27.823 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 676.0(Float), a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:27.824 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-09 18:03:27.824 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:03:27.826 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:27.826 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:03:27.828 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-09 18:03:27.829 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 824(BigDecimal), a62cae7c-aed6-48c8-a9ec-2d254d269743(String), GOOG(String), BUY(String), null(String), 1(Integer), 1995-12-16(LocalDate)
+2022-11-09 18:03:27.915 ERROR --- o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+### The error may exist in com/smallchange/integration/mapper/OrderMapper.java (best guess)
+### The error may involve com.smallchange.integration.mapper.OrderMapper.putBuyTradeOrder-Inline
+### The error occurred while setting parameters
+### SQL: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+; integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS; nested exception is java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS] with root cause
+org.hsqldb.HsqlException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.Constraint.getException(Unknown Source)
+	at org.hsqldb.index.IndexAVL.insert(Unknown Source)
+	at org.hsqldb.persist.RowStoreAVL.indexRow(Unknown Source)
+	at org.hsqldb.TransactionManager2PL.addInsertAction(Unknown Source)
+	at org.hsqldb.Session.addInsertAction(Unknown Source)
+	at org.hsqldb.Table.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementDML.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementInsert.getResult(Unknown Source)
+	at org.hsqldb.StatementDMQL.execute(Unknown Source)
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.execute(Unknown Source)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at jdk.internal.reflect.GeneratedMethodAccessor97.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.putBuyTradeOrder(Unknown Source)
+	at com.smallchange.integration.OrderDaoMyBatisImpl.putBuyTrade(OrderDaoMyBatisImpl.java:157)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$FastClassBySpringCGLIB$$8f0a3bd1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$EnhancerBySpringCGLIB$$a7aa155c.putBuyTrade(<generated>)
+	at com.smallchange.restService.OrderMapperService.queryPutBuyTrade(OrderMapperService.java:96)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-11-09 18:03:30.421 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:03:30.421 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:03:30.422 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:03:30.422 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:30.423 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:03:30.424  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:03:30.427 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:03:30.428  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:03:36.141 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:03:36.142 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:36.143 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:03:36.145 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-09 18:03:36.145 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 196.0(Float), a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:36.146 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-09 18:03:36.146 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:03:36.147 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:36.149 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:03:36.151 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-09 18:03:36.152 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 480(BigDecimal), a62cae7c-aed6-48c8-a9ec-2d254d269743(String), ICICIP(String), BUY(String), null(String), 1(Integer), 1995-12-16(LocalDate)
+2022-11-09 18:03:36.155 ERROR --- o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+### The error may exist in com/smallchange/integration/mapper/OrderMapper.java (best guess)
+### The error may involve com.smallchange.integration.mapper.OrderMapper.putBuyTradeOrder-Inline
+### The error occurred while setting parameters
+### SQL: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+; integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS; nested exception is java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS] with root cause
+org.hsqldb.HsqlException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.Constraint.getException(Unknown Source)
+	at org.hsqldb.index.IndexAVL.insert(Unknown Source)
+	at org.hsqldb.persist.RowStoreAVL.indexRow(Unknown Source)
+	at org.hsqldb.TransactionManager2PL.addInsertAction(Unknown Source)
+	at org.hsqldb.Session.addInsertAction(Unknown Source)
+	at org.hsqldb.Table.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementDML.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementInsert.getResult(Unknown Source)
+	at org.hsqldb.StatementDMQL.execute(Unknown Source)
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.execute(Unknown Source)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at jdk.internal.reflect.GeneratedMethodAccessor97.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.putBuyTradeOrder(Unknown Source)
+	at com.smallchange.integration.OrderDaoMyBatisImpl.putBuyTrade(OrderDaoMyBatisImpl.java:157)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$FastClassBySpringCGLIB$$8f0a3bd1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$EnhancerBySpringCGLIB$$a7aa155c.putBuyTrade(<generated>)
+	at com.smallchange.restService.OrderMapperService.queryPutBuyTrade(OrderMapperService.java:96)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-11-09 18:03:42.771 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:03:42.772 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:42.772 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:03:42.775 ERROR --- o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.smallchange.exception.InsufficientFundsException: You do not have enough wallet balance money to execute this buy trade] with root cause
+com.smallchange.exception.InsufficientFundsException: You do not have enough wallet balance money to execute this buy trade
+	at com.smallchange.integration.OrderDaoMyBatisImpl.putBuyTrade(OrderDaoMyBatisImpl.java:77)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$FastClassBySpringCGLIB$$8f0a3bd1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$EnhancerBySpringCGLIB$$a7aa155c.putBuyTrade(<generated>)
+	at com.smallchange.restService.OrderMapperService.queryPutBuyTrade(OrderMapperService.java:96)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-11-09 18:03:53.982 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:03:53.984 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:53.984 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:03:53.985  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:03:54.742 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:03:54.743 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:03:54.743 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:54.744 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:54.744 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:03:54.744 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:03:54.745  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:03:54.745  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:03:54.756 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:03:54.757 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:54.758 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:03:54.758  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:03:55.420 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:03:55.421 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:55.421 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:03:55.421 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:03:55.422  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:03:55.422 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:03:55.423 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:03:55.424  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:03:55.427 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:03:55.428 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:03:55.429 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:03:55.429 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:04:04.216 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:04.217 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:04.218 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:04.219  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:05.187 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:04:05.188 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:05.189 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:04:05.189 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:04:05.190  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:04:05.190 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:05.191 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:04:05.191  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:04:05.203 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:04:05.204 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:05.205 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:04:05.206  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:04:05.921 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:05.922 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:05.923 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:05.923  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:09.306 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:04:09.307 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:09.308 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:04:09.308  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:09.918 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:09.919 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:09.920 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:09.921  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:10.434 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:04:10.436 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:10.436 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:04:10.437  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:11.419 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:04:11.421 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:11.422 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:04:11.423  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:11.964 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:11.965 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:11.966 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:11.967  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:13.036 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:04:13.037 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:04:13.037 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:04:13.038 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:04:13.038 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:13.039 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:04:13.039 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:04:13.039 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:04:13.039  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:04:13.037 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:13.042 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:04:13.043  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:04:14.930 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:14.932 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:14.932 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:14.933  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:32.315 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:04:32.317 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:32.318 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:04:32.318  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:04:32.323 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:04:32.325 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:32.325 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:04:32.326  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:04:32.345 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:04:32.346 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:32.346 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:04:32.347  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:04:44.891 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:44.892 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:44.893 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:44.894  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:46.553 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 18:04:46.555 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:46.556 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 1
+2022-11-09 18:04:46.557  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:47.397 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:04:47.398 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:47.399 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:04:47.399  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:48.917 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:48.918 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:48.920 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:48.921  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:49.907 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:04:49.909 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:49.910 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:04:49.911  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:50.686 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 18:04:50.687 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:50.688 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 1
+2022-11-09 18:04:50.689  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:51.428 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:04:51.429 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:51.430 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 1
+2022-11-09 18:04:51.431  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:04:53.356 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:04:53.358 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:53.359 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:04:53.359  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:04:53.363 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:04:53.363 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:04:53.369 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:04:53.370  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:04:53.375 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:04:53.376 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:04:53.376 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:04:53.377 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:05:17.642 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:05:17.643 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:05:17.643 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:05:17.644 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-09 18:05:17.645 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 183.5(Float), a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:05:17.645 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-09 18:05:17.646 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:05:17.646 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: a62cae7c-aed6-48c8-a9ec-2d254d269743(String)
+2022-11-09 18:05:17.647 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:05:17.647 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-09 18:05:17.648 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 12.5(BigDecimal), a62cae7c-aed6-48c8-a9ec-2d254d269743(String), MTA(String), BUY(String), null(String), 1(Integer), 1995-12-16(LocalDate)
+2022-11-09 18:05:17.651 ERROR --- o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+### The error may exist in com/smallchange/integration/mapper/OrderMapper.java (best guess)
+### The error may involve com.smallchange.integration.mapper.OrderMapper.putBuyTradeOrder-Inline
+### The error occurred while setting parameters
+### SQL: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+; integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS; nested exception is java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS] with root cause
+org.hsqldb.HsqlException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.Constraint.getException(Unknown Source)
+	at org.hsqldb.index.IndexAVL.insert(Unknown Source)
+	at org.hsqldb.persist.RowStoreAVL.indexRow(Unknown Source)
+	at org.hsqldb.TransactionManager2PL.addInsertAction(Unknown Source)
+	at org.hsqldb.Session.addInsertAction(Unknown Source)
+	at org.hsqldb.Table.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementDML.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementInsert.getResult(Unknown Source)
+	at org.hsqldb.StatementDMQL.execute(Unknown Source)
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.execute(Unknown Source)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at jdk.internal.reflect.GeneratedMethodAccessor97.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.putBuyTradeOrder(Unknown Source)
+	at com.smallchange.integration.OrderDaoMyBatisImpl.putBuyTrade(OrderDaoMyBatisImpl.java:157)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$FastClassBySpringCGLIB$$8f0a3bd1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$EnhancerBySpringCGLIB$$a7aa155c.putBuyTrade(<generated>)
+	at com.smallchange.restService.OrderMapperService.queryPutBuyTrade(OrderMapperService.java:96)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-11-09 18:05:52.626 DEBUG --- c.s.i.m.C.getClientMail                  : ==>  Preparing: select client_id from client where client_mail=?
+2022-11-09 18:05:52.627 DEBUG --- c.s.i.m.C.getClientMail                  : ==> Parameters: a0k@gmail.com(String)
+2022-11-09 18:05:52.627 DEBUG --- c.s.i.m.C.getClientMail                  : <==      Total: 0
+2022-11-09 18:05:52.628 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 18:05:52.628 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String), fyufyu(String), a0k@gmail.com(String), 2000(BigDecimal), teamloki(String)
+2022-11-09 18:05:52.629 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 18:05:52.629  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 18:06:04.273 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 18:06:04.274 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: a0k@gmail.com(String), teamloki(String)
+2022-11-09 18:06:04.275 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 18:06:04.275  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 18:06:04.328 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:06:04.329 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:04.330 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:06:04.330  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:06:04.333 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:06:04.334 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:04.334 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:06:04.335  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:06:04.343 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 18:06:04.344 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:04.344 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 18:06:04.344  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 18:06:12.981 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:06:12.984 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:12.984 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-09 18:06:12.985  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:14.703 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:06:14.705 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:14.706 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:06:14.706  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:15.229 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 18:06:15.230 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:15.230 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 0
+2022-11-09 18:06:15.230  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:16.805 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 18:06:16.807 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:16.808 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
+2022-11-09 18:06:16.808  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:17.518 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 18:06:17.519 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:17.519 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 18:06:17.519  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:18.387 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 18:06:18.389 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:18.389 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 0
+2022-11-09 18:06:18.390  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 18:06:19.871 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 18:06:19.872 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:19.874 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 18:06:19.874  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 18:06:19.880 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:06:19.880 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-09 18:06:19.881 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-09 18:06:19.881 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:19.882 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:06:19.882 ERROR --- c.s.restService.OrderMapperService       : No Sell instrument
+2022-11-09 18:06:19.882 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-09 18:06:19.882  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-09 18:06:45.531 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-09 18:06:45.532 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:45.532 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-09 18:06:45.533 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-09 18:06:45.534 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 1604.0(Float), ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:45.534 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-09 18:06:45.535 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-09 18:06:45.535 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String)
+2022-11-09 18:06:45.535 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 0
+2022-11-09 18:06:45.536 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-09 18:06:45.537 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 198(BigDecimal), ef1c1e06-a64e-4037-a7ba-b0e0d65f084a(String), UBR(String), BUY(String), null(String), 2(Integer), 1995-12-16(LocalDate)
+2022-11-09 18:06:45.540 ERROR --- o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+### The error may exist in com/smallchange/integration/mapper/OrderMapper.java (best guess)
+### The error may involve com.smallchange.integration.mapper.OrderMapper.putBuyTradeOrder-Inline
+### The error occurred while setting parameters
+### SQL: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+; integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS; nested exception is java.sql.SQLIntegrityConstraintViolationException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS] with root cause
+org.hsqldb.HsqlException: integrity constraint violation: unique constraint or index violation; SYS_PK_10101 table: ORDERS
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.Constraint.getException(Unknown Source)
+	at org.hsqldb.index.IndexAVL.insert(Unknown Source)
+	at org.hsqldb.persist.RowStoreAVL.indexRow(Unknown Source)
+	at org.hsqldb.TransactionManager2PL.addInsertAction(Unknown Source)
+	at org.hsqldb.Session.addInsertAction(Unknown Source)
+	at org.hsqldb.Table.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementDML.insertSingleRow(Unknown Source)
+	at org.hsqldb.StatementInsert.getResult(Unknown Source)
+	at org.hsqldb.StatementDMQL.execute(Unknown Source)
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.execute(Unknown Source)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at jdk.internal.reflect.GeneratedMethodAccessor97.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.putBuyTradeOrder(Unknown Source)
+	at com.smallchange.integration.OrderDaoMyBatisImpl.putBuyTrade(OrderDaoMyBatisImpl.java:157)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$FastClassBySpringCGLIB$$8f0a3bd1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.smallchange.integration.OrderDaoMyBatisImpl$$EnhancerBySpringCGLIB$$a7aa155c.putBuyTrade(<generated>)
+	at com.smallchange.restService.OrderMapperService.queryPutBuyTrade(OrderMapperService.java:96)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)

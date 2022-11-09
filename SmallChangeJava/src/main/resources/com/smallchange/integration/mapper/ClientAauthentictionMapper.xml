@@ -16,6 +16,14 @@
         insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) 
         values(#{clientId},#{clientName},#{clientMail},#{clientWallet},#{password})
     </insert>
+    
+    <select id="getClientMail" resultMap="ClientMailFetch">
+		select client_id  from client where client_mail=#{clientMail}
+	</select>
+
+	<resultMap type="ClientSendBackDetails" id="ClientMailFetch">
+		<result property="clientId"	 column="client_id" />
+	</resultMap>
 
 	
 </mapper>

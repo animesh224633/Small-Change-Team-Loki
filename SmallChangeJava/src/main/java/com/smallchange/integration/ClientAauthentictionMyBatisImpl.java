@@ -35,10 +35,16 @@ public class ClientAauthentictionMyBatisImpl implements ClientAuthenticationMyBa
 		// TODO Auto-generated method stub
 		 clientAuthenticationMapper.putRegistrationAuthenticationDetails(UUID.randomUUID().toString(), 
 				registrationClientDetails.getClientName(), registrationClientDetails.getClientMail(),
-				registrationClientDetails.getPassword(), BigDecimal.ZERO);
+				registrationClientDetails.getPassword(), BigDecimal.valueOf(2000));
 		 ClientSendBackDetails clientSendBackDetails = new ClientSendBackDetails();
 		 clientSendBackDetails.setMessage("Success");;
 		 return clientSendBackDetails;
+	}
+
+	@Override
+	public ClientSendBackDetails checkClientMailList(String clientMail) {
+		
+		return clientAuthenticationMapper.getClientMail(clientMail);
 	}
 
 }
