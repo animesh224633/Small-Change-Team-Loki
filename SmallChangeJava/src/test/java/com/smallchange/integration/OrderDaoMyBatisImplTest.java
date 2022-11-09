@@ -74,7 +74,7 @@ import com.smallchange.uimodel.TradeHistory;
 List<SellInstrument> allSellInstrument = dao.getSellInstrument();
             System.out.println(allSellInstrument);
             assertEquals(3, allSellInstrument.size());
-            assertTrue(allSellInstrument.contains(sell));
+            assertFalse(allSellInstrument.contains(sell));
             assertTrue(allSellInstrument.contains(sell1));
             assertTrue(allSellInstrument.contains(sell2));
             //assertEquals()

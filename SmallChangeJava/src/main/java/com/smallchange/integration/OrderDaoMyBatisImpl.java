@@ -102,7 +102,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							if(holding.getCode().equals(code) && holding.getClientId().equals(bo.getClientId())) {
 								
 								iou="u";
-								holdingPrice=holding.getCurrentPrice(); 
+								holdingPrice=orderMapper.getHoldingBuyPrice(bo);
 								holdingQuantity=BigDecimal.valueOf(holding.getQuantity());
 								
 								break;
@@ -121,6 +121,14 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum,2, RoundingMode.HALF_DOWN);
 							bo.setBuyPrice(updatedBuyprice);
 							bo.setQuantity(quntitySum.intValue());
+							System.out.println("newbuysum "+newBuySum);
+							System.out.println("holdingprice "+holdingPrice);
+							System.out.println("oldBuySum "+oldBuySum);
+							System.out.println("quantitySum "+quntitySum);
+							System.out.println("updatedBuyprice "+updatedBuyprice);
+
+
+
 							orderMapper.putBuyTradeHoldingsUpdate(bo);
 							flag=true;
 							System.out.println("executing update!");
@@ -157,6 +165,7 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						if(bo.getClientId().equals("")) {
 							throw new IllegalArgumentException("clientId cannot be empty");
 						}
+						
 					
 					
 					//if(bo.getClientId().equals(cli))
@@ -183,12 +192,17 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						BigDecimal holdingQuantity=null;
 						for(SellInstrument holding : holdings) {
 							
+							
 							System.out.println(holding.getCode());
 							System.out.println(code);
 							if(holding.getCode().equals(code)&& holding.getClientId().equals(bo.getClientId())) {
 								
 								iou="u";
-								//holdingPrice=holding.getCurrentPrice(); 
+								//holdingPrice=holding.getCurrentPrice();
+								if((bo.getQuantity()>(holding.getQuantity()  ))){
+									System.out.println("deddedede");
+									throw new InsufficientFundsException("You do not have enough holdings to execute this sell trade");
+								}
 								holdingQuantity=BigDecimal.valueOf(holding.getQuantity());
 								
 								break;

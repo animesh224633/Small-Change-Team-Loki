@@ -1,29 +1,9 @@
-<!-- <p class = "logo">SmallChange<sup>TM</sup></p> -->
-
-<!-- <mat-tab-group>
-  <mat-tab label="Portfolio" [routerLink]="['portfolio']"> </mat-tab>
-  <mat-tab label="Activity" [routerLink]="['activity']"></mat-tab>
-  <mat-tab label="Trade" [routerLink]="['trade']"></mat-tab>
-  <mat-tab label="Preferences" [routerLink]="['preferences']"> </mat-tab>
-</mat-tab-group> -->
-
-<nav mat-tab-nav-bar>
-  <a mat-tab-link [routerLink]="['/portfolio']"> Portfolio </a>
+<nav mat-tab-nav-bar  [tabPanel]="tabPanel">
+  <a mat-tab-link  [routerLink]="['/portfolio']"> Portfolio </a>
   <a mat-tab-link [routerLink]="['/trade']"> Trade History</a>
   <a mat-tab-link [routerLink]="['/tradeBuySell']"> Trade </a>
   <a mat-tab-link [routerLink]="['/preferences']"> Preferences </a>
+  <button mat-raised-button (click)="openDialog()">Add money to SmallChange Wallet</button>
+  
 </nav>
-
-<!-- <nav class = "topNavresponsive" id="navbar">
-
-  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="icon" (click)="ngOnInit()">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-<ul [className]="isActive ? 'active' : 'inactive'" ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li [ngbNavItem]="1"><app-nav-link NavbarText="Portfolio" NavbarLink="/portfolio"></app-nav-link></li>
-    <li [ngbNavItem]="2"><app-nav-link NavbarText="Activity" NavbarLink="/activity"></app-nav-link></li>
-    <li [ngbNavItem]="3"><app-nav-link NavbarText="Trade" NavbarLink="/trade"></app-nav-link></li>
-    <li [ngbNavItem]="4"><app-nav-link NavbarText="Preferences" NavbarLink="/preferences"></app-nav-link></li>
-    
-</ul>
-</nav>   -->
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

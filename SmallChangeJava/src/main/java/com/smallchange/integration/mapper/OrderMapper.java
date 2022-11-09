@@ -32,6 +32,7 @@ public interface OrderMapper {
 	@ResultMap("com.smallchange.integration.mapper.OrderMapper.SellInstrument")
 
 	List<SellInstrument> getSellInstrument();
+	
 
 	@Select("		\r\n" + "       select \r\n" + "code," + " name, category,"
 			+ " cast(round(current_price,2) as numeric(16,2))\r\n" + "        from \r\n" + "      instrument\r\n")
@@ -62,6 +63,8 @@ int putBuyTradeHoldingsInsert(BuyOrder bo);
  	@Update("Update client set client_smallchange_wallet =#{wallet} where client_id=#{bo.clientId}")
  		 void updateClientWalletSell(SellOrder bo,@Param("wallet") float wallet);
  	
+ 	@Select("SELECT buyprice from holdings where client_id=#{clientId} and code=#{code}")
+ 	BigDecimal getHoldingBuyPrice(BuyOrder bo);
     
       @Update("Update holdings set quantity=#{quantity} where client_id=#{clientId} and code=#{code}")
   int putSellTradeHoldingsUpdate(SellOrder bo);
