@@ -369,3 +369,13 @@
 2022-11-09 04:00:52.137 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
 2022-11-09 04:00:52.137 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 2
 2022-11-09 04:00:52.138  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 04:01:49.780  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 04:01:51.047  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 04:02:10.497 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 04:02:10.511 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: loki@gmail.com(String), loki12345(String)
+2022-11-09 04:02:10.527 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 04:02:10.528  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 04:02:14.335 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-09 04:02:14.336 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 2(String)
+2022-11-09 04:02:14.337 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 1
+2022-11-09 04:02:14.337  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval

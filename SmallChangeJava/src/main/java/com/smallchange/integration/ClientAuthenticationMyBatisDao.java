@@ -8,5 +8,6 @@ public interface ClientAuthenticationMyBatisDao {
 	
 	public ClientSendBackDetails loginAuthenticationService(LoginClientDetails loginClientDetails);
 	public ClientSendBackDetails registrationAuthenticationService(RegistrationClientDetails registrationClientDetails);
+	public ClientSendBackDetails checkClientMailList(String clientMail);
 
 }

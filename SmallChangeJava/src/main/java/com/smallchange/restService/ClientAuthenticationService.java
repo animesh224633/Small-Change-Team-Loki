@@ -74,6 +74,14 @@ public class ClientAuthenticationService {
 //			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 //		}
 		
+		ClientSendBackDetails test = new ClientSendBackDetails();
+		test = dao.checkClientMailList(registrationClientDetails.getClientMail());
+		if(test !=null) {
+			test.setMessage("Already Present");
+			return test;
+		}
+		
+		
 		try {
 			clientSendBackDetails = dao.registrationAuthenticationService(registrationClientDetails);
 

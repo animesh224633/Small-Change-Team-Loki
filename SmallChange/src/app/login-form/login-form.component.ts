@@ -24,6 +24,7 @@ export class LoginFormComponent implements OnInit {
 
   errorMessage: string = '';
   showError: boolean = false;
+  showErrorRegistration: boolean = false;
 
   constructor(private router: Router, private loginService: LoginService, private clientIdService: ClientIdService) {}
 
@@ -80,6 +81,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginFormSubmit() {
+    this.showErrorRegistration = false;
     this.submitted = true;
     this.loginValid = true;
     // console.log(this.loginForm.value);
@@ -103,6 +105,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   registrationFormSubmit() {
+    this.showErrorRegistration = false;
     console.log(this.registrationForm.value);
 
     this.registrationClientDetails = new RegistrationClientDetails(
@@ -115,11 +118,15 @@ export class LoginFormComponent implements OnInit {
     this.loginRegistrationCardSwitch = false;
     this.loginService
       .register(this.registrationClientDetails).subscribe((data) => {
-        console.log(data);
+        console.log('message ',data.message);
+        if(data.message ==='Already Present'){
+          this.showErrorRegistration = true;
+          console.log('inside ',this.showErrorRegistration);
+        }
       });
   }
   toggleToRegistrationForm() {
-    this.showError = false;
-    this.loginRegistrationCardSwitch = true;
+      this.showError = false;
+      this.loginRegistrationCardSwitch = true;
   }
 }
