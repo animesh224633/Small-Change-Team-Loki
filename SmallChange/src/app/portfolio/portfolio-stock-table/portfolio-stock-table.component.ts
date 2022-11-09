@@ -11,8 +11,8 @@ import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
   styleUrls: ['./portfolio-stock-table.component.css'],
 })
 export class PortfolioStockTableComponent implements OnInit {
-  currentStocksValue: any;
-  totalStockInvestment: any;
+  currentStocksValue=0;
+  totalStockInvestment=0;
   @Output() stockInvestment = new EventEmitter<number>();
   @Output() stockCurrentValue = new EventEmitter<number>();
 

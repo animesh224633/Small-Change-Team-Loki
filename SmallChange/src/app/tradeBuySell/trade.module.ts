@@ -22,8 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     BuysellComponent,
-    BuyComponent,
-    SellComponent
+    BuyComponent
+    // SellComponent
   ],
   imports: [
     CommonModule,

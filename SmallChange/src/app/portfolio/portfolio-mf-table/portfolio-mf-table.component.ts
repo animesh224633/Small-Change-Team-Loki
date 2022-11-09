@@ -12,8 +12,8 @@ import { PortfolioAsset } from 'src/app/models/portfolio-asset.model';
   styleUrls: ['./portfolio-mf-table.component.css'],
 })
 export class PortfolioMfTableComponent implements OnInit {
-  currentMfValue: any;
-  totalMfInvestment: any;
+  currentMfValue=0;
+  totalMfInvestment=0;
   mfs: PortfolioAsset[] = [];
   @Output() mfInvestment = new EventEmitter<number>();
   @Output() mfCurrentValue = new EventEmitter<number>();

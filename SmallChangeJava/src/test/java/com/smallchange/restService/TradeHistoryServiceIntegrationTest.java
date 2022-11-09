@@ -36,7 +36,7 @@ public class TradeHistoryServiceIntegrationTest {
 	void testQueryForAllPresidentsSuccess() {
 		TradeHistory expectedTradeHistory = new TradeHistory("AMAZON", "AMZN",10, "BUY",new BigDecimal("5694.70000000000000000000000000000000") , "STOCK");
 
-		ResponseEntity<List<TradeHistory>> responseStatus = service.queryTradeHistoryByClientId(1);
+		ResponseEntity<List<TradeHistory>> responseStatus = service.queryTradeHistoryByClientId("1");
 		
 		assertThat(responseStatus.getStatusCode(), is(equalTo(HttpStatus.OK)));
 		List<TradeHistory> tradeHistoryList = responseStatus.getBody();
@@ -50,7 +50,7 @@ public class TradeHistoryServiceIntegrationTest {
 	@Test
 	void testQueryForTradeHistoryInvalidClientId() {
 		ResponseStatusException ex = assertThrows(ResponseStatusException.class, 
-			() -> service.queryTradeHistoryByClientId(0)
+			() -> service.queryTradeHistoryByClientId("0")
 		);
 		assertThat(ex.getStatus(), is(equalTo(HttpStatus.BAD_REQUEST)));
 	}

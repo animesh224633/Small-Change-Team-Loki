@@ -9,9 +9,9 @@ import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
   styleUrls: ['./portfolio-details.component.css']
 })
 export class PortfolioDetailsComponent implements OnInit {
-@Input() totalInvestment:number | undefined;
-@Input() currentValue:number | undefined ;
-walletAmount:number | undefined;
+@Input() totalInvestment=0;
+@Input() currentValue=0 ;
+walletAmount=0;
 
 constructor(private portfolioPageService: PortfolioPageService, private clientIdService: ClientIdService) { }
 
