@@ -727,3 +727,7 @@
 2022-11-09 09:21:47.515 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
 2022-11-09 09:21:47.516 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
 2022-11-09 09:21:47.517  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:21:47.523 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:21:47.524 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 09:21:47.524 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:21:47.524  INFO --- c.s.restService.PortfolioService         : Empty List retrieved

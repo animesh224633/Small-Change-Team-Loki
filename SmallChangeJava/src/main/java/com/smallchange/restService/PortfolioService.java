@@ -48,16 +48,14 @@ public class PortfolioService {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
 		}
 		System.out.println("Size"+portfolio.size());
-		if (portfolio != null && portfolio.size()>0) {
+		if (portfolio != null && portfolio.size()>=0) {
 			logger.info("Successful retrieval");
 			result = ResponseEntity.ok(portfolio);
 			System.out.println(result.getBody());
 		} else {
-//			logger.error("No trade history in the db with that client id");
-//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
-			logger.info("Empty List retrieved");
-			result = ResponseEntity.ok(portfolio);
-			System.out.println(result.getBody());
+			logger.error("No trade history in the db with that client id");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+
 		}
 		return result;
 	}
