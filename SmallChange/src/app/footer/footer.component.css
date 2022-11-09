@@ -10,7 +10,7 @@
 /* Your CSS goes here: */
 .copyrights{
     max-width:62.5em;
-    display: block;
+   
     background-color: transparent;
     padding:0.5rem 1rem 0.5rem 1rem;
     margin-left: auto;
@@ -19,7 +19,6 @@
     font-family: "Fidelity Sans", Arial, sans-serif; 
   }
   footer{
-    position: absolute;
     min-width: 100%;
     bottom: 0;
     left: 0;

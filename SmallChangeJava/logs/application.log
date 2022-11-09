@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2022-11-08 11:43:04.685 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
 2022-11-08 11:43:04.731 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 99(String)
 2022-11-08 11:43:04.758 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 0
@@ -5846,3 +5847,780 @@ org.apache.ibatis.reflection.ReflectionException: There is no getter for propert
 2022-11-09 09:16:45.690 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
 2022-11-09 09:16:45.691 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
 2022-11-09 09:16:45.692  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+=======
+2022-11-09 00:23:07.584  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:24:34.883  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:34:23.365  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:34:24.159  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:36:33.250  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:40:56.336  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:41:45.038 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 00:41:45.039 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 00:41:45.041 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 00:41:45.042  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 00:41:46.002 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 00:41:46.003 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 00:41:46.004 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 00:41:46.005  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 00:41:53.285  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:41:53.970  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:41:54.615  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 00:42:00.758 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 00:42:00.759 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 00:42:00.760 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 00:42:00.760  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 00:42:00.809 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 00:42:00.810 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 00:42:00.813 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 00:42:00.814  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 00:43:44.289 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 00:43:44.290 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 00:43:44.292 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 00:43:44.292  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:43:46.513 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:43:46.515 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:43:46.516 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:43:46.516 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:43:48.358 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:43:48.359 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:43:48.360 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:43:48.361  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:43:49.551 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:43:49.552 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:43:49.552 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:43:49.553 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:43:50.272 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 00:43:50.273 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 00:43:50.275 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 00:43:50.275  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:43:51.456 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:43:51.458 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:43:51.459 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:43:51.459 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:43:51.953 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:43:51.954 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:43:51.955 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:43:51.956  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:44:08.252 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:44:08.254 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:44:08.255 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:44:08.256 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:44:10.408 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:44:10.410 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:44:10.412 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:44:10.414 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:44:33.627 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:44:33.628 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:44:33.629 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:44:33.630 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:45:39.027 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:45:39.028 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:45:39.030 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:45:39.030  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:45:46.383 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:45:46.385 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:45:46.387 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:45:46.387  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:45:52.736 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:45:52.740 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:45:52.742 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:45:52.743 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:45:53.379 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 00:45:53.380 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 00:45:53.383 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 00:45:53.383  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:45:54.185 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:45:54.186 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:45:54.187 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:45:54.187 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:45:57.430 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:45:57.431 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:45:57.433 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:45:57.434  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:47:19.544 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:47:19.547 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:47:19.548 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:47:19.548 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:47:21.655 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:47:21.656 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:47:21.657 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:47:21.658  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:47:23.299 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 00:47:23.301 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 00:47:23.301 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 00:47:23.302  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:47:31.834 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 00:47:31.835 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 00:47:31.837 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 00:47:31.837  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 00:47:35.846 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:47:35.847 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:47:35.848 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:47:35.848 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:51:05.598 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 00:51:05.599 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 00:51:05.600 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 00:51:05.600 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 00:55:55.942  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 00:55:57.561  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 00:56:15.583 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 00:56:15.604 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 00:56:15.678 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 00:56:15.681  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 00:56:25.782 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 00:56:25.784 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3(String)
+2022-11-09 00:56:25.785 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 00:56:25.785  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 00:58:41.641 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 00:58:41.642 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 00:58:41.646 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 00:58:41.647  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 01:05:26.113  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:07:15.580  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:07:15.595  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:07:25.914 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:07:25.916 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 01:07:25.916 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:07:25.917  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:07:25.964 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:07:25.966 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 01:07:25.970 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 01:07:25.971  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 01:07:25.979 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:07:25.981 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 01:07:25.982 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 01:07:25.983  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 01:09:51.852  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:09:51.856  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:09:51.868  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:09:59.240 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:09:59.242 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 01:09:59.244 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:09:59.244  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:09:59.291 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:09:59.293 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 01:09:59.295 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 01:09:59.295  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 01:09:59.300 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 01:09:59.302 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 01:09:59.303 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 01:09:59.304  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 01:09:59.306 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:09:59.308 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 01:09:59.309 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 01:09:59.310  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 01:15:02.210  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:15:02.211  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:15:02.220  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:15:25.486  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:15:25.493  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:15:25.503  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:20:49.613  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:20:49.634  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:20:49.655  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:21:11.894  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:21:11.896  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:21:11.906  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:22:00.026  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:22:00.026  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:22:00.035  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:24:22.754  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:24:22.784  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:24:22.821  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:08.852  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:08.854  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:08.864  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:36.608  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:36.628  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:25:36.635  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:26:52.425  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:26:52.428  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:26:52.438  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:04.645  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:04.645  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:04.652  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:22.366  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:22.367  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:27:22.375  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:28:04.729  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:28:04.735  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:28:04.743  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:28:26.587 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 01:28:26.591 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String), aniii(String), teamloki1@gmail.com(String), 0(BigDecimal), teamloki1(String)
+2022-11-09 01:28:26.592 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 01:28:26.592  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 01:28:35.981 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:28:35.982 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki1@gmail.com(String), teamloki1(String)
+2022-11-09 01:28:35.983 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:28:35.984  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:28:36.028  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "d1f68feb-590f-4245-bde2-f2193b381c49"]
+2022-11-09 01:28:36.028  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "d1f68feb-590f-4245-bde2-f2193b381c49"]
+2022-11-09 01:28:36.037  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "d1f68feb-590f-4245-bde2-f2193b381c49"]
+2022-11-09 01:29:13.815  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "d1f68feb-590f-4245-bde2-f2193b381c49"]
+2022-11-09 01:32:17.112  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 01:32:18.817  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 01:32:38.995 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 01:32:39.013 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String), cytcuct(String), teamloki2@gmail.com(String), 0(BigDecimal), teamloki2(String)
+2022-11-09 01:32:39.014 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 01:32:39.015  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 01:32:51.518 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:32:51.520 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki2@gmail.com(String), teamloki2(String)
+2022-11-09 01:32:51.542 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:32:51.543  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:32:51.605 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:32:51.606  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "54059f61-2c50-430a-984f-b4a615dcf251"]
+2022-11-09 01:32:51.607 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:32:51.607 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:32:51.608  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:32:51.633 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:32:51.639 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:32:51.640 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:32:51.641  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:35:24.128  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:35:24.128 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:35:24.130 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:35:24.131 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:35:24.131  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:35:24.138 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:35:24.139 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:35:24.140 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:35:24.140  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:36:09.733  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:36:09.734 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:36:09.736 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:36:09.737 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:36:09.741  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:36:09.748 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:36:09.749 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:36:09.750 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:36:09.751  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:39:26.631  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:39:26.632 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:39:26.634 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:39:26.635 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:39:26.635  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:39:26.643 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:39:26.645 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:39:26.646 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:39:26.647  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:46:11.404 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:46:11.408 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki2@gmail.com(String), teamloki2(String)
+2022-11-09 01:46:11.409 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:46:11.409  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:46:11.441  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "54059f61-2c50-430a-984f-b4a615dcf251"]
+2022-11-09 01:46:11.443 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:46:11.445 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:46:11.446 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:46:11.447  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:46:11.452 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:46:11.454 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:46:11.455 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:46:11.455  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:47:32.342  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:47:32.344 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:47:32.346 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:47:32.346 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:47:32.347  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:47:32.376 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:47:32.377 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:47:32.379 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:47:32.380  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:47:37.317 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 01:47:37.320 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki2@gmail.com(String), teamloki2(String)
+2022-11-09 01:47:37.322 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 01:47:37.323  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 01:47:37.352  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "54059f61-2c50-430a-984f-b4a615dcf251"]
+2022-11-09 01:47:37.352 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:47:37.353 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:47:37.355 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:47:37.356  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:47:37.360 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:47:37.362 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 54059f61-2c50-430a-984f-b4a615dcf251(String)
+2022-11-09 01:47:37.362 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:47:37.363  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:48:28.813  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:48:28.814 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:48:28.816 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:48:28.816 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:48:28.817  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:48:28.823 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:48:28.824 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:48:28.824 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:48:28.824  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:49:59.374  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:49:59.393 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:49:59.394 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:49:59.395 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:49:59.396  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:49:59.400 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:49:59.401 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:49:59.401 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:49:59.402  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:53:55.547  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:53:57.880  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:53:58.714  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:00.358  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:00.780  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:00.780 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:00.783 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:00.784 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:00.785  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:00.793 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:00.794 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:00.795 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:00.795  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:03.988  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:05.399  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:05.759  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:05.759 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:05.769 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:05.769 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:05.770  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:05.777 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:05.779 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:05.779 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:05.780  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:06.164  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:06.732  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:07.019  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:07.019 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:07.022 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:07.023 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:07.024  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:07.030 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:07.032 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:07.033 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:07.034  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:07.275  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:08.899  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:09.698  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:12.543  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:13.573  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:54:13.575 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:13.576 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:13.576 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:13.577  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:13.583 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:54:13.584 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:54:13.584 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:54:13.585  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:54:16.143  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:58:58.080  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:26.473  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:35.482  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:35.482 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:35.485 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:35.485 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:35.486  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:59:35.490 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:35.492 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:35.492 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:35.493  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:59:35.829  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:37.009  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:37.295  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:37.295 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:37.298 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:37.299 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:37.299  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:59:37.306 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:37.308 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:37.309 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:37.309  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:59:37.700  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:54.946  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:55.908  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 01:59:55.913 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:55.914 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:55.914 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:55.916  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 01:59:55.924 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 01:59:55.926 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 01:59:55.926 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 01:59:55.928  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:04.388  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:04.388 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:04.398 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:04.400 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:04.401  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:04.405 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:04.406 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:04.406 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:04.406  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:15.061  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:17.375  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:30.429  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:32.097  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:32.730  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:32.730 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:32.732 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:32.732 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:32.732  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:32.737 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:32.738 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:32.739 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:32.739  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:33.308  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:34.117  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:34.934  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:35.529  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:37.324  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:37.324 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:37.328 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:37.328 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:37.329  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:37.337 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:37.338 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:37.338 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:37.338  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:38.040  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:39.060  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:39.421  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:39.421 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:39.422 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:39.423 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:39.424  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:39.432 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:39.433 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:39.433 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:39.433  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:39.809  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:40.548  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:41.048 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:41.048  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:00:41.049 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:41.050 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:41.051  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:41.058 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:00:41.058 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:00:41.060 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:00:41.060  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:00:41.475  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:01:58.708  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:02:05.598  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:02:05.598 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:02:05.600 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:02:05.601 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:02:05.601  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:02:05.606 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:02:05.607 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:02:05.608 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:02:05.608  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:02:35.737  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:02:58.269  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:02:58.274 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:02:58.275 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:02:58.276 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:02:58.276  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:02:58.279 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:02:58.280 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:02:58.281 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:02:58.281  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:03:14.840  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:03:19.523  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:03:19.527 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:03:19.528 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:03:19.528 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:03:19.529  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:03:19.533 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:03:19.534 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:03:19.534 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:03:19.535  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:03:27.964  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:04:13.717  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:04:15.364  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:04:15.365 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:15.367 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:15.367 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:15.368  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:04:15.374 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:15.374 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:15.375 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:15.375  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:04:49.203  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:04:49.209 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:49.209 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:49.210 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:49.211  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:04:49.219 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:49.220 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:49.221 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:49.221  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:04:59.798  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:04:59.799 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:59.800 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:59.801 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:59.801  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:04:59.808 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:04:59.809 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:04:59.810 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:04:59.810  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:05:20.113  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:05:20.115 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:05:20.116 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:05:20.117 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:05:20.117  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:05:20.123 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:05:20.124 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:05:20.124 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:05:20.124  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:05:57.953  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:05:57.971 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:05:57.972 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:05:57.973 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:05:57.973  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:05:57.978 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:05:57.979 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:05:57.979 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:05:57.980  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:04.010 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:04.012 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:04.012 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:04.012  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:15.933 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:15.934 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:15.935 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:15.936  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:17.166 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:17.167 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:17.168 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:17.168  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:18.361 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:18.362 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:18.362 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:18.363  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:47.982 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:47.983 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:47.984 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:47.984  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:49.660 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:49.661 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:49.662 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:49.662  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:06:50.518 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:06:50.518 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:06:50.519 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:06:50.519  INFO --- c.s.restService.PortfolioService         : Empty List
+2022-11-09 02:08:22.545  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 02:08:24.182  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 02:08:38.691 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:08:38.709 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:08:38.727 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:08:38.729  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:09:07.687 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 02:09:07.688 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 02:09:07.692 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 02:09:07.692  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 02:09:07.738 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:09:07.740 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 02:09:07.741 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 02:09:07.742 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 02:09:07.742 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 02:09:07.742  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 02:09:07.743 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 02:09:07.744  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 02:09:07.763 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:09:07.766 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 02:09:07.769 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 02:09:07.770  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 02:09:56.506  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 02:09:58.110  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 02:14:16.025 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 02:14:16.043 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 02:14:16.061 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 02:14:16.062  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 02:14:18.252 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 02:14:18.254 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 02:14:18.255 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 02:14:18.255 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 02:14:19.527 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 02:14:19.528 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 02:14:19.530 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 02:14:19.531  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 02:14:20.689 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 02:14:20.691 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 02:14:20.692 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 02:14:20.693 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 02:14:21.653 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 02:14:21.655 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 02:14:21.657 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 02:14:21.658  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 02:14:44.193 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 02:14:44.194 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 02:14:44.196 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 02:14:44.197  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 02:14:46.020 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 02:14:46.022 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 02:14:46.025 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 02:14:46.026  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 02:14:47.334 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 02:14:47.336 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 02:14:47.337 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 02:14:47.338 ERROR --- c.s.restService.TradeHistoryService      : No trade history in the db with that client id
+2022-11-09 02:25:00.909  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 02:25:02.876  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 02:25:12.139 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:25:12.159 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: d1f68feb-590f-4245-bde2-f2193b381c49(String)
+2022-11-09 02:25:12.178 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:25:12.179 ERROR --- c.s.restService.PortfolioService         : No trade history in the db with that client id
+2022-11-09 02:26:01.227 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 02:26:01.228 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 21ada103-0267-4df9-b2b0-e45dad4a5ac7(String), ddwqdwdq(String), qq@gmail.com(String), 0(BigDecimal), teamloki(String)
+2022-11-09 02:26:01.229 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 02:26:01.230  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 02:26:08.176 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 02:26:08.178 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: qq@gmail.com(String), teamloki(String)
+2022-11-09 02:26:08.181 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 02:26:08.182  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 02:26:08.224  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "21ada103-0267-4df9-b2b0-e45dad4a5ac7"]
+2022-11-09 02:26:08.228 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:26:08.230 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 21ada103-0267-4df9-b2b0-e45dad4a5ac7(String)
+2022-11-09 02:26:08.231 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:26:08.231 ERROR --- c.s.restService.PortfolioService         : No trade history in the db with that client id
+2022-11-09 02:26:08.239 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:26:08.240 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 21ada103-0267-4df9-b2b0-e45dad4a5ac7(String)
+2022-11-09 02:26:08.241 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:26:08.241 ERROR --- c.s.restService.PortfolioService         : No trade history in the db with that client id
+2022-11-09 02:27:22.493  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 02:27:24.191  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 02:27:29.464 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 02:27:29.483 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: qq@gmail.com(String), teamloki(String)
+2022-11-09 02:27:29.501 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 0
+2022-11-09 02:27:29.503 ERROR --- c.s.r.ClientAuthenticationService        : Client Id and password do not match
+2022-11-09 02:27:38.225 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==>  Preparing: insert into client(CLIENT_ID ,CLIENT_NAME ,CLIENT_MAIL ,CLIENT_SMALLCHANGE_WALLET ,PASSWORD ) values(?,?,?,?,?)
+2022-11-09 02:27:38.227 DEBUG --- m.C.putRegistrationAuthenticationDetails : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String), sqsqsqs(String), qq@gmail.com(String), 0(BigDecimal), teamloki(String)
+2022-11-09 02:27:38.228 DEBUG --- m.C.putRegistrationAuthenticationDetails : <==    Updates: 1
+2022-11-09 02:27:38.229  INFO --- c.s.r.ClientAuthenticationService        : Successfully registered
+2022-11-09 02:27:42.701 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 02:27:42.702 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: qq@gmail.com(String), teamloki(String)
+2022-11-09 02:27:42.705 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 02:27:42.706  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 02:27:42.765  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "3d3076f6-c191-4068-8655-e7d144585966"]
+2022-11-09 02:27:42.765 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:27:42.767 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 02:27:42.768 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:27:42.769  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:27:42.791 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:27:42.792 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 02:27:42.793 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:27:42.793  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:08.458 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:08.458  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:29:08.461 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:08.465 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:08.469  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:08.478 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:08.480 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:08.480 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:08.481  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:42.452  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:29:42.453 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:42.454 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:42.456 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:42.457  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:42.464 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:42.465 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:42.466 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:42.466  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:58.459  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 02:29:58.459 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:58.462 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:58.463 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:58.464  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 02:29:58.471 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 02:29:58.473 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 02:29:58.473 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 02:29:58.474  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:18:56.003  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2022-11-09 09:18:56.003 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:18:56.006 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 09:18:56.007 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:18:56.008  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:18:56.018 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:18:56.020 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: undefined(String)
+2022-11-09 09:18:56.020 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:18:56.020  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:20:04.738 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 09:20:04.740 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: qq@gmail.com(String), teamloki(String)
+2022-11-09 09:20:04.741 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 09:20:04.741  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 09:20:04.769  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "3d3076f6-c191-4068-8655-e7d144585966"]
+2022-11-09 09:20:04.771 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:20:04.773 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 09:20:04.774 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:20:04.775  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:20:04.779 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:20:04.781 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 09:20:04.782 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:20:04.784  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:20:17.312 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 09:20:17.314 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 09:20:17.315 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 09:20:17.316  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 09:20:17.345 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:20:17.347 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:20:17.349 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:20:17.350  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 09:20:17.350 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 09:20:17.351 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 09:20:17.352 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 09:20:17.352  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 09:20:17.364 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:20:17.365 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:20:17.367 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:20:17.367  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 09:21:47.480 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 09:21:47.482 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: qq@gmail.com(String), teamloki(String)
+2022-11-09 09:21:47.483 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 09:21:47.484  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 09:21:47.514  WARN --- .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "3d3076f6-c191-4068-8655-e7d144585966"]
+2022-11-09 09:21:47.514 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:21:47.515 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 09:21:47.516 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:21:47.517  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+2022-11-09 09:21:47.523 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:21:47.524 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 3d3076f6-c191-4068-8655-e7d144585966(String)
+2022-11-09 09:21:47.524 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 0
+2022-11-09 09:21:47.524  INFO --- c.s.restService.PortfolioService         : Empty List retrieved
+>>>>>>> 1f175413cfa0be41026919d9c410c27031a438a4
+2022-11-09 09:38:19.756  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-09 09:38:21.867  INFO --- o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-09 09:38:41.202 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-09 09:38:41.220 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-09 09:38:41.239 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-09 09:38:41.240  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-09 09:38:41.312 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:38:41.313 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 09:38:41.314 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:38:41.314 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 09:38:41.314 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 09:38:41.315  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 09:38:41.317 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:38:41.317  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 09:38:41.335 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:38:41.336 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:38:41.340 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:38:41.341  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 09:38:47.368 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-09 09:38:47.371 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-09 09:38:47.373 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 2
+2022-11-09 09:38:47.373  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 09:38:49.489 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-09 09:38:49.491 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-09 09:38:49.492 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 0
+2022-11-09 09:38:49.493  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 09:38:51.154 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-09 09:38:51.155 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-09 09:38:51.158 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 2
+2022-11-09 09:38:51.159  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-09 09:38:54.163 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-09 09:38:54.164 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-09 09:38:54.165 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-09 09:38:54.165  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-09 09:38:54.171 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:38:54.172 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:38:54.173 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:38:54.174  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-09 09:38:54.185 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-09 09:38:54.187 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-09 09:38:54.189 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 2
+2022-11-09 09:38:54.189  INFO --- c.s.restService.PortfolioService         : Successful retrieval

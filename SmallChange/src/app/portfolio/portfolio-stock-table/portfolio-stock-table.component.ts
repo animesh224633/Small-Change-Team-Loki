@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ClientIdService } from 'src/app/client-id.service';
+import { PortfolioAsset } from 'src/app/models/portfolio-asset.model';
 import { PortfolioStocks } from 'src/app/models/portfolio-stocks.model';
 import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
 
@@ -14,8 +16,9 @@ export class PortfolioStockTableComponent implements OnInit {
   @Output() stockInvestment = new EventEmitter<number>();
   @Output() stockCurrentValue = new EventEmitter<number>();
 
-  stocks: PortfolioStocks[] = [];
+  stocks: PortfolioAsset[] = [];
   dataSource: any;
+  isStockTableEmpty=false;
 
   displayedColumns: string[] = [
     'name',
@@ -29,15 +32,21 @@ export class PortfolioStockTableComponent implements OnInit {
     'percent-change',
   ];
 
-  constructor(private portfolioPageService: PortfolioPageService) {}
+  constructor(private portfolioPageService: PortfolioPageService,private clientIdService: ClientIdService) {}
 
   ngOnInit(): void {
     this.getStocks();
   }
 
   getStocks() {
-    this.portfolioPageService.getPortfolioStocks().subscribe((data) => {
-      this.stocks = data;
+    this.portfolioPageService.getPortfolioAssets(this.clientIdService.clientId).subscribe((data) => {
+      this.stocks = data.filter(asset => asset.category.toUpperCase()=="STOCK");
+      if(this.stocks.length==0){
+        this.isStockTableEmpty=true;
+      }
+      else{
+        this.isStockTableEmpty=false;
+      }
       this.dataSource = new MatTableDataSource(this.stocks);
       this.getCurrentValue();
       this.gettotalStockInvestment();

@@ -4,6 +4,8 @@ import { PortfolioMutualFunds } from 'src/app/models/portfolio-mutual-funds.mode
 import { PortfolioPageService } from 'src/app/services/portfolio-page.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { ClientIdService } from 'src/app/client-id.service';
+import { PortfolioAsset } from 'src/app/models/portfolio-asset.model';
 @Component({
   selector: 'app-portfolio-mf-table',
   templateUrl: './portfolio-mf-table.component.html',
@@ -12,9 +14,10 @@ import {MatSort} from '@angular/material/sort';
 export class PortfolioMfTableComponent implements OnInit {
   currentMfValue: any;
   totalMfInvestment: any;
-  mfs: PortfolioMutualFunds[] = [];
+  mfs: PortfolioAsset[] = [];
   @Output() mfInvestment = new EventEmitter<number>();
   @Output() mfCurrentValue = new EventEmitter<number>();
+  isMfTableEmpty=false;
   
   displayedColumns: string[] = [
     'name',
@@ -28,8 +31,9 @@ export class PortfolioMfTableComponent implements OnInit {
     'percent-change',
   ];
   dataSource: any;
+input: any;
 
-  constructor(private portfolioPageService: PortfolioPageService) {
+  constructor(private portfolioPageService: PortfolioPageService ,private clientIdService: ClientIdService) {
 
   }
 
@@ -39,8 +43,14 @@ export class PortfolioMfTableComponent implements OnInit {
   }
 
   getMfs() {
-    this.portfolioPageService.getPortfolioMutualFunds().subscribe((data) => {
-      this.mfs = data;
+    this.portfolioPageService.getPortfolioAssets(this.clientIdService.clientId).subscribe((data) => {
+      this.mfs = data.filter(asset => asset.category.toUpperCase()=="MUTUALFUND");
+      if(this.mfs.length==0){
+        this.isMfTableEmpty=true;
+      }
+      else{
+        this.isMfTableEmpty=false;
+      }
       this.dataSource = new MatTableDataSource(this.mfs);
 
       this.getCurrentValue();

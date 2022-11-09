@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.smallchange.uimodel.Portfolio;
-import com.smallchange.uimodel.PortfolioStock;
 import com.smallchange.uimodel.TradeHistory;
 
 
@@ -26,7 +25,7 @@ class PortfolioDaoImplTest {
 	Connection connection;
 	Portfolio client1=null;
 	
-	
+	Portfolio amazon=null;
 	
 	TransactionManager tm;
 	
@@ -44,10 +43,9 @@ class PortfolioDaoImplTest {
 		dbTestUtils = new DbTestUtils(connection);		
 		jdbcTemplate = dbTestUtils.initJdbcTemplate();
 		dao = new PortfolioDaoImpl(dataSource);
-		PortfolioStock amazon = new PortfolioStock( "AMAZON",  "AMZN", 1 , BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),
+		Portfolio amazon = new Portfolio( "AMAZON",  "AMZN", 1 , BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),
 				BigDecimal.valueOf(5694.70).setScale(2), BigDecimal.valueOf(100.80).setScale(2),  BigDecimal.valueOf(-5593.90), BigDecimal.valueOf(-98.00).setScale(2));
-		 client1=new Portfolio();
-		client1.setPortfolioStockView(amazon);
+		 
 		
 	}
 
@@ -78,8 +76,8 @@ class PortfolioDaoImplTest {
 	@Test
 	void client1ShouldConatinAmazon() {
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio(1);
-		System.out.println(clientPortfolio.get(0).getPortfolioStockView().getCode());
-		assertEquals(client1.getPortfolioStockView().getCode(),clientPortfolio.get(0).getPortfolioStockView().getCode());
+		System.out.println(clientPortfolio.get(0).getCode());
+		assertEquals(amazon.getCode(),clientPortfolio.get(0).getCode());
 		
 		//assertTrue(clientPortfolio.contains(client1));
 	}
