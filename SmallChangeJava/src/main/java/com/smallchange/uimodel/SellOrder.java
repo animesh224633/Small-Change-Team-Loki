@@ -12,6 +12,7 @@ public class SellOrder extends Order{
 	String orderId;
 	LocalDate timestamp;
 	String direction;
+	String holding_id;
 	public String getCode() {
 		return code;
 	}
@@ -29,32 +30,6 @@ public class SellOrder extends Order{
 	}
 	public void setSellPrice(BigDecimal sellPrice) {
 		this.sellPrice = sellPrice;
-	}
-	@Override
-	public String toString() {
-		return "SellOrder [code=" + code + ", quantity=" + quantity + ", sellPrice=" + sellPrice + ", clientId="
-				+ clientId + ", orderId=" + orderId + ", timestamp=" + timestamp + ", direction=" + direction + "]";
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(clientId, code, direction, orderId, quantity, sellPrice, timestamp);
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SellOrder other = (SellOrder) obj;
-		return Objects.equals(clientId, other.clientId) && Objects.equals(code, other.code)
-				&& Objects.equals(direction, other.direction) && Objects.equals(orderId, other.orderId)
-				&& quantity == other.quantity && Objects.equals(sellPrice, other.sellPrice)
-				&& Objects.equals(timestamp, other.timestamp);
 	}
 	public String getClientId() {
 		return clientId;
@@ -80,4 +55,41 @@ public class SellOrder extends Order{
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
+	public String getHolding_id() {
+		return holding_id;
+	}
+	public void setHolding_id(String holding_id) {
+		this.holding_id = holding_id;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ Objects.hash(clientId, code, direction, holding_id, orderId, quantity, sellPrice, timestamp);
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SellOrder other = (SellOrder) obj;
+		return Objects.equals(clientId, other.clientId) && Objects.equals(code, other.code)
+				&& Objects.equals(direction, other.direction) && Objects.equals(holding_id, other.holding_id)
+				&& Objects.equals(orderId, other.orderId) && quantity == other.quantity
+				&& Objects.equals(sellPrice, other.sellPrice) && Objects.equals(timestamp, other.timestamp);
+	}
+	@Override
+	public String toString() {
+		return "SellOrder [code=" + code + ", quantity=" + quantity + ", sellPrice=" + sellPrice + ", clientId="
+				+ clientId + ", orderId=" + orderId + ", timestamp=" + timestamp + ", direction=" + direction
+				+ ", holding_id=" + holding_id + "]";
+	}
+
+
+	
 }

@@ -24,6 +24,7 @@ import com.smallchange.integration.TradeHistoryMyBatisDao;
 import com.smallchange.uimodel.BuyInstrument;
 import com.smallchange.uimodel.BuyOrder;
 import com.smallchange.uimodel.SellInstrument;
+import com.smallchange.uimodel.SellOrder;
 import com.smallchange.uimodel.TradeHistory;
 
 @RestController
@@ -83,11 +84,19 @@ public class OrderMapperService {
 		return result;
 	}
 	
-	@PostMapping(path="buySellUpdate",consumes = MediaType.APPLICATION_JSON_VALUE, 
+	@PostMapping(path="buyUpdate",consumes = MediaType.APPLICATION_JSON_VALUE, 
 	        produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> queryPutBuyTrade(@RequestBody BuyOrder buyorder) throws InsufficientFundsException {
 		System.out.println("Hello seneha 1");
 		Boolean response=dao.putBuyTrade(buyorder);
+		System.out.println(response);
+		return new ResponseEntity<>(response, HttpStatus.CREATED);
+	}
+	@PostMapping(path="sellUpdate",consumes = MediaType.APPLICATION_JSON_VALUE, 
+	        produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> queryPutSellTrade(@RequestBody SellOrder sellorder) throws InsufficientFundsException{
+		System.out.println("Hello seneha 1");
+		Boolean response=dao.putSellTrade(sellorder);
 		System.out.println(response);
 		return new ResponseEntity<>(response, HttpStatus.CREATED);
 	}
