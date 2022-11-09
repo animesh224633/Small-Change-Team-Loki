@@ -36,12 +36,14 @@ public class SmallChangeWalletService {
 	Logger logger;
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public SmallChangeWalletAmount getSmallChangeWalletBalance(@PathVariable int id) {
+	public SmallChangeWalletAmount getSmallChangeWalletBalance(@PathVariable String id) {
 		SmallChangeWalletAmount amount = new SmallChangeWalletAmount();
 		
 		try {
-			amount = dao.getUserSmallChangeWalletAmount(Integer.toString(id));
+			System.out.println("1");
+			amount = dao.getUserSmallChangeWalletAmount(id);
 
+			System.out.println("2");
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error", e);
@@ -56,17 +58,17 @@ public class SmallChangeWalletService {
 	}
 	
 	@GetMapping(value = "/getAccount/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<BankAccountDetails>> getAccountDetails(@PathVariable int id) {
+	public ResponseEntity<List<BankAccountDetails>> getAccountDetails(@PathVariable String id) {
 		ResponseEntity<List<BankAccountDetails>> result;
 		List<BankAccountDetails> bankAccountDetails;
 		
-		if (id <= 0) {
-			logger.error("negative id received");
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
-		}
+//		if (id <= 0) {
+//			logger.error("negative id received");
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+//		}
 		
 		try {
-			bankAccountDetails = dao.getBankAccountDetails(Integer.toString(id));
+			bankAccountDetails = dao.getBankAccountDetails(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());

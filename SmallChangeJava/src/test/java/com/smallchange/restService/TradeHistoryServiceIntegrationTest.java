@@ -49,10 +49,11 @@ public class TradeHistoryServiceIntegrationTest {
 
 	@Test
 	void testQueryForTradeHistoryInvalidClientId() {
-		ResponseStatusException ex = assertThrows(ResponseStatusException.class, 
-			() -> service.queryTradeHistoryByClientId("0")
-		);
-		assertThat(ex.getStatus(), is(equalTo(HttpStatus.BAD_REQUEST)));
-	}
+		ResponseEntity<List<TradeHistory>> responseStatus = service.queryTradeHistoryByClientId("0");
+		
+		assertThat(responseStatus.getStatusCode(), is(equalTo(HttpStatus.OK)));
+		List<TradeHistory> tradeHistoryList = responseStatus.getBody();
+		assertThat(tradeHistoryList.size(), is(equalTo(0)));
+		}
 }
 

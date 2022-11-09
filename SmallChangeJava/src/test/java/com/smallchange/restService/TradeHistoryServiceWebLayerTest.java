@@ -37,7 +37,7 @@ public class TradeHistoryServiceWebLayerTest {
 	
 	@Test
 	public void testQueryForTradeHistoryByClientId() throws Exception {
-		when(mockDao.getTradeHistory(Integer.toString(1)))
+		when(mockDao.getTradeHistory("1"))
 			.thenReturn(tradeHistory);
 		
 		mockMvc.perform(get("/tradeHistory/1"))
@@ -49,17 +49,17 @@ public class TradeHistoryServiceWebLayerTest {
 	
 	@Test
 	public void testQueryForAllTradeHistoryEmptyList() throws Exception {
-		when(mockDao.getTradeHistory(Integer.toString(1)))
+		when(mockDao.getTradeHistory("1"))
 			.thenReturn(new ArrayList<>());
 		
 		mockMvc.perform(get("/tradeHistory/1"))
-		       .andExpect(status().isNotFound())
-		       .andExpect(content().string(is(emptyOrNullString())));
+		       .andExpect(status().isOk())
+		       .andExpect(jsonPath("$.length()").value(0));
 	}
 	
 	@Test
 	public void testQueryForAllTradeHistoryDaoException() throws Exception {
-		when(mockDao.getTradeHistory(Integer.toString(1)))
+		when(mockDao.getTradeHistory("1"))
 			.thenThrow(new RuntimeException("mock exception"));
 		
 		mockMvc.perform(get("/tradeHistory/1"))
@@ -69,10 +69,10 @@ public class TradeHistoryServiceWebLayerTest {
 	
 	@Test
 	public void testQueryForTradeHistoryInvalidClientId() throws Exception {
-		int id = -1;
+		String id = "0";
 		mockMvc.perform(get("/tradeHistory/" + id))
-		       .andExpect(status().isBadRequest())
-		       .andExpect(content().string(is(emptyOrNullString())));
+		.andExpect(status().isOk())
+	       .andExpect(jsonPath("$.length()").value(0));
 	}
 }
 

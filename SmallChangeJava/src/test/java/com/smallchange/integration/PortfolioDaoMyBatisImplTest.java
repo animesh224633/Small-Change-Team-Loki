@@ -37,10 +37,7 @@ class PortfolioDaoMyBatisImplTest {
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio("1");
 		assertEquals(2,clientPortfolio.size());
 	}
-	
-	
-	
-	
+		
 	
 	@DisplayName("Should return 0 when client id is zero")
 	@Test

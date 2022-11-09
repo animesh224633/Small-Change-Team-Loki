@@ -1,10 +1,13 @@
 package com.smallchange.uimodel;
 
+import java.util.Objects;
+
 public class RegistrationClientDetails {
 	
 	String clientMail;
 	String password;
 	String clientName;
+	public RegistrationClientDetails() {}
 	public RegistrationClientDetails(String clientMail, String password, String clientName) {
 		super();
 		this.clientMail = clientMail;
@@ -28,6 +31,27 @@ public class RegistrationClientDetails {
 	}
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(clientMail, clientName, password);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RegistrationClientDetails other = (RegistrationClientDetails) obj;
+		return Objects.equals(clientMail, other.clientMail) && Objects.equals(clientName, other.clientName)
+				&& Objects.equals(password, other.password);
+	}
+	@Override
+	public String toString() {
+		return "RegistrationClientDetails [clientMail=" + clientMail + ", password=" + password + ", clientName="
+				+ clientName + "]";
 	}
 	
 	
