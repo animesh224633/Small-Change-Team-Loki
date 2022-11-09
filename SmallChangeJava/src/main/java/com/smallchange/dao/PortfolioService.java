@@ -8,8 +8,7 @@ import com.smallchange.model.Holdings;
 import com.smallchange.model.Instrument;
 import com.smallchange.model.Orders;
 import com.smallchange.uimodel.Portfolio;
-import com.smallchange.uimodel.PortfolioMutalFund;
-import com.smallchange.uimodel.PortfolioStock;
+
 
 public class PortfolioService {
 	
@@ -42,7 +41,7 @@ public class PortfolioService {
 			if(clientId.equals(holdingTableIterator.getClientId())) {
 				Instrument instrumentDAO =instrumentTable.stream().filter(filterIterator -> holdingTableIterator.getCode().equals(filterIterator.getCode())).findAny().orElse(null);
 				if(holdingTableIterator.getCategory().equalsIgnoreCase("Stock")) {
-					PortfolioStock portfolioStock = new PortfolioStock();
+					Portfolio portfolioStock = new Portfolio();
 					portfolioStock.setCode(holdingTableIterator.getCode());
 					portfolioStock.setCurrentPrice(instrumentDAO.getCurrentPrice());
 					portfolioStock.setBuyPrice(holdingTableIterator.getBuyPrice());
@@ -57,14 +56,13 @@ public class PortfolioService {
 //					portfolioStock.setPercentageChange(portfolioStock.getProfiOrLoss().divide(investedAmount).setScale(2));
 					portfolioStock.setPercentageChange(new BigDecimal("20.00"));
 
-					portfolio.setPortfolioStockView(portfolioStock);
 					
 					this.portfolioList.add(portfolio);
 
 					
 				}
 				else if(holdingTableIterator.getCategory().equalsIgnoreCase("MUTALFUND")) {
-					PortfolioMutalFund portfolioMutualFund = new PortfolioMutalFund();
+					Portfolio portfolioMutualFund = new Portfolio();
 					portfolioMutualFund.setCode(holdingTableIterator.getCode());
 					portfolioMutualFund.setCurrentPrice(instrumentDAO.getCurrentPrice());
 					portfolioMutualFund.setBuyPrice(holdingTableIterator.getBuyPrice());
@@ -76,7 +74,6 @@ public class PortfolioService {
 					portfolioMutualFund.setCurrentValue(currentValue);
 					portfolioMutualFund.setProfiOrLoss(currentValue.subtract(investedAmount));
 					portfolioMutualFund.setPercentageChange(portfolioMutualFund.getProfiOrLoss().divide(investedAmount).setScale(2));
-					portfolio.setPortfolioMutualFuundView(portfolioMutualFund);
 					this.portfolioList.add(portfolio);
 
 					

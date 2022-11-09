@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.smallchange.integration.mapper.ClientAuthenticationMapper;
 import com.smallchange.uimodel.ClientSendBackDetails;
 import com.smallchange.uimodel.LoginClientDetails;
-import com.smallchange.uimodel.Portfolio;
 import com.smallchange.uimodel.RegistrationClientDetails;
 
 @Repository

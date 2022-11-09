@@ -12,7 +12,7 @@
 		H.QUANTITY*H.BUYPRICE AS
 		INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE))
 		AS PROFIT_OR_LOSS,
-		(((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE)*100
+		((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100
 		AS PERCENTAGE_CAHNGE
 		FROM holdings H
 		JOIN instrument I
@@ -20,29 +20,9 @@
 		WHERE H.CLIENT_ID=#{clientId}
 	</select>
 
+
+
 	<resultMap type="Portfolio" id="ClientPortfolio">
-
-
-
-
-
-		<discriminator javaType="String" column="CATEGORY">
-			<case value="STOCK" resultType="Portfolio">
-				<association property="portfolioStockView"
-					resultMap="portfolioStockResult" />
-			</case>
-			<case value="MUTUALFUND" resultType="Portfolio">
-				<association property="portfolioMutualFuundView"
-					resultMap="portfolioMutualFundResult" />
-			</case>
-		</discriminator>
-
-
-
-	</resultMap>
-
-
-	<resultMap type="PortfolioStock" id="portfolioStockResult">
 		<result property="name" column="NAME" />
 		<result property="code" column="CODE" />
 		<result property="quantity" column="QUANTITY" />
@@ -50,23 +30,11 @@
 		<result property="currentPrice" column="CURRENT_PRICE" />
 		<result property="investedAmount" column="INVESTED_AMOUNT" />
 		<result property="currentValue" column="CURRENT_VALUE" />
-		<result property="profiOrLoss" column="PROFIT_OR_LOSS" />
+		<result property="profitOrLoss" column="PROFIT_OR_LOSS" />
 		<result property="percentageChange" column="PERCENTAGE_CAHNGE" />
+		<result property="category" column="CATEGORY" />
 	</resultMap>
 
-
-	<resultMap type="PortfolioMutalFund"
-		id="portfolioMutualFundResult">
-		<result property="name" column="NAME" />
-		<result property="code" column="CODE" />
-		<result property="quantity" column="QUANTITY" />
-		<result property="buyPrice" column="BUYPRICE" />
-		<result property="currentPrice" column="CURRENT_PRICE" />
-		<result property="investedAmount" column="INVESTED_AMOUNT" />
-		<result property="currentValue" column="CURRENT_VALUE" />
-		<result property="profiOrLoss" column="PROFIT_OR_LOSS" />
-		<result property="percentageChange" column="PERCENTAGE_CAHNGE" />
-	</resultMap>
 
 
 

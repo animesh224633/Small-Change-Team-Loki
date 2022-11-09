@@ -15,8 +15,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.smallchange.uimodel.Portfolio;
-import com.smallchange.uimodel.PortfolioMutalFund;
-import com.smallchange.uimodel.PortfolioStock;
+
 
 /**
  * @author a683691
@@ -84,16 +83,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		BigDecimal percentChange=profitLoss.divide(investedAmount, 2, RoundingMode.HALF_DOWN).multiply(BigDecimal.valueOf(100)).setScale(2, RoundingMode.HALF_DOWN);
 //		System.out.println(code + "percentcahnge" + percentChange);
 		//based on category we add mutualfund or stock to our portfolio list
-		if(rs.getString("CATEGORY").equalsIgnoreCase("stock")) {
-			PortfolioStock StockIterator= new PortfolioStock( name,  code,  quantity,  buyPrice,  currentPrice,
-					 investedAmount,  currentValue,  profitLoss,  percentChange);
-			portfolioIterator.setPortfolioStockView(StockIterator);
-			}
-		else if(rs.getString("CATEGORY").equalsIgnoreCase("mutualfund")) {
-			PortfolioMutalFund newMutuaFund= new PortfolioMutalFund( name,  code,  quantity,  buyPrice,  currentPrice,
-					 investedAmount,  currentValue,  profitLoss,  percentChange);
-			portfolioIterator.setPortfolioMutualFuundView(newMutuaFund);	
-			}
+		
 		System.out.println(name+ "code " + code + "quantity "+quantity + "buyp "+buyPrice+"currp "+currentPrice+"investamt "+investedAmount + "currv "+currentValue+ "profitloss "+profitLoss+ "percentChange "+percentChange);
 				
 		

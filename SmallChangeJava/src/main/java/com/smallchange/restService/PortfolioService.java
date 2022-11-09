@@ -31,17 +31,17 @@ public class PortfolioService {
 	Logger logger;
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Portfolio>> queryTradeHistoryByClientId(@PathVariable int id) {
+	public ResponseEntity<List<Portfolio>> queryPortfolioByClientId(@PathVariable String id) {
 		ResponseEntity<List<Portfolio>> result;
 		List<Portfolio> portfolio;
 		
-		if (id <= 0) {
-			logger.error("negative id received");
+		if (id == null) {
+			logger.error("null id received");
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 		
 		try {
-			portfolio = dao.getUserPortfolio(Integer.toString(id));
+			portfolio = dao.getUserPortfolio(id);
 
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
@@ -53,8 +53,11 @@ public class PortfolioService {
 			result = ResponseEntity.ok(portfolio);
 			System.out.println(result.getBody());
 		} else {
-			logger.error("No trade history in the db with that client id");
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+//			logger.error("No trade history in the db with that client id");
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+			logger.info("Empty List retrieved");
+			result = ResponseEntity.ok(portfolio);
+			System.out.println(result.getBody());
 		}
 		return result;
 	}

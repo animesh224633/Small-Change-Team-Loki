@@ -25,7 +25,6 @@ public class PortfolioDaoMyBatisImpl implements PortfolioMyBatisDao{
 			throw new NullPointerException("client id cannot be null");
 		}
 		
-		System.out.println("Hello seneha" + portfolioMapper.getUserPortfolio("1").get(0).getPortfolioStockView().getName());
 		logger.debug("enter");
 		
 		return portfolioMapper.getUserPortfolio(clientId);
