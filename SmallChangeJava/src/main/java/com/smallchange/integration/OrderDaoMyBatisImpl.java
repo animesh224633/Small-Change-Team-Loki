@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -37,12 +38,12 @@ public class OrderDaoMyBatisImpl {
 		@Autowired
 		private OrderMapper orderMapper;
 		
-		public List<SellInstrument> getSellInstrument() {
+		public List<SellInstrument> getSellInstrument(String clientId) {
 			
 			System.out.println("Entered getSellInstrument method");
 			logger.debug("enter");
 		
-			return orderMapper.getSellInstrument();
+			return orderMapper.getSellInstrument(clientId);
 		}
 public List<BuyInstrument> getBuyInstrument() {
 			
@@ -92,7 +93,7 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 						
 						//SellInstrument ho
 						String code=bo.getCode();
-						List<SellInstrument> holdings=getSellInstrument();
+						List<SellInstrument> holdings=getSellInstrument(bo.getClientId());
 						BigDecimal holdingPrice=null;
 						BigDecimal holdingQuantity=null;
 						for(SellInstrument holding : holdings) {
@@ -108,13 +109,13 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 								break;
 							}
 							else {
-								bo.setHolding_id(UUID.randomUUID().toString());
 								
 								iou="i";
 								
 							}
 						}
 						if(iou=="u") {
+							int orderQuantity=bo.getQuantity();
 							BigDecimal newBuySum=bo.getBuyPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
 							BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
 							BigDecimal quntitySum=BigDecimal.valueOf(bo.getQuantity()).add(holdingQuantity);
@@ -126,15 +127,28 @@ public boolean putBuyTrade(BuyOrder bo) throws InsufficientFundsException {
 							System.out.println("oldBuySum "+oldBuySum);
 							System.out.println("quantitySum "+quntitySum);
 							System.out.println("updatedBuyprice "+updatedBuyprice);
+							bo.setOrderId(UUID.randomUUID().toString());
+							bo.setTimestamp(LocalDate.now());
+
 
 
 
 							orderMapper.putBuyTradeHoldingsUpdate(bo);
+							bo.setBuyPrice(newBuySum);
+							bo.setQuantity(orderQuantity);
 							flag=true;
 							System.out.println("executing update!");
 						}
 						else if( iou=="i") {
+							BigDecimal newBuySum=bo.getBuyPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
+
+							bo.setHolding_id(UUID.randomUUID().toString());
+							bo.setOrderId(UUID.randomUUID().toString());
+							bo.setTimestamp(LocalDate.now());
+
 							orderMapper.putBuyTradeHoldingsInsert(bo);
+							bo.setBuyPrice(newBuySum);
+
 							flag=true;
 							System.out.println("executing insert!");
 						}
@@ -187,7 +201,7 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						
 						//SellInstrument ho
 						String code=bo.getCode();
-						List<SellInstrument> holdings=getSellInstrument();
+						List<SellInstrument> holdings=getSellInstrument(bo.getClientId());
 						//BigDecimal holdingPrice=null;
 						BigDecimal holdingQuantity=null;
 						for(SellInstrument holding : holdings) {
@@ -216,11 +230,19 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 						if(iou=="u") {
 							//BigDecimal newBuySum=bo.getSellPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
 							//BigDecimal oldBuySum=holdingQuantity.multiply(holdingPrice);
+							int orderQuantity=bo.getQuantity();
+							BigDecimal newBuySum=bo.getSellPrice().multiply(BigDecimal.valueOf(bo.getQuantity()));
+
 							BigDecimal quntitySum=holdingQuantity.subtract(BigDecimal.valueOf(bo.getQuantity()));
 							//BigDecimal updatedBuyprice=newBuySum.add(oldBuySum).divide(quntitySum);
 							//bo.setBuyPrice(updatedBuyprice);
 							bo.setQuantity(quntitySum.intValue());
+							bo.setOrderId(UUID.randomUUID().toString());
+							bo.setTimestamp(LocalDate.now());
 							orderMapper.putSellTradeHoldingsUpdate(bo);
+							bo.setSellPrice(newBuySum);
+
+							bo.setQuantity(orderQuantity);
 							flag=true;
 							System.out.println("executing update!");
 						}
@@ -233,6 +255,4 @@ public boolean putSellTrade(SellOrder bo) throws InsufficientFundsException {
 		
 	 return orderMapper.putSellTradeOrder(bo) == 1 && flag;
 	}
-	
-
 }

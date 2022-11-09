@@ -23,9 +23,9 @@ public class TradeHistoryDaoMyBatisImplTest {
 	
 	@Test
 	void testQueryForAllTradeHistory() {
-		TradeHistory expectedTradeHistory = new TradeHistory("AMAZON", "AMZN",10, "BUY",new BigDecimal("5694.70000000000000000000000000000000") , "STOCK");
-		List<TradeHistory> tradeHistoryList = dao.getTradeHistory(Integer.toString(1));
-		assertEquals(2, tradeHistoryList.size());
+		TradeHistory expectedTradeHistory = new TradeHistory("AMAZON", "AMZN",10, "BUY",new BigDecimal("569.70000000000000000000000000000000") , "STOCK");
+		List<TradeHistory> tradeHistoryList = dao.getTradeHistory("1");
+		assertEquals(8, tradeHistoryList.size());
 		for (TradeHistory tradeHistory: tradeHistoryList) {
 			assertNotNull(tradeHistory);
 		}

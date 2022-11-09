@@ -41,6 +41,7 @@ export class PortfolioStockTableComponent implements OnInit {
   getStocks() {
     this.portfolioPageService.getPortfolioAssets(this.clientIdService.clientId).subscribe((data) => {
       this.stocks = data.filter(asset => asset.category.toUpperCase()=="STOCK");
+
       if(this.stocks.length==0){
         this.isStockTableEmpty=true;
       }

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioMutualFunds } from '../../models/portfolio-mutual-funds.model';
 import { BuySellService } from 'src/app/services/buy-sell.service';
 import { PortfolioStocks } from '../../models/portfolio-stocks.model';
+import { SellInstrument } from 'src/app/models/sellInstrument.model';
+import { BuyInstrument } from 'src/app/models/buyInstrument.model';
+import { SellOrder } from 'src/app/models/sellOrder.model';
+import { ClientIdService } from 'src/app/client-id.service';
 
 @Component({
   selector: 'app-sell',
@@ -15,52 +19,45 @@ export class SellComponent implements OnInit {
   quantity: number = 0;
   transaction: number | undefined;// 1 indicates a valid transaction// 0 indicates invalid details// undefined indicates transaction is not initiated
   total_price: number = 0;
-  wallet_money: number = 0;
-  wallet_limit: number = 0;
   new_wallet_money: number = 0;
-  stocks: PortfolioStocks[] = [];
-  mFunds: PortfolioMutualFunds[] = [];
-selected : number =0;// indicates selected stock or mfund to sell
+  stocks: SellInstrument[] = [];
+  mFunds: SellInstrument[] = [];
+  sellOrder!: SellOrder;
+  selected: number = 0;// indicates selected stock or mfund to sell
 
 
 
 
-  constructor(private buyService: BuySellService) { }
+  constructor(private buyService: BuySellService, private clientIdService: ClientIdService) { }
   toggle(event: any) {
     console.log(event);
     this.check = !this.check;
     if (event.checked == true) {
-      this.buyService.getPortfolioMutualFunds().subscribe(data => {
+      this.buyService.getAllAssetsForSellTrade(this.clientIdService.clientId).subscribe(data => {
         console.log(data);
-        this.mFunds = data;
+        this.mFunds = data.filter(asset => asset.category.toUpperCase() == "MUTUALFUND");
+        
         this.cNumber = 2;
       })
     }
     else {
-      this.buyService.getPortfolioStocks().subscribe(data => {
+      this.buyService.getAllAssetsForSellTrade(this.clientIdService.clientId).subscribe(data => {
         console.log(data);
-        this.stocks = data;
+        this.stocks = data.filter(asset => asset.category.toUpperCase() == "STOCK");;
         this.cNumber = 1;
       })
     }
   }
 
   ngOnInit(): void {
-    this.getWalletMoney();
-    this.buyService.getPortfolioStocks().subscribe(data => {
+    // this.getWalletMoney();
+    this.buyService.getAllAssetsForSellTrade(this.clientIdService.clientId).subscribe(data => {
 
       console.log(data);
-      this.stocks = data;
+      this.stocks = data.filter(asset => asset.category.toUpperCase() == "STOCK");
     })
   }
-  getWalletMoney() {
-    this.buyService.getWalletAmount().subscribe(data => {
-      console.log(data);
-      this.wallet_limit = data.amount;
-      //this.stocks=data;
-      // this.cNumber=1;
-    })
-  }
+ 
   done() {
 
     if (this.cNumber == 1 && this.quantity != 0) {
@@ -70,16 +67,12 @@ selected : number =0;// indicates selected stock or mfund to sell
 
 
       if (this.quantity > this.stocks[this.selected].quantity) {
-        // if(this.total_price > 90){
-
 
         console.log(this.total_price);
         this.transaction = 0;
       }
       else {
         this.transaction = 1;
-        this.new_wallet_money = this.wallet_limit + this.total_price;
-        console.log("new wallet money", this.new_wallet_money);
       }
     }
     if (this.cNumber == 2 && this.quantity != 0) {
@@ -88,15 +81,12 @@ selected : number =0;// indicates selected stock or mfund to sell
       console.log(this.total_price);
 
       if (this.quantity > this.mFunds[this.selected].quantity) {
-        // if(this.total_price > 90){
 
         console.log(this.total_price);
         this.transaction = 0;
       }
       else {
         this.transaction = 1;
-        this.new_wallet_money = this.wallet_limit + this.total_price;
-        console.log("new wallet money", this.new_wallet_money);
       }
     }
 
@@ -108,46 +98,37 @@ selected : number =0;// indicates selected stock or mfund to sell
       if (this.cNumber == 1) {
 
 
-        console.log(this.stocks[this.selected].name, this.stocks[this.selected].quantity - this.quantity);
-        const updatedStock = this.stocks[this.selected];
-        updatedStock.quantity = updatedStock.quantity - this.quantity;
-        console.log(updatedStock);
+        this.sellOrder = new SellOrder(this.stocks[this.selected].name, this.stocks[this.selected].code, "SELL"
+          ,this.quantity, this.stocks[this.selected].currentPrice, this.clientIdService.clientId, "null", new Date('December 17, 1995 03:24:00'), "null")
 
-        this.buyService.updatePortfolioStocks(updatedStock).subscribe(data => {
+        this.buyService.executeSellOrder(this.sellOrder).subscribe(data => {
+          alert("Trade: Sell executed successfully");
 
           console.log(data);
         });
 
       }
-      
+
       if (this.cNumber == 2) {
 
 
-        console.log(this.mFunds[this.selected].name, this.mFunds[this.selected].quantity - this.quantity);
-        const updatedMfund = this.mFunds[this.selected];
-        updatedMfund.quantity = updatedMfund.quantity - this.quantity;
-        console.log(updatedMfund);
+        this.sellOrder = new SellOrder(this.mFunds[this.selected].name, this.mFunds[this.selected].code, "SELL"
+          , this.quantity, this.mFunds[this.selected].currentPrice, this.clientIdService.clientId, "null", new Date('December 17, 1995 03:24:00'), "null");
 
-        this.buyService.updatePortfolioMutualFunds(updatedMfund).subscribe(data => {
 
+        this.buyService.executeSellOrder(this.sellOrder).subscribe(data => {
+          alert("Trade: Sell executed successfully");
           console.log(data);
         });
 
       }
-      this.buyService.updateWalletAmount(this.new_wallet_money).subscribe(data => {
-        console.log(data);
-        alert("Trade: Sell executed successfully");
-      });
-
-
-      this.transaction = undefined;
-
 
 
     }
     else {
+      this.transaction = undefined;
+
       alert("Invalid Transaction details");
     }
-
   }
 }

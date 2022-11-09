@@ -15,5 +15,7 @@ public interface ClientAuthenticationMapper {
 	void putRegistrationAuthenticationDetails(@Param("clientId") String clientId,
 			@Param("clientName") String clientName, @Param("clientMail") String clientMail,
 			@Param("password") String password, @Param("clientWallet") BigDecimal clientWallet  );
+	
+	ClientSendBackDetails getClientMail(@Param("clientMail") String clientMail);
 
 }

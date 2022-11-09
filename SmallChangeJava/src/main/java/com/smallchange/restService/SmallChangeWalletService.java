@@ -36,11 +36,10 @@ public class SmallChangeWalletService {
 	Logger logger;
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public SmallChangeWalletAmount getSmallChangeWalletBalance(@PathVariable String id) {
+	public SmallChangeWalletAmount getSmallChangeWalletBalance(@PathVariable 	String id) {
 		SmallChangeWalletAmount amount = new SmallChangeWalletAmount();
 		
 		try {
-			System.out.println("1");
 			amount = dao.getUserSmallChangeWalletAmount(id);
 
 			System.out.println("2");
@@ -51,8 +50,8 @@ public class SmallChangeWalletService {
 		if (amount != null) {
 			logger.info("Successful retrieval");
 		} else {
-			logger.error("No trade history in the db with that client id");
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+			logger.error("Client id not found in db");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No client id in the db with id = " + id);
 		}
 		return amount;
 	}
@@ -61,11 +60,6 @@ public class SmallChangeWalletService {
 	public ResponseEntity<List<BankAccountDetails>> getAccountDetails(@PathVariable String id) {
 		ResponseEntity<List<BankAccountDetails>> result;
 		List<BankAccountDetails> bankAccountDetails;
-		
-//		if (id <= 0) {
-//			logger.error("negative id received");
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
-//		}
 		
 		try {
 			bankAccountDetails = dao.getBankAccountDetails(id);
@@ -80,8 +74,8 @@ public class SmallChangeWalletService {
 			result = ResponseEntity.ok(bankAccountDetails);
 			System.out.println(result.getBody());
 		} else {
-			logger.error("No trade history in the db with that client id");
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " + id);
+			logger.error("No accounts found for the passed client id");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No accounts in the db with id = " + id);
 		}
 		return result;
 	}
@@ -101,8 +95,8 @@ public class SmallChangeWalletService {
 		if (details != null) {
 			logger.info("Successful retrieval");
 		} else {
-			logger.error("No trade history in the db with that client id");
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No trade history in the db with id = " );
+			logger.error("Wallet and account could not be updated");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Wallet and account could not be updated " );
 		}
 		return details;
 	}

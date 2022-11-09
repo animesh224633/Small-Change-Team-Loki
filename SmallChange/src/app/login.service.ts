@@ -21,9 +21,9 @@ export class LoginService {
       .pipe(catchError(this.handleError));
   }
 
-  register(data: RegistrationClientDetails): Observable<Login> {
+  register(data: RegistrationClientDetails): Observable<any> {
     return this.http
-      .post<Login>('http://localhost:8080/clientAuthentication/registration', data)
+      .post<any>('http://localhost:8080/clientAuthentication/registration', data)
       .pipe(catchError(this.handleError));
   }
 

@@ -37,7 +37,7 @@ public class TradeHistoryServiceE2ETest {
 	@Test
 	public void testQueryForTradeHistoryByClientId() {
 		String request = "/tradeHistory/1";
-		TradeHistory expectedTradeHistory = new TradeHistory("AMAZON", "AMZN",10, "BUY",new BigDecimal("5694.70000000000000000000000000000000") , "STOCK");
+		TradeHistory expectedTradeHistory = new TradeHistory("AMAZON", "AMZN",10, "BUY",new BigDecimal("569.70000000000000000000000000000000") , "STOCK");
 
 		ResponseEntity<TradeHistory[]> response = 
 				restTemplate.getForEntity(request, TradeHistory[].class);

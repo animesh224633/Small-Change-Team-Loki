@@ -35,7 +35,7 @@ class PortfolioDaoMyBatisImplTest {
 	@Test
 	void getClientPortfolioById() {
 		List<Portfolio> clientPortfolio = dao.getUserPortfolio("1");
-		assertEquals(2,clientPortfolio.size());
+		assertEquals(6,clientPortfolio.size());
 	}
 		
 	

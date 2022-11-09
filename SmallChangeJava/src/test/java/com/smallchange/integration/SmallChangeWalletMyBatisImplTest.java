@@ -48,14 +48,14 @@ class SmallChangeWalletMyBatisImplTest {
 			assertNotNull(bankAccountDetails);
 			System.out.println(bankAccountDetails);
 		}
-		assertEquals(2, bankAccountDetailsList.size());
+		assertEquals(3, bankAccountDetailsList.size());
 	}
 	
 	@DisplayName("should check bank details is fetched")
 	@Test
 	void testBankDetailsFetched() {
 		List<BankAccountDetails> bankAccountDetailsList=dao.getBankAccountDetails("1");
-		BankAccountDetails bankDetails=new BankAccountDetails("122354D",new BigDecimal("45645444.60000000000000000000000000000000"));
+		BankAccountDetails bankDetails=new BankAccountDetails("KOTAK Bank",new BigDecimal("456.60000000000000000000000000000000"));
 		assertTrue(bankAccountDetailsList.contains(bankDetails));
 	}
 	

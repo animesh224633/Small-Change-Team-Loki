@@ -6,11 +6,23 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { ClientIdService } from 'src/app/client-id.service';
 import { PortfolioAsset } from 'src/app/models/portfolio-asset.model';
+import { Pipe } from '@angular/core';
+
+@Pipe({name: 'round'})
+export class RoundPipe {
+  transform (input:number) {
+    return Math.floor(input);
+  }
+}
+
 @Component({
   selector: 'app-portfolio-mf-table',
   templateUrl: './portfolio-mf-table.component.html',
   styleUrls: ['./portfolio-mf-table.component.css'],
 })
+
+
+
 export class PortfolioMfTableComponent implements OnInit {
   currentMfValue=0;
   totalMfInvestment=0;

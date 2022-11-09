@@ -27,11 +27,12 @@ public interface OrderMapper {
 
 			+ "    cast(round(i.current_price,2) as numeric(16,2))\r\n"
 
-			+ "     FROM holdings h join instrument i on h.code=i.code\r\n")
+			+ "     FROM holdings h join instrument i on h.code=i.code\r\n"
+			+ "WHERE h.client_id=#{clientID}")
 
 	@ResultMap("com.smallchange.integration.mapper.OrderMapper.SellInstrument")
 
-	List<SellInstrument> getSellInstrument();
+	List<SellInstrument> getSellInstrument(@Param("clientID") String clientID);
 	
 
 	@Select("		\r\n" + "       select \r\n" + "code," + " name, category,"

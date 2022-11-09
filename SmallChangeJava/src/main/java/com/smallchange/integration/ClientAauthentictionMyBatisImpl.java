@@ -41,4 +41,10 @@ public class ClientAauthentictionMyBatisImpl implements ClientAuthenticationMyBa
 		 return clientSendBackDetails;
 	}
 
+	@Override
+	public ClientSendBackDetails checkClientMailList(String clientMail) {
+		
+		return clientAuthenticationMapper.getClientMail(clientMail);
+	}
+
 }
