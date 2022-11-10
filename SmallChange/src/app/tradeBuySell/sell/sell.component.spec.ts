@@ -23,28 +23,10 @@ describe('SellComponent', () => {
     })
     .compileComponents();
 
+    
     fixture = TestBed.createComponent(SellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-it('toggle Button click event using spyon', () => {
-  spyOn(component, 'toggle');
-  component.toggle('');
-
-  fixture.detectChanges();
-  expect(component.toggle).toHaveBeenCalled();
-});
-it('service should be called', () => {
-
-  const service: BuySellService = TestBed.get(BuySellService);
-  expect(service).toBeTruthy();
-
-});
-
-
-});
+})

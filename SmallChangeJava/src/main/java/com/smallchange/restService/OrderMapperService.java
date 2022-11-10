@@ -29,7 +29,7 @@ import com.smallchange.uimodel.SellOrder;
 import com.smallchange.uimodel.TradeHistory;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/orderMapper")
 public class OrderMapperService {
 	

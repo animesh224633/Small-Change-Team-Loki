@@ -36,10 +36,11 @@ beforeEach(waitForAsync(() => {
         expect(service).toBeTruthy();
       
       });
+      
       it('should return tradehistory',fakeAsync(()=>{
         
-        service. getTradeHistory('').subscribe()
-        const req=httpTestingController.expectOne('http://localhost:3000/tradeHistory')
+        service. getTradeHistory('','').subscribe()
+        const req=httpTestingController.expectOne('http://localhost:8080/tradeHistory/')
         expect(req.request.method).toBe('GET')
         httpTestingController.verify()
         tick()

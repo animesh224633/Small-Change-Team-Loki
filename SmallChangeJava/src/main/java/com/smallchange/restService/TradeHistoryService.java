@@ -19,7 +19,7 @@ import com.smallchange.integration.TradeHistoryMyBatisDao;
 import com.smallchange.uimodel.TradeHistory;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/tradeHistory")
 public class TradeHistoryService {
 	

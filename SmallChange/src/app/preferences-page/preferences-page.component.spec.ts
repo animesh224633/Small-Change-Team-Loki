@@ -23,6 +23,7 @@ describe('PreferencesPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 it('should call PreferenceSubmit when clicked', fakeAsync(() => {
   spyOn(component, 'PreferenceSubmit');
   let button = fixture.debugElement.nativeElement.querySelector('button');

@@ -45,7 +45,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
 import { PreferencesPageComponent } from './preferences-page/preferences-page.component';
 import { PreferencesSubmitPageComponent } from './preferences-submit-page/preferences-submit-page.component';
-
+import { HttpClient } from '@angular/common/http'; 
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 @NgModule({
@@ -101,7 +102,7 @@ import { PreferencesSubmitPageComponent } from './preferences-submit-page/prefer
     MatDialogModule
     
   ],
-  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
+  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},HttpClient,RouterTestingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

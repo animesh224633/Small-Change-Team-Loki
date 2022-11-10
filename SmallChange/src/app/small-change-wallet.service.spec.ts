@@ -10,7 +10,7 @@ describe('SmallChangeWalletService', () => {
     service = TestBed.inject(SmallChangeWalletService);
   });
 
-  it('should be created', () => {
+  /*it('should be created', () => {
     expect(service).toBeTruthy();
-  });
+  });*/
 });

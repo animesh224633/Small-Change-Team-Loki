@@ -9,6 +9,7 @@ import { PortfolioStocks } from '../models/portfolio-stocks.model';
 import { SellInstrument } from '../models/sellInstrument.model';
 import { SellOrder } from '../models/sellOrder.model';
 import { Wallet } from '../models/wallet.model';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -19,7 +20,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class BuySellService {
-
+  buyOrder: BuyOrder[]=[];
   portfolioMfs: PortfolioMutualFunds[] = [];
   portfolioStocks: PortfolioStocks[] = [];
   constructor(private http: HttpClient) { }

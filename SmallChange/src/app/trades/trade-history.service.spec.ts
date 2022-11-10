@@ -7,6 +7,7 @@ import { TradeHistoryService } from './trade-history.service';
 describe('TradeHistoryService', () => {
   let service: TradeHistoryService;
   
+  
   let httpTestingController: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,12 +28,12 @@ describe('TradeHistoryService', () => {
     let errorResp: HttpErrorResponse;
     let errorReply: string = '';
     const errorHandlerSpy = spyOn(service, 'handleError').and.callThrough();
-    service.getTradeHistory('')
+    service.getTradeHistory('','')
         .subscribe({
             next: () => fail('Should not succeed'),
             error: (e) => errorReply = e
         });
-    const req = httpTestingController.expectOne('http://localhost:3000/tradeHistory');
+    const req = httpTestingController.expectOne('http://localhost:8080/tradeHistory/');
     // Assert that the request is a GET.
     expect(req.request.method).toEqual('GET');
     // Respond with error
@@ -54,12 +55,12 @@ it('should handle network error', inject([TradeHistoryService], fakeAsync((servi
     let errorResp: HttpErrorResponse;
     let errorReply: string = '';
     const errorHandlerSpy = spyOn(service, 'handleError').and.callThrough();
-    service.getTradeHistory('')
+    service.getTradeHistory('','')
         .subscribe({
             next: () => fail('Should not succeed'),
             error: (e) => errorReply = e
         });
-    const req = httpTestingController.expectOne('http://localhost:3000/tradeHistory');
+    const req = httpTestingController.expectOne('http://localhost:8080/tradeHistory/');
     // Assert that the request is a GET.
     expect(req.request.method).toEqual('GET');
     // Create mock ErrorEvent, raised when something goes wrong at the network level.

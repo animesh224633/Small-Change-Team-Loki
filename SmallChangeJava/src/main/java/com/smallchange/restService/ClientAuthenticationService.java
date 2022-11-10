@@ -24,7 +24,7 @@ import com.smallchange.uimodel.RegistrationClientDetails;
 import com.smallchange.uimodel.TradeHistory;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/clientAuthentication")
 public class ClientAuthenticationService {
 	

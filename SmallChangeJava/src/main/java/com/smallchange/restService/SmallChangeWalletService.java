@@ -25,7 +25,7 @@ import com.smallchange.uimodel.WalletUpdateValues;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/smallChangeWallet")
 public class SmallChangeWalletService {
 	

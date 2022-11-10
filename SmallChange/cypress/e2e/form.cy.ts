@@ -4,7 +4,7 @@ describe('My First Test', () => {
   let form=new FormPage();
 
   it('should login if valid', () => {
-    form.login("teamloki","123456")
+    form.login("teamloki@gmail.com","teamloki")
     cy.url().should('include','portfolio')
   });
 

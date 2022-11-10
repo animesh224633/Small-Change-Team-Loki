@@ -34,6 +34,7 @@ describe("Router: App", () => {
     tick(50);
     expect(done).toBeTruthy();
   }));
+  
   it('navigate to "search" takes you to /search', fakeAsync(() => {
     router.navigate(["preferencesPage"]).then(() => {
       expect(location.path()).toBe("/preferencesPage");

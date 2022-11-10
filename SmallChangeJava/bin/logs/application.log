@@ -1,0 +1,162 @@
+2022-11-10 00:07:17.859 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==>  Preparing: select client_id from client where client_mail=? and password=?
+2022-11-10 00:07:17.886 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : ==> Parameters: teamloki@gmail.com(String), teamloki(String)
+2022-11-10 00:07:17.905 DEBUG --- c.s.i.m.C.getLoginAuthenticationDetails  : <==      Total: 1
+2022-11-10 00:07:17.907  INFO --- c.s.r.ClientAuthenticationService        : Successful retrieval
+2022-11-10 00:07:17.960 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:07:17.964 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:07:17.964 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:07:17.964 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:07:17.966 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:07:17.967  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:07:17.979 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:07:17.979  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:07:18.001 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:07:18.003 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:07:18.007 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:07:18.007  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:07:25.499 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-10 00:07:25.501 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-10 00:07:25.504 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 8
+2022-11-10 00:07:25.504  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:07:28.896 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-10 00:07:28.897 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-10 00:07:28.898 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 3
+2022-11-10 00:07:28.899  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:07:30.710 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-10 00:07:30.712 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-10 00:07:30.715 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 5
+2022-11-10 00:07:30.716  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:07:33.092 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:07:33.093 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:07:33.094 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:07:33.094  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:07:33.104 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-10 00:07:33.105 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-10 00:07:33.105 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-10 00:07:33.106 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1(String)
+2022-11-10 00:07:33.107 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 6
+2022-11-10 00:07:33.108 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-10 00:07:33.108  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-10 00:07:33.108  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-10 00:07:41.242 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-10 00:07:41.243 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: 1(String)
+2022-11-10 00:07:41.244 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-10 00:07:41.245 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-10 00:07:41.246 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : ==> Parameters: 3343.8(Float), 1(String)
+2022-11-10 00:07:41.248 DEBUG --- c.s.i.m.O.updateClientWalletBuy          : <==    Updates: 1
+2022-11-10 00:07:41.249 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-10 00:07:41.250 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1(String)
+2022-11-10 00:07:41.252 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 6
+2022-11-10 00:07:41.253 DEBUG --- c.s.i.m.OrderMapper.getHoldingBuyPrice   : ==>  Preparing: SELECT buyprice from holdings where client_id=? and code=?
+2022-11-10 00:07:41.254 DEBUG --- c.s.i.m.OrderMapper.getHoldingBuyPrice   : ==> Parameters: 1(String), AMZN(String)
+2022-11-10 00:07:41.255 DEBUG --- c.s.i.m.OrderMapper.getHoldingBuyPrice   : <==      Total: 1
+2022-11-10 00:07:41.259 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==>  Preparing: Update holdings set buyprice=?, quantity=? where client_id=? and code=?
+2022-11-10 00:07:41.260 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : ==> Parameters: 2897.75(BigDecimal), 2(Integer), 1(String), AMZN(String)
+2022-11-10 00:07:41.260 DEBUG --- c.s.i.m.O.putBuyTradeHoldingsUpdate      : <==    Updates: 1
+2022-11-10 00:07:41.261 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-10 00:07:41.262 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : ==> Parameters: 100.8(BigDecimal), 1(String), AMZN(String), BUY(String), bd1fee1b-0863-4344-8df9-077ced9be608(String), 1(Integer), 2022-11-10(LocalDate)
+2022-11-10 00:07:41.263 DEBUG --- c.s.i.m.OrderMapper.putBuyTradeOrder     : <==    Updates: 1
+2022-11-10 00:07:45.606 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-10 00:07:45.607 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-10 00:07:45.609 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 9
+2022-11-10 00:07:45.610  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:07:49.757 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='BUY' and client_id=?
+2022-11-10 00:07:49.758 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : ==> Parameters: 1(String)
+2022-11-10 00:07:49.760 DEBUG --- c.s.i.m.T.getTradeHistoryByBuy           : <==      Total: 6
+2022-11-10 00:07:49.761  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:07:54.390 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:07:54.391 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:07:54.392 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:07:54.394  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:07:54.397 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:07:54.398 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:07:54.403 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:07:54.404  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:07:54.411 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:07:54.412 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:07:54.413 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:07:54.413  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:07:57.403 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:07:57.403 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==>  Preparing: select code, name, category, cast(round(current_price,2) as numeric(16,2)) from instrument
+2022-11-10 00:07:57.404 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:07:57.404 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : ==> Parameters: 
+2022-11-10 00:07:57.404 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:07:57.405  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:07:57.408 DEBUG --- c.s.i.m.OrderMapper.getBuyInstrument     : <==      Total: 10
+2022-11-10 00:07:57.409  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-10 00:07:57.413 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-10 00:07:57.414 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1(String)
+2022-11-10 00:07:57.420 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 6
+2022-11-10 00:07:57.420  INFO --- c.s.restService.OrderMapperService       : Successful retrieval
+2022-11-10 00:08:05.764 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==>  Preparing: select COALESCE(CLIENT_SMALLCHANGE_WALLET,0.0) from client where client_id=?
+2022-11-10 00:08:05.765 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : ==> Parameters: 1(String)
+2022-11-10 00:08:05.766 DEBUG --- c.s.i.m.OrderMapper.getClientWallet      : <==      Total: 1
+2022-11-10 00:08:05.766 DEBUG --- c.s.i.m.O.updateClientWalletSell         : ==>  Preparing: Update client set client_smallchange_wallet =? where client_id=?
+2022-11-10 00:08:05.767 DEBUG --- c.s.i.m.O.updateClientWalletSell         : ==> Parameters: 3356.3(Float), 1(String)
+2022-11-10 00:08:05.767 DEBUG --- c.s.i.m.O.updateClientWalletSell         : <==    Updates: 1
+2022-11-10 00:08:05.767 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==>  Preparing: SELECT h.holding_id, h.client_id, h.code, i.name, i.category, h.quantity, cast(round(i.current_price,2) as numeric(16,2)) FROM holdings h join instrument i on h.code=i.code WHERE h.client_id=?
+2022-11-10 00:08:05.768 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : ==> Parameters: 1(String)
+2022-11-10 00:08:05.769 DEBUG --- c.s.i.m.OrderMapper.getSellInstrument    : <==      Total: 6
+2022-11-10 00:08:05.769 DEBUG --- c.s.i.m.O.putSellTradeHoldingsUpdate     : ==>  Preparing: Update holdings set quantity=? where client_id=? and code=?
+2022-11-10 00:08:05.770 DEBUG --- c.s.i.m.O.putSellTradeHoldingsUpdate     : ==> Parameters: 3(Integer), 1(String), MTA(String)
+2022-11-10 00:08:05.770 DEBUG --- c.s.i.m.O.putSellTradeHoldingsUpdate     : <==    Updates: 1
+2022-11-10 00:08:05.770 DEBUG --- c.s.i.m.OrderMapper.putSellTradeOrder    : ==>  Preparing: Insert into orders (buy_price,client_id,code,direction,order_id,quantity,timestamp) Values (?,?,?,?,?,?,?)
+2022-11-10 00:08:05.771 DEBUG --- c.s.i.m.OrderMapper.putSellTradeOrder    : ==> Parameters: 12.5(BigDecimal), 1(String), MTA(String), SELL(String), eb523d86-4a3c-4a3d-ae04-bed250796003(String), 1(Integer), 2022-11-10(LocalDate)
+2022-11-10 00:08:05.772 DEBUG --- c.s.i.m.OrderMapper.putSellTradeOrder    : <==    Updates: 1
+2022-11-10 00:08:09.968 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-10 00:08:09.969 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-10 00:08:09.970 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 10
+2022-11-10 00:08:09.971  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:08:14.221 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where direction='SELL' and client_id=?
+2022-11-10 00:08:14.222 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : ==> Parameters: 1(String)
+2022-11-10 00:08:14.223 DEBUG --- c.s.i.m.T.getTradeHistoryBySell          : <==      Total: 4
+2022-11-10 00:08:14.224  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:08:16.390 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:08:16.391 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:08:16.391 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:08:16.392 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:08:16.392 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:08:16.392  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:08:16.395 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:08:16.395  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:08:16.402 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:08:16.404 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:08:16.405 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:08:16.406  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:08:22.491 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-10 00:08:22.492 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-10 00:08:22.494 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-10 00:08:22.494  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:08:33.761 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:08:33.762 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:08:33.763 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:08:33.763 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-10 00:08:33.763 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-10 00:08:33.764 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-10 00:08:33.764 DEBUG --- c.s.i.m.S.updateClientTable              : ==>  Preparing: update client set client_smallchange_wallet = ? where client_id = ?
+2022-11-10 00:08:33.765 DEBUG --- c.s.i.m.S.updateClientTable              : ==> Parameters: 3357.30004882812500000000000000000000(BigDecimal), 1(String)
+2022-11-10 00:08:33.765 DEBUG --- c.s.i.m.S.updateClientTable              : <==    Updates: 1
+2022-11-10 00:08:33.765 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==>  Preparing: update client_finance_details set account_balance = ? where client_id = ? and account_number = ?
+2022-11-10 00:08:33.766 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : ==> Parameters: 7775.99000000000000000000000000000000(BigDecimal), 1(String), HDFC Bank(String)
+2022-11-10 00:08:33.766 DEBUG --- c.s.i.m.S.updateClientFinanceTable       : <==    Updates: 1
+2022-11-10 00:08:33.766  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:08:33.774 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==>  Preparing: select ACCOUNT_NUMBER, ACCOUNT_BALANCE from CLIENT_FINANCE_DETAILS where client_id=?
+2022-11-10 00:08:33.775 DEBUG --- c.s.i.m.S.getBankAccountDetails          : ==> Parameters: 1(String)
+2022-11-10 00:08:33.776 DEBUG --- c.s.i.m.S.getBankAccountDetails          : <==      Total: 3
+2022-11-10 00:08:33.776  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:08:37.638 DEBUG --- c.s.i.m.T.getTradeHistory                : ==>  Preparing: select i.name,o.code,o.quantity,o.direction,o.Buy_price,i.category from orders o join instrument i on o.code=i.code where client_id=?
+2022-11-10 00:08:37.640 DEBUG --- c.s.i.m.T.getTradeHistory                : ==> Parameters: 1(String)
+2022-11-10 00:08:37.642 DEBUG --- c.s.i.m.T.getTradeHistory                : <==      Total: 10
+2022-11-10 00:08:37.643  INFO --- c.s.restService.TradeHistoryService      : Successful retrieval
+2022-11-10 00:08:38.749 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==>  Preparing: select CLIENT_SMALLCHANGE_WALLET from client where CLIENT_ID =?
+2022-11-10 00:08:38.749 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:08:38.749 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : ==> Parameters: 1(String)
+2022-11-10 00:08:38.750 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:08:38.750 DEBUG --- c.s.i.m.S.getSmallChangeWalletAmount     : <==      Total: 1
+2022-11-10 00:08:38.750  INFO --- c.s.r.SmallChangeWalletService           : Successful retrieval
+2022-11-10 00:08:38.751 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:08:38.751  INFO --- c.s.restService.PortfolioService         : Successful retrieval
+2022-11-10 00:08:38.761 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==>  Preparing: SELECT I.NAME, I.CODE, I.CURRENT_PRICE, I.CATEGORY,H.BUYPRICE,H.QUANTITY,H.QUANTITY*I.CURRENT_PRICE AS CURRENT_VALUE, H.QUANTITY*H.BUYPRICE AS INVESTED_AMOUNT,((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)) AS PROFIT_OR_LOSS, ((((H.QUANTITY*I.CURRENT_PRICE)-(H.QUANTITY*H.BUYPRICE)))/(H.QUANTITY*H.BUYPRICE))*100 AS PERCENTAGE_CAHNGE FROM holdings H JOIN instrument I ON h.code=i.code WHERE H.CLIENT_ID=?
+2022-11-10 00:08:38.762 DEBUG --- c.s.i.m.P.getUserPortfolio               : ==> Parameters: 1(String)
+2022-11-10 00:08:38.764 DEBUG --- c.s.i.m.P.getUserPortfolio               : <==      Total: 6
+2022-11-10 00:08:38.764  INFO --- c.s.restService.PortfolioService         : Successful retrieval

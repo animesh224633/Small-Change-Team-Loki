@@ -51,18 +51,7 @@ describe('LoginFormComponent', () => {
     expect(component.submitted).toBeTruthy();
    // expect(component.authError).toBeFalsy();
   });
- /* describe('loginFormComponent', () => {
-    it('navigates to portfolio page when login form is submitted', fakeAsync(() => {
-     // const [topHero] = component.heroes;
-    
-     updateForm('validUsername', 'validPassword123');
-    let a=component.loginForm.value;
-   component.loginFormSubmit();
-      const expectedPath = '/portfolio';
-      const [actualPath] = routerSpy.navigateByUrl.calls.first().args; // [3]
-      expect(actualPath).toBe(expectedPath, 'must navigate to the porfolio page from here');
-    }));
-  });*/
+
 ​
   it('form value should update from when you change the input', (() => {
     updateForm('validUsername', 'validPassword123');

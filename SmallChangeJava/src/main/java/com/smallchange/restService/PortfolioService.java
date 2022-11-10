@@ -20,7 +20,7 @@ import com.smallchange.uimodel.Portfolio;
 import com.smallchange.uimodel.TradeHistory;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/portfolio")
 public class PortfolioService {
 	

@@ -47,6 +47,7 @@ describe('BuyComponent', () => {
       
 });
 
+
 it('toggle Button click event using spyon', () => {
   spyOn(component, 'toggle');
   component.toggle('');
@@ -54,5 +55,7 @@ it('toggle Button click event using spyon', () => {
   fixture.detectChanges();
   expect(component.toggle).toHaveBeenCalled();
 });
+
+
 
 });
